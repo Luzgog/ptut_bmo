@@ -43,3 +43,21 @@ if (whiptail --title "Installation" --yesno "voulez vous lancer l'installation o
     sudo git clone https://github.com/Luzgog/ptut_bmo/blob/main/scrip_install.sh
     echo ""
     sudo mv /home/pi/ROV/index.html /var/www/html/
+
+
+
+else
+    whiptail --title "Mise à Jour" --msgbox "En cours de developement" 10 60
+fi
+
+echo ""
+
+if (whiptail --title "Mjpg Streamer" --yesno "voulez vous lancer mjpg streamer ?" --yes-button "oui" --no-button "non" 20 70) then 
+    /usr/local/bin/mjpg_streamer -i "input_raspicam.so -x 640 -y 480 -fps 24 -q 80" -o "output_http.so -p 8080 -w /usr/local/share/mjpg-streamer/www"
+else
+    whiptail --title "Mjpg Streamer" --msgbox "Lancement annulée !!!" 20 70
+fi
+
+echo "n'oublier pas d'activer la camera et le bus i2c via l'interface raspi-config"
+echo "Script par Nino Nicolas"
+exit
