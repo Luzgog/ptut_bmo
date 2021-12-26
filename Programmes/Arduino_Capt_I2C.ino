@@ -17,7 +17,6 @@ const int PDT_Batterie = A2;
 int Pourcent_Batterie;
 int Anal_Batterie;
 
-
 /////////////////////////////////////////////////////////////////////// 
 void setup() {
   // Demarage du bus i2c et serie
