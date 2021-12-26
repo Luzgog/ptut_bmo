@@ -15,7 +15,7 @@ if (whiptail --title "Installation" --yesno "voulez vous lancer l'installation o
 
     printf "%b\n" "${BLUE}     ********************************\n     *   Mise a jour du raspberry   *\n     ********************************${NC}\n"
     echo ""
-    sudo apt-get install -y lolcat
+    sudo apt-get install -y | lolcat
 
     sudo apt-get update -y | lolcat
     sudo apt-get dist-upgrade -y | lolcat
