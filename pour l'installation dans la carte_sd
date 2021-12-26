@@ -1,0 +1,30 @@
+on creé un fichier ssh vide dans /boot
+on crée dans /boot un fichier wpa_supplicant.conf contenant:
+
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+network={
+    ssid="bastien"
+    psk="12345678"
+    id_str="partage_co"
+}
+
+network={
+    ssid="ZongoLeDozo"
+    psk="putepute"
+    id_str="partage_co_dimi"
+}
+
+
+network={
+    ssid="wifi-en-bas"
+    psk="Ninette13"
+    id_str="wifi_maison"
+}
+
+
+
+network={
+    ssid="TP-LINK_6BC0B6"
+    psk="68031909"
+    id_str="salle_robot"
+}

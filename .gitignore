@@ -1,0 +1,9 @@
+.vscode/*
+opencv2
+CMakeFiles/
+build
+CMakeCache.txt
+entrainement/**
+result/**
+facial_reco/calibration/**
+facial_reco/image_simple/**
