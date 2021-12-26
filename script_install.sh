@@ -15,32 +15,32 @@ if (whiptail --title "Installation" --yesno "voulez vous lancer l'installation o
 
     printf "%b\n" "${BLUE}     ********************************\n     *   Mise a jour du raspberry   *\n     ********************************${NC}\n"
     echo ""
-    sudo apt-get install -y | lolcat
+    sudo apt-get install -y 
 
-    sudo apt-get update -y | lolcat
-    sudo apt-get dist-upgrade -y | lolcat
-    sudo rpi-update -y |lolcat 
-    sudo apt-get upgrade -y | lolcat
-    sudo apt update -y | lolcat
+    sudo apt-get update -y 
+    sudo apt-get dist-upgrade -y 
+    sudo rpi-update -y 
+    sudo apt-get upgrade -y 
+    sudo apt update -y 
     echo ""
 
 
 
     printf "%b\n" "${BLUE}     *************************************************\n     *   installation des librarys  *\n     *************************************************${NC}\n"
     echo ""
-    sudo apt install pip libopencv-dev python3-opencv git -y | lolcat
-    sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev -y | lolcat
-    sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev libatlas-base-dev i2c-tools -y | lolcat
-    sudo pip3 install dlib cvlib | lolcat
-    sudo pip3 install face_recognition | lolcat
-    sudo pip3 install smbus2 | lolcat
-    sudo pip3 install Flask | lolcat
+    sudo apt install pip libopencv-dev python3-opencv git -y 
+    sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev -y 
+    sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev libatlas-base-dev i2c-tools -y 
+    sudo pip3 install dlib cvlib 
+    sudo pip3 install face_recognition 
+    sudo pip3 install smbus2 
+    sudo pip3 install Flask 
 
     echo ""
 
     printf "%b\n" "${BLUE}     *************************************************\n     *   Mise en place de l'interface WEB  *\n     *************************************************${NC}\n"
     
-    sudo git clone https://github.com/NinoZore/ROV.git
+    sudo git clone https://github.com/Luzgog/ptut_bmo/blob/main/scrip_install.sh
     echo ""
     sudo mv /home/pi/ROV/index.html /var/www/html/
 
