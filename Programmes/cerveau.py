@@ -50,14 +50,14 @@ def job():
         chaleur = CPUTemperature().temperature
         
         bus.write_byte(addr, 101)
-        time.sleep(0.1)
+        time.sleep(0.2)
         battery = bus.read_byte(addr)
         print (battery)
-        time.sleep(0.1)
+        time.sleep(0.2)
 
         etats+=3
         humeure+=4
-        time.sleep(1)
+        time.sleep(2)
 
 
 if __name__ == "__main__":
