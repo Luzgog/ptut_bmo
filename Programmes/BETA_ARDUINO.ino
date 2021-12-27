@@ -1,4 +1,5 @@
 /*
+CODE BETA PAS ENCORE SUR
 Nino Nicolas BMO Gestion capteur to raspberry via i2c
 pont diviseur de tention de la batterie sur la pin A2
 code = 101 (pont diviseur de tention batterie)
@@ -59,7 +60,7 @@ void loop() {
   //prend la valeur analogique de la pinA2 et la remape de 0->1023 pour une valeur de 0->100
   //afin de faciliter la lecture du pourcentage
   Anal_Batterie = analogRead(PDT_Batterie);
-  Pourcent_Batterie = map(Anal_Batterie, 0, 1023, 0, 100);
+  Pourcent_Batterie = map(Anal_Batterie,655, 860, 0, 100);
   //Serial.println(Pourcent_Batterie);
 
 //////////////////////////////////////////////////////////////////////
