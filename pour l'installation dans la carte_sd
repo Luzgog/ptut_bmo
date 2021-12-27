@@ -15,13 +15,6 @@ network={
 }
 
 
-network={
-    ssid="wifi-en-bas"
-    psk="Ninette13"
-    id_str="wifi_maison"
-}
-
-
 
 network={
     ssid="TP-LINK_6BC0B6"
