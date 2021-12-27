@@ -63,4 +63,4 @@ def job():
 if __name__ == "__main__":
     t = threading.Thread(target=job)
     t.start()
-    app.run(host="192.168.43.131")
+    app.run(host="192.168.1.36")
