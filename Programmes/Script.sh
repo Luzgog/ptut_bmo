@@ -32,14 +32,14 @@ if (whiptail --title "Installation" --yesno "voulez vous lancer l'installation o
     sudo apt-get dist-upgrade -y |lolcat
     sudo rpi-update -y |lolcat
     sudo apt-get upgrade -y |lolcat
-    sudo apt-get update -y |lolcat
+    sudo apt update -y |lolcat
     echo ""
 
 
 
     printf "%b\n" "${BLUE}     *************************************************\n     *   installation des librarys  *\n     *************************************************${NC}\n"
     echo ""
-    sudo apt install pip libopencv-dev python3-opencv git cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev libatlas-base-dev i2c-tools -y 
+    sudo apt-get install pip libopencv-dev python3-opencv git cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev python-dev libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev libatlas-base-dev i2c-tools -y |lolcat 
     sudo pip3 install dlib cvlib face_recognition smbus2 Flask |lolcat
     echo ""
 
