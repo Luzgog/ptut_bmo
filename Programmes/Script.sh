@@ -40,22 +40,36 @@ if (whiptail --title "Installation" --yesno "voulez vous lancer l'installation o
 
     printf "%b\n" "${BLUE}     *************************************************\n     *   Mise en place de l'interface WEB  *\n     *************************************************${NC}\n"
     
-    sudo git clone https://github.com/Luzgog/ptut_bmo/blob/main/scrip_install.sh
+    sudo git clone https://github.com/Luzgog/ptut_bmo.git
     echo ""
-    sudo mv /home/pi/ROV/index.html /var/www/html/
+    sudo mkdir BMO
+    sudo mv /home/pi/ptut_bmo/WEB/static /home/pi/BMO
+    sudo mv /home/pi/ptut_bmo/Programmes/cerveau.py /home/pi/BMO
 
 
 
 else
-    whiptail --title "Mise à Jour" --msgbox "En cours de developement" 10 60
+    whiptail --title "Mise à Jour" --msgbox "Mise a jour en cours" 10 60
+
+    sudo rm -r /home/pi/BMO
+    sudo rm -r /home/pi/ptut_bmo
+    echo ""
+    sudo cd
+    sudo git clone https://github.com/Luzgog/ptut_bmo.git
+    echo ""
+    sudo mkdir /home/pi/BMO
+    sudo mv /home/pi/ptut_bmo/WEB/static /home/pi/BMO
+    sudo mv /home/pi/ptut_bmo/Programmes/cerveau.py /home/pi/BMO
+
 fi
 
 echo ""
 
-if (whiptail --title "Mjpg Streamer" --yesno "voulez vous lancer mjpg streamer ?" --yes-button "oui" --no-button "non" 20 70) then 
-    /usr/local/bin/mjpg_streamer -i "input_raspicam.so -x 640 -y 480 -fps 24 -q 80" -o "output_http.so -p 8080 -w /usr/local/share/mjpg-streamer/www"
+if (whiptail --title "Installation" --yesno "voulez vous activer BMO ?" --yes-button "oui" --no-button "non" 20 70) then 
+    sudo python3 /home/pi/BMO/cerveau.py 
+
 else
-    whiptail --title "Mjpg Streamer" --msgbox "Lancement annulée !!!" 20 70
+    whiptail --title "Installation" --msgbox "activation annulée !!!" 20 70
 fi
 
 echo "n'oublier pas d'activer la camera et le bus i2c via l'interface raspi-config"
