@@ -12,7 +12,9 @@ nous nous somme basé sur un cahier des charges que voici
 
 cahier des charges :
 
-ce project comprend plusieur language de programmation qui sont : du python , du bash ,du C ,de l'html ,du css , du javascript
+
+
+Ce project comprend plusieur language de programmation qui sont : du python , du bash ,du C ,de l'html ,du css , du javascript
 -----------------
 ### Parties et separations des taches
 
