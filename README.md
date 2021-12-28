@@ -1,10 +1,13 @@
 # PROJECT B.M.O
-
+-----------------
 ## Sommaire
 ### Explication
 ### Parties et separations des taches
 ### Travail et complication
 ### Conclusion
+-----------------
+## Explication
+
 
 Programme contient les programmes de :
 
