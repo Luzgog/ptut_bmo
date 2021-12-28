@@ -12,6 +12,8 @@ nous nous somme basé sur un cahier des charges que voici
 
 cahier des charges :
 
+ce project comprend plusieur language de programmation qui sont : du python , du bash ,du C ,de l'html ,du css , du javascript
+-----------------
 ### Parties et separations des taches
 
 Nino Chef de projet ,responsable de l'intégrations des différents modules ,le developement de la partie interface homme machine,gestion des capteurs et la modélisation 3D
@@ -19,16 +21,17 @@ Dimitri responsable circuit imprimé
 Bastien responsable module reconnaissance faciale
 Matteo responsable design et conceptions
 Maxime responsable de l’humanisation et intégrations des modules d’affichages visuel et sonore
-
-
+-----------------
+### Travail et complication
 
 
 nos idée :
 crée une tête amovible pour pouvoir changer le corp du robot a volonté 
 solution crée un
 
-nos problemes
-
+nos problemes:
+-----------------
+### Conclusion
 
 
 
