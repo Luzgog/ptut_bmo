@@ -17,9 +17,13 @@ ce project comprend plusieur language de programmation qui sont : du python , du
 ### Parties et separations des taches
 
 Nino Chef de projet ,responsable de l'intégrations des différents modules ,le developement de la partie interface homme machine,gestion des capteurs et la modélisation 3D
+
 Dimitri responsable circuit imprimé
+
 Bastien responsable module reconnaissance faciale
+
 Matteo responsable design et conceptions
+
 Maxime responsable de l’humanisation et intégrations des modules d’affichages visuel et sonore
 
 -----------------
