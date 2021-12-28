@@ -21,6 +21,7 @@ Dimitri responsable circuit imprimé
 Bastien responsable module reconnaissance faciale
 Matteo responsable design et conceptions
 Maxime responsable de l’humanisation et intégrations des modules d’affichages visuel et sonore
+
 -----------------
 ### Travail et complication
 
