@@ -7,7 +7,27 @@
 #### Conclusion
 -----------------
 ### Explication
-Le project bmo est un project de robotique de l'université d'aix marseille consistant a la l'imagination et la conception d'un robot de compagnie pouvant 
+Le project bmo est un project de robotique de l'université d'aix marseille consistant a l'imagination et la conception d'un robot de compagnie pouvant 
+nous nous somme basé sur un cahier des charges que voici
+
+cahier des charges :
+
+### Parties et separations des taches
+
+Nino Chef de projet ,responsable de l'intégrations des différents modules ,le developement de la partie interface homme machine,gestion des capteurs et la modélisation 3D
+Dimitri responsable circuit imprimé
+Bastien responsable module reconnaissance faciale
+Matteo responsable design et conceptions
+Maxime responsable de l’humanisation et intégrations des modules d’affichages visuel et sonore
+
+
+
+
+nos idée :
+crée une tête amovible pour pouvoir changer le corp du robot a volonté 
+solution crée un
+
+nos problemes
 
 
 
