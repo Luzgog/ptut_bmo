@@ -12,8 +12,6 @@ nous nous somme basé sur un cahier des charges que voici
 
 ![cahier des charges](https://user-images.githubusercontent.com/60515907/147596220-ec7e2801-bf3c-4beb-a03a-3017f1169fee.png)
 
-
-
 Ce project comprend plusieur language de programmation qui sont : du python , du bash ,du C ,de l'html ,du css , du javascript
 
 -----------------
