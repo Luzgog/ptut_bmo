@@ -10,7 +10,7 @@
 Le project bmo est un project de robotique de l'université d'aix marseille consistant a l'imagination et la conception d'un robot de compagnie pouvant 
 nous nous somme basé sur un cahier des charges que voici
 
-cahier des charges :
+![cahier des charges](https://user-images.githubusercontent.com/60515907/147596220-ec7e2801-bf3c-4beb-a03a-3017f1169fee.png)
 
 
 
