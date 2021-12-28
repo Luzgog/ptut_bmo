@@ -1,12 +1,22 @@
 # PROJECT B.M.O
 -----------------
-## Sommaire
-### Explication
-### Parties et separations des taches
-### Travail et complication
-### Conclusion
+### Sommaire
+#### Explication
+#### Parties et separations des taches
+#### Travail et complication
+#### Conclusion
 -----------------
-## Explication
+### Explication
+Le project bmo est un project de robotique de l'université d'aix marseille consistant a la l'imagination et la conception d'un robot de compagnie pouvant 
+
+
+
+
+
+
+
+
+
 
 
 Programme contient les programmes de :
