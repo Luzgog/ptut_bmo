@@ -1,4 +1,10 @@
-#titre PROJECT B.M.O
+#PROJECT B.M.O
+
+##Sommaire
+###Explication
+###Parties et separations des taches
+###Travail et complication
+###Conclusion
 
 Programme contient les programmes de :
 
@@ -30,6 +36,7 @@ le programme python global
 
 WEB contient le dossier static qui contient tout les fichiers 
 en charge de la page web comme le css ,le javascript et l'html
+
 # Markown-memento
 Voici un petit fichier memento pour vous indiquer les principales syntaxes que vous pouvez utiliser en markdown.
 Pour voir les détails de la syntaxe, cliquez que l'icone d'édition de ce fichier.
