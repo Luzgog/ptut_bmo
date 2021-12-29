@@ -11,7 +11,7 @@
 * le dossier :Programmes
 
 
-contient :tout les programmes de tout les uControlleur du project(corp et tête)
+-contient :tout les programmes de tout les uControlleur du project(corp et tête)
 
 * le dossier :WEB/static
 
