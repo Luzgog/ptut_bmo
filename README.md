@@ -16,27 +16,27 @@ contient :tout les programmes de tout les uControlleur du project(corp et tête)
 * le dossier :WEB/static
 
 
-contient :les fichier de l'interface homme-machine gerer par le server web Flask du raspberry
+-contient :les fichier de l'interface homme-machine gerer par le server web Flask du raspberry
 
 * le dossier :facial_reco
 
 
-contient :les fichiers qui concerne la reconnaisance facial gerer pas la raspberry
+-contient :les fichiers qui concerne la reconnaisance facial gerer pas la raspberry
 
 * le dossier :graph
 
 
-contient :Tout les graph(fonctionnement systeme ,shema electronique ,etc...)
+-contient :Tout les graph(fonctionnement systeme ,shema electronique ,etc...)
 
 * le dossier :pcb
 
 
-contient :Tout les fichier de la creation du pcb(gerber ,etc...)
+-contient :Tout les fichier de la creation du pcb(gerber ,etc...)
 
 * le dossier :CAO_3D
 
 
-contient :Tout les fichier 3D ,voir plus d'info dans le dossier 
+-contient :Tout les fichier 3D ,voir plus d'info dans le dossier 
 
 -----------------
 ### Explication
