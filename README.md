@@ -29,9 +29,32 @@ Maxime responsable de l’humanisation et intégrations des modules d’affichag
 
 -----------------
 ### Travail et complication
+La première partie est de devoir mettre au clair comment resoudre chaque facette de ce project
+
+#### la partie de la reconnaisance fascial necessite :
+* une raspberry pi 
+* une raspberry cam avec un fort FOV
+
+#### la partie de l'affichage des emotions(visuel et auditive) necessite :
+* 2 ecran oled i2c
+* 1 buzzer / Haut-parleur
+
+#### la partie de la tête amovible necessite :
+* 1 connectique série pouvant s'adapter au futurs corp de facon simple
+
+#### la partie de l'autonomie necessite :
+* 1 batterie 
+* 1 microcontrolleur qui nous donne l'autonomie de la batterie en temps réel
+
+#### la partie de l'autonomie necessite :
+* 1 batterie 
+* 1 microcontrolleur qui nous donne l'autonomie de la batterie en temps réel
+
+nos idée pour pouvoir rendre ce project meilleurs sont:
+
+crée une alimentation buck interne permettant de regler la puissance sonor du buzzer/haut parleur
 
 
-nos idée :
 crée une tête amovible pour pouvoir changer le corp du robot a volonté 
 solution crée un
 
