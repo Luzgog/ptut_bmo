@@ -45,18 +45,26 @@ La première partie est de devoir mettre au clair comment resoudre chaque facett
 #### la partie de l'autonomie necessite :
 * 1 batterie 
 * 1 microcontrolleur qui nous donne l'autonomie de la batterie en temps réel
+* un convertisseur boost 3v to 5v   3 ou 4 A
 
 #### la partie de l'autonomie necessite :
 * 1 batterie 
 * 1 microcontrolleur qui nous donne l'autonomie de la batterie en temps réel
 
-nos idée pour pouvoir rendre ce project meilleurs sont:
+#### Nos idée(suivie de leurs solutions) pour pouvoir rendre ce project plus interessant sont:
 
-crée une alimentation buck interne permettant de regler la puissance sonor du buzzer/haut parleur
+#### crée une alimentation buck interne permettant de regler la puissance sonor du buzzer/haut parleur
+##### Necessite :
+* une sortie pwm d'un uControlleur
+* un filtre qui garde la valeur moyenne
 
-
-crée une tête amovible pour pouvoir changer le corp du robot a volonté 
-solution crée un
+#### Faire un systeme d'asservicement electrique pour que la raspberry s'eteigne de facon propre 
+`sudo shutdown -h now`
+lorsque la batterie principal est debranché du corp lors d'un changement de corp
+##### Necessite :
+* une entrer digital sur la raspberry
+* des diodes
+* un accus
 
 nos problemes:
 -----------------
