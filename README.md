@@ -1,10 +1,25 @@
 # PROJECT B.M.O
 -----------------
 ### Sommaire
+#### Fonctionnement du Github
 #### Explication
 #### Parties et separations des taches
 #### Travail et complication
 #### Conclusion
+-----------------
+#### Fonctionnement du Github
+le dossier :
+contient :
+
+le dossier :
+contient :
+
+le dossier :
+contient :
+
+le dossier :
+contient :
+
 -----------------
 ### Explication
 Le project bmo est un project de robotique de l'université d'aix marseille consistant a l'imagination et la conception d'un robot de compagnie pouvant 
@@ -59,14 +74,14 @@ La première partie est de devoir mettre au clair comment resoudre chaque facett
 * un filtre qui garde la valeur moyenne
 
 #### Faire un systeme d'asservicement electrique pour que la raspberry s'eteigne de facon propre 
-`sudo shutdown -h now`
-lorsque la batterie principal est debranché du corp lors d'un changement de corp
+qui execute `sudo shutdown -h now` lorsque la batterie principal est debranché du corp lors d'un changement de corp
 ##### Necessite :
 * une entrer digital sur la raspberry
 * des diodes
 * un accus
 
-nos problemes:
+Nos problemes:
+
 -----------------
 ### Conclusion
 
