@@ -1,8 +1,11 @@
 import pygame
+
 pygame.mixer.init()
-test = pygame.mixer.Sound("myFile.wav")
-pygame.mixer.Sound.set_volume(test, 1.0)
-pygame.mixer.Sound.play(test)
+my_sound = pygame.mixer.Sound('my_sound.wav')
+my_sound.set_volume(1.0)
+my_sound.play()
+
+
 
 while pygame.mixer.music.get_busy() == True:
     continue
