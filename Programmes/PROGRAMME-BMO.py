@@ -103,4 +103,14 @@ if __name__ == "__main__":
 #--------------------------------------------------------------
 #boucle
 
+#--------------------------------------------------------------
+
+#______________________________________________________________
+#probleme qui peuvent arriver
+#File "home.pi/BMO/PROGRAMME-BMO.py", line 94, in <module> demarage = pygame.mixer.Sound('boot.wav')
+
+#pour resoudre ce probleme il faut executer le programme dans le fichier directement(cd BMO) et pas via un chemin d'acces ! =)
+#______________________________________________________________
+
+#--------------------------------------------------------------
 
