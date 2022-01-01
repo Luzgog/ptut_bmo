@@ -85,11 +85,7 @@ def job():
 #site web
 
 if __name__ == "__main__":
-    t = threading.Thread(target=job)
-    t.start()
-    app.run(host='0.0.0.0')
     
-    #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
     pygame.mixer.init()
 
 
@@ -100,6 +96,9 @@ if __name__ == "__main__":
     demarage.play()
     while pygame.mixer.music.get_busy() == True:
         continue
+    t = threading.Thread(target=job)
+    t.start()
+    app.run(host='0.0.0.0')
 
 #--------------------------------------------------------------
 #boucle
