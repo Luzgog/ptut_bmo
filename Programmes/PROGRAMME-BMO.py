@@ -9,6 +9,8 @@ import smbus2 as smbus
 import time, threading
 import secrets
 import pygame
+import requests
+import json
 
 #--------------------------------------------------------------
 #variables:
@@ -20,7 +22,8 @@ chaleur = 0
 battery = 0
 etats = 0
 humeure = 0
-
+ville = "Marseille"
+url_weather = "http://api.openweathermap.org/data/2.5/weather?q="+ville+"&APPID=beb97c1ce62559bba4e81e28de8be095"
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 #variable i2c arduino raspberry
 
@@ -60,7 +63,7 @@ def humeur():
     global humeure
     return jsonify(HUMER = humeure)
 
-def job():
+def WEB():
     
     global battery
     global chaleur
@@ -69,15 +72,44 @@ def job():
     
     while True:
         chaleur = CPUTemperature().temperature
-        
+        meteo_api()
         #bus.write_byte(addr, 101)
         #time.sleep(0.5)
         #battery = bus.read_byte(addr)
-        etats = secrets.randbelow(10) #le nombre n'est pas compris dans la liste des nombre aleatoire 
-        humeure+=4
+        etats = secrets.randbelow(100) #le nombre n'est pas compris dans la liste des nombre aleatoire 
+        humeure = format(meteo)
+        
         
         time.sleep(2)
         
+        
+def heureux():
+    #yeux heureux
+    print("heureux")
+        
+def triste():
+    #yeux triste
+    print("triste")
+     
+def fatigue():
+    #yeux fatiguer
+    print("fatigue")
+    
+def dodo():   
+    #yeux dodo
+    print("dodo")    
+
+def humeur():   
+    print("oui")
+        
+def meteo_api():
+    
+    global temperature
+    global meteo
+    r_weather = requests.get(url_weather)
+    data = r_weather.json()
+    temperature = data['main']['temp'] # .format(temperature)
+    meteo = data['weather'][0]['description'] # .format(meteo)      
 #--------------------------------------------------------------
 #Initialisation
 
@@ -96,8 +128,9 @@ if __name__ == "__main__":
     demarage.play()
     while pygame.mixer.music.get_busy() == True:
         continue
-    t = threading.Thread(target=job)
-    t.start()
+    
+    threadWEB = threading.Thread(target=WEB)
+    threadWEB.start()
     app.run(host='0.0.0.0')
 
 #--------------------------------------------------------------
@@ -111,4 +144,3 @@ if __name__ == "__main__":
 #______________________________________________________________
 
 #--------------------------------------------------------------
-
