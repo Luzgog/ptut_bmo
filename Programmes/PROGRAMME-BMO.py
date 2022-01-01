@@ -22,6 +22,7 @@ chaleur = 0
 battery = 0
 etats = 0
 humeure = 0
+recharge = 0
 emotion = "aucune"
 ville = "Marseille"
 url_weather = "http://api.openweathermap.org/data/2.5/weather?q="+ville+"&APPID=beb97c1ce62559bba4e81e28de8be095"
@@ -103,13 +104,24 @@ def dodo():
     #yeux dodo
     emotion = "endormie"
     print("dodo")    
+ 
+def joueur():   
+    #yeux dodo
+    emotion = "joueur"
+    print("joueur")  
 
 def humeur():
     #ajustement des plages de chance d'avoir chaque emotions via les differents facteurs
     aleatoire = secrets.randbelow(100)
-    if 
-    
-        
+    if battery > 5 
+        if aleatoire > 0 and aleatoire < heureux
+            heureux()
+        if aleatoire > heureux and aleatoire < triste
+            triste()
+        if aleatoire > triste and aleatoire < fatigue
+            fatigue()
+        if aleatoire > fatigue and aleatoire < joueur
+            joueur()
 def meteo_api():
     
     global temperature
