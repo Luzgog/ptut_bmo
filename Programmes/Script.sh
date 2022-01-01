@@ -45,6 +45,8 @@ if (whiptail --title "Installation" --yesno "voulez vous lancer l'installation o
 
     printf "%b\n" "${BLUE}     *************************************************\n     *   Mise en place de l'interface WEB  *\n     *************************************************${NC}\n"
     
+    sudo rm -r /home/pi/BMO 
+    sudo rm -r /home/pi/ptut_bmo
     sudo git clone https://github.com/Luzgog/ptut_bmo.git |lolcat
     echo ""
     sudo mkdir /home/pi/BMO
