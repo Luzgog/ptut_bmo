@@ -64,14 +64,15 @@ else
     echo ""
     sudo mkdir /home/pi/BMO
     sudo mv /home/pi/ptut_bmo/WEB/static /home/pi/BMO
-    sudo mv /home/pi/ptut_bmo/Programmes/cerveau.py /home/pi/BMO
+    sudo mv /home/pi/ptut_bmo/Programmes/PROGRAMME-BMO.py /home/pi/BMO
+    sudo mv /home/pi/ptut_bmo/son/boot.wav /home/pi/BMO
 
 fi
 
 echo ""
 
 if (whiptail --title "Installation" --yesno "voulez vous activer BMO ?" --yes-button "oui" --no-button "non" 20 70) then 
-    sudo python3 /home/pi/BMO/cerveau.py 
+    sudo python3 /home/pi/BMO/PROGRAMME-BMO.py 
 
 else
     whiptail --title "Installation" --msgbox "activation annulée !!!" 20 70
