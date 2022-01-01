@@ -70,12 +70,11 @@ def job():
     while True:
         chaleur = CPUTemperature().temperature
         
-        bus.write_byte(addr, 101)
-        time.sleep(0.5)
-        battery = bus.read_byte(addr)
-        print (battery)
+        #bus.write_byte(addr, 101)
+        #time.sleep(0.5)
+        #battery = bus.read_byte(addr)
         etats = secrets.randbelow(10) #le nombre n'est pas compris dans la liste des nombre aleatoire 
-        #humeure+=4
+        humeure+=4
         
         time.sleep(2)
         
