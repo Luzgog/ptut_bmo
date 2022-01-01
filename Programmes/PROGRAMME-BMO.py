@@ -113,15 +113,19 @@ def joueur():
 def humeur():
     #ajustement des plages de chance d'avoir chaque emotions via les differents facteurs
     aleatoire = secrets.randbelow(100)
-    if battery > 5 
-        if aleatoire > 0 and aleatoire < heureux
+    
+    if battery > 5: 
+        if aleatoire > 0 and aleatoire < heureux:
             heureux()
-        if aleatoire > heureux and aleatoire < triste
+        if aleatoire > heureux and aleatoire < triste:
             triste()
-        if aleatoire > triste and aleatoire < fatigue
+        if aleatoire > triste and aleatoire < fatigue:
             fatigue()
-        if aleatoire > fatigue and aleatoire < joueur
+        if aleatoire > fatigue and aleatoire < joueur:
             joueur()
+    else:
+        dodo()
+        
 def meteo_api():
     
     global temperature
