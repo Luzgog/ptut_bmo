@@ -104,8 +104,11 @@ def dodo():
     emotion = "endormie"
     print("dodo")    
 
-def humeur():   
-    print("oui")
+def humeur():
+    #ajustement des plages de chance d'avoir chaque emotions via les differents facteurs
+    aleatoire = secrets.randbelow(100)
+    if 
+    
         
 def meteo_api():
     
