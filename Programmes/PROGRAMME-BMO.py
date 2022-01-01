@@ -95,9 +95,9 @@ pygame.mixer.init()
 
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 #son de démarage
-my_sound = pygame.mixer.Sound('boot.wav')
-my_sound.set_volume(1.0)
-my_sound.play()
+demarage = pygame.mixer.Sound('demarage.wav')
+demarage.set_volume(1.0)
+demarage.play()
 while pygame.mixer.music.get_busy() == True:
     continue
 
