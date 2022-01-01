@@ -89,17 +89,17 @@ if __name__ == "__main__":
     t.start()
     app.run(host='0.0.0.0')
     
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-pygame.mixer.init()
+    #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+    pygame.mixer.init()
 
 
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-#son de démarage
-demarage = pygame.mixer.Sound('demarage.wav')
-demarage.set_volume(1.0)
-demarage.play()
-while pygame.mixer.music.get_busy() == True:
-    continue
+    #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+    #son de démarage
+    demarage = pygame.mixer.Sound('demarage.wav')
+    demarage.set_volume(1.0)
+    demarage.play()
+    while pygame.mixer.music.get_busy() == True:
+        continue
 
 #--------------------------------------------------------------
 #boucle
