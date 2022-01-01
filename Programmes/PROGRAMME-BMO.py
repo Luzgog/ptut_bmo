@@ -91,7 +91,7 @@ if __name__ == "__main__":
 
     #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
     #son de démarage
-    demarage = pygame.mixer.Sound('demarage.wav')
+    demarage = pygame.mixer.Sound('boot.wav')
     demarage.set_volume(1.0)
     demarage.play()
     while pygame.mixer.music.get_busy() == True:
