@@ -22,6 +22,7 @@ chaleur = 0
 battery = 0
 etats = 0
 humeure = 0
+emotion = "aucune"
 ville = "Marseille"
 url_weather = "http://api.openweathermap.org/data/2.5/weather?q="+ville+"&APPID=beb97c1ce62559bba4e81e28de8be095"
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
@@ -85,18 +86,22 @@ def WEB():
         
 def heureux():
     #yeux heureux
+    emotion = "heureux"
     print("heureux")
         
 def triste():
     #yeux triste
+    emotion = "triste"
     print("triste")
      
 def fatigue():
     #yeux fatiguer
+    emotion = "fatigue"
     print("fatigue")
     
 def dodo():   
     #yeux dodo
+    emotion = "endormie"
     print("dodo")    
 
 def humeur():   
