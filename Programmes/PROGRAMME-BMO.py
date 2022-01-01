@@ -91,7 +91,7 @@ if __name__ == "__main__":
 
     #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
     #son de démarage
-    demarage = pygame.mixer.Sound('boot.wav')
+    demarage = pygame.mixer.Sound('BMO/boot.wav')
     demarage.set_volume(1.0)
     demarage.play()
     while pygame.mixer.music.get_busy() == True:
@@ -106,10 +106,8 @@ if __name__ == "__main__":
 #--------------------------------------------------------------
 
 #______________________________________________________________
-#probleme qui peuvent arriver
-#File "home.pi/BMO/PROGRAMME-BMO.py", line 94, in <module> demarage = pygame.mixer.Sound('boot.wav')
+#probleme qui peuvent arriver :
 
-#pour resoudre ce probleme il faut executer le programme dans le fichier directement(cd BMO) et pas via un chemin d'acces ! =)
 #______________________________________________________________
 
 #--------------------------------------------------------------
