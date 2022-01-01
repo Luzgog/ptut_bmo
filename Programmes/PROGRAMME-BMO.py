@@ -2,7 +2,7 @@
 
 #--------------------------------------------------------------
 #library :
-
+print("initialisation des libraries")
 from flask import Flask, render_template, jsonify
 from gpiozero import CPUTemperature
 import smbus2 as smbus
@@ -14,7 +14,7 @@ import pygame
 #variables:
 
 #variable web
-
+print("initialisation des variables")
 app = Flask(__name__, template_folder = "static/")
 chaleur = 0
 battery = 0
@@ -35,7 +35,7 @@ emotion = 0
 
 #--------------------------------------------------------------
 #fonctions
-
+print("initialisation des fonctions")
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -75,7 +75,7 @@ def job():
         battery = bus.read_byte(addr)
         print (battery)
         etats = secrets.randbelow(10) #le nombre n'est pas compris dans la liste des nombre aleatoire 
-        humeure+=4
+        #humeure+=4
         
         time.sleep(2)
         
