@@ -14,7 +14,7 @@ import json
 
 #--------------------------------------------------------------
 #variables:
-global totalH
+
 #variable web
 print("initialisation des variables")
 app = Flask(__name__, template_folder = "static/")
@@ -130,6 +130,7 @@ def error():
        
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 def humeureu():
+    global totalH
     joueur = 20
     amour = 5
     error = 1
