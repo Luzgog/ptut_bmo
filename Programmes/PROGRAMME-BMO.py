@@ -129,7 +129,7 @@ def error():
     print("error")
        
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-def humeur():
+def humeureu():
     joueur = 20
     amour = 5
     error = 1
@@ -243,7 +243,7 @@ if __name__ == "__main__":
         continue
     #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
     threadWEB = threading.Thread(target=WEB)
-    threadEMO = threading.Thread(target=humeur)
+    threadEMO = threading.Thread(target=humeureu)
     threadEMO.start()
     threadWEB.start()
     app.run(host='0.0.0.0')
