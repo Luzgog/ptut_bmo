@@ -9,6 +9,7 @@ import smbus2 as smbus
 import time, threading
 import secrets
 import pygame
+from pygame import mixer
 import requests
 import json
 
