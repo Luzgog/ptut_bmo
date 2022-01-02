@@ -204,11 +204,11 @@ def humeureu():
                 Eheureux = Eheureux + 40
                 Efatigue = Efatigue + 10
 
-            if aleatoire > 0 and aleatoire < Eheureux:
+            if aleatoire > 0 and aleatoire <= Eheureux:
                 heureux()
-            if aleatoire > Eheureux and aleatoire < (Eheureux + Etriste):
+            if aleatoire > Eheureux and aleatoire <= (Eheureux + Etriste):
                 triste()
-            if aleatoire > (Eheureux + Etriste) and aleatoire < (Eheureux + Etriste + Efatigue):
+            if aleatoire > (Eheureux + Etriste) and aleatoire <= (Eheureux + Etriste + Efatigue):
                 fatigue()
                 
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
