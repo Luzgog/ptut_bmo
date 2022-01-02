@@ -134,21 +134,21 @@ def humeureu():
     global Ejoueur
     global Eamour
     global Eerror
-while True:    
-    Ejoueur = 20
-    Eamour = 5
-    Eerror = 1
-            
-    Eheureux = 100
-    Etriste = 30
-    Efatigue = 100 - battery
-       
-    totalH = (Ejoueur + Eamour + Eerror)
-    total = (Eheureux + Etriste + Efatigue)
-    aleatoire = secrets.randbelow(total)
+    while True:    
+        Ejoueur = 20
+        Eamour = 5
+        Eerror = 1
 
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo  
-    #ajustement des plages de chance d'avoir chaque emotions via les differents facteurs
+        Eheureux = 100
+        Etriste = 30
+        Efatigue = 100 - battery
+
+        totalH = (Ejoueur + Eamour + Eerror)
+        total = (Eheureux + Etriste + Efatigue)
+        aleatoire = secrets.randbelow(total)
+
+    #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo  
+        #ajustement des plages de chance d'avoir chaque emotions via les differents facteurs
 
         # Clear Sky = + 40 heureux
         if format(meteo) == "clear sky":
@@ -202,7 +202,7 @@ while True:
             Eheureux = Eheureux + 40
             Efatigue = Efatigue + 10
 
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
+    #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
 
         if battery > 5: 
             if aleatoire > 0 and aleatoire < Eheureux:
@@ -212,15 +212,15 @@ while True:
             if aleatoire > (Eheureux + Etriste) and aleatoire < (Eheureux + Etriste + Efatigue):
                 fatigue()
 
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+    #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 
-    else:
-        dodo()    
-    print (Eheureux)
-    print (Etriste)
-    print (Efatigue)
-    print (format(meteo))     
-    time.sleep(secrets.randbelow(20) + 10)
+        else:
+            dodo()    
+            print (Eheureux)
+            print (Etriste)
+            print (Efatigue)
+            print (format(meteo))     
+            time.sleep(secrets.randbelow(20) + 10)
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo        
 def meteo_api():
     
