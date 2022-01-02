@@ -134,6 +134,7 @@ def humeureu():
     global Ejoueur
     global Eamour
     global Eerror
+while True:    
     Ejoueur = 20
     Eamour = 5
     Eerror = 1
@@ -148,62 +149,61 @@ def humeureu():
 
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo  
     #ajustement des plages de chance d'avoir chaque emotions via les differents facteurs
-        
-    # Clear Sky = + 40 heureux
-    if format(meteo) == "clear sky":
-        Eheureux = Eheureux + 40
-        
-       
-    # light rain = -20 heureux + 10 triste
-    if format(meteo) == "light rain":
-        Eheureux = Eheureux - 20
-        Etriste = Etriste + 10
-        
-    # moderate rain = -20 heureux + 40 triste
-    if format(meteo) == "moderate rain":
-        Eheureux = Eheureux - 20
-        Etriste = Etriste + 40    
-        
-    # heavy intensity rain = -40 heureux + 80 triste
-    if format(meteo) == "heavy intensity rain":
-        Eheureux = Eheureux - 40
-        Etriste = Etriste + 80
-        
 
-    # few cloud = -20 heureux + 10 triste
-    if format(meteo) == "few cloud":
-        Eheureux = Eheureux - 20
-        Etriste = Etriste + 10
-        
-    # Scattered cloud = -30 heureux + 10 triste
-    if format(meteo) == "scattered clouds":
-        print("caca")
-        Eheureux = Eheureux - 30
-        Etriste = Etriste + 10
-
-    # broken cloud = -40 heureux + 20 triste
-    if format(meteo) == "broken cloud":
-        Eheureux = Eheureux - 40
-        Etriste = Etriste + 20
-
-    # overcast cloud = -60 heureux + 30 triste
-    if format(meteo) == "overcast cloud":
-        Eheureux = Eheureux - 60
-        Etriste = Etriste + 30
+        # Clear Sky = + 40 heureux
+        if format(meteo) == "clear sky":
+            Eheureux = Eheureux + 40
 
 
-    # light snow = + 20 heureux
-    if format(meteo) == "light snow":
-        Eheureux = Eheureux + 20
-        
-    # snow = + 40 heureux + 10 fatigue
-    if format(meteo) == "snow":
-        Eheureux = Eheureux + 40
-        Efatigue = Efatigue + 10
-        
+        # light rain = -20 heureux + 10 triste
+        if format(meteo) == "light rain":
+            Eheureux = Eheureux - 20
+            Etriste = Etriste + 10
+
+        # moderate rain = -20 heureux + 40 triste
+        if format(meteo) == "moderate rain":
+            Eheureux = Eheureux - 20
+            Etriste = Etriste + 40    
+
+        # heavy intensity rain = -40 heureux + 80 triste
+        if format(meteo) == "heavy intensity rain":
+            Eheureux = Eheureux - 40
+            Etriste = Etriste + 80
+
+
+        # few cloud = -20 heureux + 10 triste
+        if format(meteo) == "few cloud":
+            Eheureux = Eheureux - 20
+            Etriste = Etriste + 10
+
+        # Scattered cloud = -30 heureux + 10 triste
+        if format(meteo) == "scattered clouds":
+            print("caca")
+            Eheureux = Eheureux - 30
+            Etriste = Etriste + 10
+
+        # broken cloud = -40 heureux + 20 triste
+        if format(meteo) == "broken cloud":
+            Eheureux = Eheureux - 40
+            Etriste = Etriste + 20
+
+        # overcast cloud = -60 heureux + 30 triste
+        if format(meteo) == "overcast cloud":
+            Eheureux = Eheureux - 60
+            Etriste = Etriste + 30
+
+
+        # light snow = + 20 heureux
+        if format(meteo) == "light snow":
+            Eheureux = Eheureux + 20
+
+        # snow = + 40 heureux + 10 fatigue
+        if format(meteo) == "snow":
+            Eheureux = Eheureux + 40
+            Efatigue = Efatigue + 10
+
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
-    while True:
-             
+
         if battery > 5: 
             if aleatoire > 0 and aleatoire < Eheureux:
                 heureux()
@@ -211,16 +211,16 @@ def humeureu():
                 triste()
             if aleatoire > (Eheureux + Etriste) and aleatoire < (Eheureux + Etriste + Efatigue):
                 fatigue()
-                
+
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 
-        else:
-            dodo()    
-        print (Eheureux)
-        print (Etriste)
-        print (Efatigue)
-        print (format(meteo))     
-        time.sleep(secrets.randbelow(20) + 10)
+    else:
+        dodo()    
+    print (Eheureux)
+    print (Etriste)
+    print (Efatigue)
+    print (format(meteo))     
+    time.sleep(secrets.randbelow(20) + 10)
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo        
 def meteo_api():
     
