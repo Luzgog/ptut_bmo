@@ -39,7 +39,7 @@ if (whiptail --title "Installation" --yesno "voulez vous lancer l'installation o
 
     printf "%b\n" "${BLUE}     *************************************************\n     *   installation des librarys  *\n     *************************************************${NC}\n"
     echo ""
-    sudo apt-get install pip libopencv-dev pygame python3-opencv git cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev python-dev libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev libatlas-base-dev i2c-tools -y |lolcat 
+    sudo apt-get install pip libopencv-dev python3-pygame python3-opencv git cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev python-dev libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev libatlas-base-dev i2c-tools -y |lolcat 
     sudo pip3 install pygame dlib requests cvlib face_recognition smbus2 Flask luma.oled pillow|lolcat
     echo ""
 
