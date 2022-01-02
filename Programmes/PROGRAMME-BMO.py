@@ -146,7 +146,7 @@ def humeur():
     #ajustement des plages de chance d'avoir chaque emotions via les differents facteurs
         
     # Clear Sky = + 40 heureux
-    if meteo == "clear sky":
+    if format(meteo) == "clear sky":
         heureux = heureux + 40
         
        
@@ -225,7 +225,6 @@ def meteo_api():
     data = r_weather.json()
     temperature = data['main']['temp'] # .format(temperature)
     meteo = data['weather'][0]['description'] # .format(meteo)
-    meteo = format(meteo)
 #--------------------------------------------------------------
 #Initialisation
 
