@@ -188,11 +188,11 @@ def humeureu():
 
 
     # light snow = + 20 heureux
-    if format(meteo) == "clear sky":
+    if format(meteo) == "light snow":
         Eheureux = Eheureux + 20
         
     # snow = + 40 heureux + 10 fatigue
-    if format(meteo) == "clear sky":
+    if format(meteo) == "snow":
         Eheureux = Eheureux + 40
         Efatigue = Efatigue + 10
         
