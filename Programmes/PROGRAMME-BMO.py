@@ -120,13 +120,13 @@ def joueur():
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 def amour():   
     #yeux dodo
-    emotion = "joueur"
-    print("joueur")
+    emotion = "amour"
+    print("amour")
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo 
 def error():   
     #yeux dodo
-    emotion = "joueur"
-    print("joueur")
+    emotion = "error"
+    print("error")
        
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 def humeur():
