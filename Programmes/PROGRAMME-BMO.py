@@ -14,7 +14,7 @@ import json
 
 #--------------------------------------------------------------
 #variables:
-
+global totalH
 #variable web
 print("initialisation des variables")
 app = Flask(__name__, template_folder = "static/")
@@ -25,6 +25,7 @@ humeure = 0
 recharge = 0
 emotion = "aucune"
 ville = "Marseille"
+totalH = 0
 url_weather = "http://api.openweathermap.org/data/2.5/weather?q="+ville+"&APPID=beb97c1ce62559bba4e81e28de8be095"
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 #variable i2c arduino raspberry
@@ -86,41 +87,117 @@ def WEB():
         
 def heureux():
     #yeux heureux
+    
+    aleatoire = secrets.randbelow(totalH)                
+    if aleatoire > 0 and aleatoire < joueur:
+        joueur()
+    if aleatoire > joueur and aleatoire < (joueur + amour):
+        amour()
+    if aleatoire > (joueur + amour) and aleatoire < (joueur + amour + error):
+        error()
     emotion = "heureux"
-    print("heureux")
-        
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo        
 def triste():
     #yeux triste
     emotion = "triste"
     print("triste")
-     
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo     
 def fatigue():
     #yeux fatiguer
     emotion = "fatigue"
     print("fatigue")
-    
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
 def dodo():   
     #yeux dodo
     emotion = "endormie"
     print("dodo")    
- 
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo 
 def joueur():   
     #yeux dodo
     emotion = "joueur"
-    print("joueur")  
+    print("joueur")
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+def amour():   
+    #yeux dodo
+    emotion = "joueur"
+    print("joueur")
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo 
+def error():   
+    #yeux dodo
+    emotion = "joueur"
+    print("joueur")
+       
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 def humeur():
+    joueur = 20
+    amour = 5
+    error = 1
+            
+    heureux = 100
+    triste = 30
+    fatigue = 100 - battery
+       
+    totalH = (joueur + amour + error)
+    total = (heureux + triste + fatigue)
+    aleatoire = secrets.randbelow(total)
+
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo  
     #ajustement des plages de chance d'avoir chaque emotions via les differents facteurs
+        
+    # Clear Sky = + 40 heureux
+    if format(meteo) == "clear sky":
+        heureux = heureux + 40
+        
+       
+    # light rain = -20 heureux + 10 triste
+    if format(meteo) == "light rain":
+        heureux = heureux - 20
+        triste = triste + 10
+        
+    # moderate rain = -20 heureux + 40 triste
+    if format(meteo) == "moderate rain":
+        heureux = heureux - 20
+        triste = triste + 40    
+        
+    # heavy intensity rain = -40 heureux + 80 triste
+    if format(meteo) == "heavy intensity rain":
+        heureux = heureux - 40
+        triste = triste + 80
+        
+
+    # few cloud = -20 heureux + 10 triste
+    if format(meteo) == "few cloud":
+        heureux = heureux - 20
+        triste = triste + 10
+        
+    # Scattered cloud = -30 heureux + 10 triste
+    if format(meteo) == "scattered cloud":
+        heureux = heureux - 30
+        triste = triste + 10
+
+    # broken cloud = -40 heureux + 20 triste
+    if format(meteo) == "broken cloud":
+        heureux = heureux - 40
+        triste = triste + 20
+
+    # overcast cloud = -60 heureux + 30 triste
+    if format(meteo) == "overcast cloud":
+        heureux = heureux - 60
+        triste = triste + 30
+
+
+    # light snow = + 20 heureux
+    if format(meteo) == "clear sky":
+        heureux = heureux + 20
+        
+    # snow = + 40 heureux + 10 fatigue
+    if format(meteo) == "clear sky":
+        heureux = heureux + 40
+        fatigue = fatigue + 10
+        
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
     while True:
-        heureux = 40
-        triste = 15
-        fatigue = 100 - battery
-        joueur = 15
-        total = (heureux + triste + fatigue + joueur)
-        
-        aleatoire = secrets.randbelow(total)
-        
-        
+             
         if battery > 5: 
             if aleatoire > 0 and aleatoire < heureux:
                 heureux()
@@ -128,10 +205,15 @@ def humeur():
                 triste()
             if aleatoire > (heureux + triste) and aleatoire < (heureux + triste + fatigue):
                 fatigue()
-            if aleatoire > (heureux + triste + fatigue) and aleatoire < (heureux + triste + fatigue + joueur):
-                joueur()
+                
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+
         else:
-            dodo()   
+            dodo()    
+        print (heureux)
+        print (triste)
+        print (fatigue)
+        print (format(meteo))     
         time.sleep(secrets.randbelow(20) + 10)
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo        
 def meteo_api():
