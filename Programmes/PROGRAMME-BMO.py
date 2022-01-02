@@ -174,7 +174,7 @@ def humeureu():
 
 
             # few cloud = -20 heureux + 10 triste
-            if format(meteo) == "few cloud":
+            if format(meteo) == "few clouds":
                 Eheureux = Eheureux - 20
                 Etriste = Etriste + 10
 
@@ -185,12 +185,12 @@ def humeureu():
                 Etriste = Etriste + 10
 
             # broken cloud = -40 heureux + 20 triste
-            if format(meteo) == "broken cloud":
+            if format(meteo) == "broken clouds":
                 Eheureux = Eheureux - 40
                 Etriste = Etriste + 20
 
             # overcast cloud = -60 heureux + 30 triste
-            if format(meteo) == "overcast cloud":
+            if format(meteo) == "overcast clouds":
                 Eheureux = Eheureux - 60
                 Etriste = Etriste + 30
 
