@@ -131,6 +131,9 @@ def error():
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 def humeureu():
     global totalH
+    global Ejoueur
+    global Eamour
+    global Eerror
     Ejoueur = 20
     Eamour = 5
     Eerror = 1
