@@ -173,7 +173,7 @@ def humeureu():
         Etriste = Etriste + 10
         
     # Scattered cloud = -30 heureux + 10 triste
-    if format(meteo) == "scattered cloud":
+    if format(meteo) == "scattered clouds":
         Eheureux = Eheureux - 30
         Etriste = Etriste + 10
 
