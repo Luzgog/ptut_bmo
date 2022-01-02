@@ -15,7 +15,6 @@ import json
 #--------------------------------------------------------------
 #variables:
 global totalH
-global meteo
 #variable web
 print("initialisation des variables")
 app = Flask(__name__, template_folder = "static/")
