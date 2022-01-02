@@ -211,9 +211,9 @@ def humeureu():
 
         else:
             dodo()    
-        print (heureux)
-        print (triste)
-        print (fatigue)
+        print (Eheureux)
+        print (Etriste)
+        print (Efatigue)
         print (format(meteo))     
         time.sleep(secrets.randbelow(20) + 10)
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo        
