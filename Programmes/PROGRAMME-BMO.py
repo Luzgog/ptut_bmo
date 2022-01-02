@@ -233,6 +233,7 @@ def meteo_api():
 
 if __name__ == "__main__":
     #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+    mixer.init()
     #son de démarage
     demarage = pygame.mixer.Sound('BMO/boot.wav')
     demarage.set_volume(1.0)
