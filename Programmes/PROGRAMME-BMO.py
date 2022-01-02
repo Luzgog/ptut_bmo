@@ -15,9 +15,7 @@ import json
 #--------------------------------------------------------------
 #variables:
 global totalH
-global temperature
 global meteo
-
 #variable web
 print("initialisation des variables")
 app = Flask(__name__, template_folder = "static/")
@@ -29,8 +27,6 @@ recharge = 0
 emotion = "aucune"
 ville = "Marseille"
 totalH = 0
-temperature = 0
-meteo = 0
 url_weather = "http://api.openweathermap.org/data/2.5/weather?q="+ville+"&APPID=beb97c1ce62559bba4e81e28de8be095"
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 #variable i2c arduino raspberry
@@ -222,12 +218,13 @@ def humeur():
         time.sleep(secrets.randbelow(20) + 10)
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo        
 def meteo_api():
-    meteeo = 0
+    
+    global temperature
+    global meteo
     r_weather = requests.get(url_weather)
     data = r_weather.json()
     temperature = data['main']['temp'] # .format(temperature)
-    meteeo = data['weather'][0]['description'] # .format(meteo)
-    meteo = format(meteo)
+    meteo = data['weather'][0]['description'] # .format(meteo)      
 #--------------------------------------------------------------
 #Initialisation
 
