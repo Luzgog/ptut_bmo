@@ -19,7 +19,7 @@ import json
 print("initialisation des variables")
 app = Flask(__name__, template_folder = "static/")
 chaleur = 0
-battery = 0
+battery = 100
 etats = 0
 humeure = 0
 recharge = 0
@@ -111,7 +111,11 @@ def joueur():
     print("joueur")  
 
 def humeur():
-    #ajustement des plages de chance d'avoir chaque emotions via les differents facteurs
+    #ajustement des plages de chance d'avoir chaque emotions via les differents facteurs$
+    heureux = 25
+    triste = 50
+    fatigue = 75
+    joueur = 100
     aleatoire = secrets.randbelow(100)
     
     if battery > 5: 
