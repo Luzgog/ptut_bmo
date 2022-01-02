@@ -81,7 +81,6 @@ def WEB():
         etats = secrets.randbelow(100) #le nombre n'est pas compris dans la liste des nombre aleatoire 
         humeure = format(meteo)
         
-        
         time.sleep(2)
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo        
         
@@ -152,8 +151,6 @@ def meteo_api():
 if __name__ == "__main__":
     
     pygame.mixer.init()
-
-
     #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
     #son de démarage
     demarage = pygame.mixer.Sound('BMO/boot.wav')
@@ -161,7 +158,7 @@ if __name__ == "__main__":
     demarage.play()
     while pygame.mixer.music.get_busy() == True:
         continue
-    
+    #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
     threadWEB = threading.Thread(target=WEB)
     threadEMO = threading.Thread(target=humeur)
     threadEMO.start()
