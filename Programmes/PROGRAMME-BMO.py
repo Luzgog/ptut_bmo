@@ -26,6 +26,7 @@ recharge = 0
 emotion = "aucune"
 ville = "Marseille"
 totalH = 0
+meteo = 0
 url_weather = "http://api.openweathermap.org/data/2.5/weather?q="+ville+"&APPID=beb97c1ce62559bba4e81e28de8be095"
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 #variable i2c arduino raspberry
