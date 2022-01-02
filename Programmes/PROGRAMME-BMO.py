@@ -134,12 +134,12 @@ def humeureu():
     amour = 5
     error = 1
             
-    heureux = 100
-    triste = 30
-    fatigue = 100 - battery
+    Eheureux = 100
+    Etriste = 30
+    Efatigue = 100 - battery
        
     totalH = (joueur + amour + error)
-    total = (heureux + triste + fatigue)
+    total = (Eheureux + Etriste + Efatigue)
     aleatoire = secrets.randbelow(total)
 
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo  
@@ -147,64 +147,64 @@ def humeureu():
         
     # Clear Sky = + 40 heureux
     if format(meteo) == "clear sky":
-        heureux = heureux + 40
+        Eheureux = Eheureux + 40
         
        
     # light rain = -20 heureux + 10 triste
     if format(meteo) == "light rain":
-        heureux = heureux - 20
-        triste = triste + 10
+        Eheureux = Eheureux - 20
+        Etriste = Etriste + 10
         
     # moderate rain = -20 heureux + 40 triste
     if format(meteo) == "moderate rain":
-        heureux = heureux - 20
-        triste = triste + 40    
+        Eheureux = Eheureux - 20
+        Etriste = Etriste + 40    
         
     # heavy intensity rain = -40 heureux + 80 triste
     if format(meteo) == "heavy intensity rain":
-        heureux = heureux - 40
-        triste = triste + 80
+        Eheureux = Eheureux - 40
+        Etriste = Etriste + 80
         
 
     # few cloud = -20 heureux + 10 triste
     if format(meteo) == "few cloud":
-        heureux = heureux - 20
-        triste = triste + 10
+        Eheureux = Eheureux - 20
+        Etriste = Etriste + 10
         
     # Scattered cloud = -30 heureux + 10 triste
     if format(meteo) == "scattered cloud":
-        heureux = heureux - 30
-        triste = triste + 10
+        Eheureux = Eheureux - 30
+        Etriste = Etriste + 10
 
     # broken cloud = -40 heureux + 20 triste
     if format(meteo) == "broken cloud":
-        heureux = heureux - 40
-        triste = triste + 20
+        Eheureux = Eheureux - 40
+        Etriste = Etriste + 20
 
     # overcast cloud = -60 heureux + 30 triste
     if format(meteo) == "overcast cloud":
-        heureux = heureux - 60
-        triste = triste + 30
+        Eheureux = Eheureux - 60
+        Etriste = Etriste + 30
 
 
     # light snow = + 20 heureux
     if format(meteo) == "clear sky":
-        heureux = heureux + 20
+        Eheureux = Eheureux + 20
         
     # snow = + 40 heureux + 10 fatigue
     if format(meteo) == "clear sky":
-        heureux = heureux + 40
-        fatigue = fatigue + 10
+        Eheureux = Eheureux + 40
+        Efatigue = Efatigue + 10
         
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
     while True:
              
         if battery > 5: 
-            if aleatoire > 0 and aleatoire < heureux:
+            if aleatoire > 0 and aleatoire < Eheureux:
                 heureux()
-            if aleatoire > heureux and aleatoire < (heureux + triste):
+            if aleatoire > Eheureux and aleatoire < (Eheureux + Etriste):
                 triste()
-            if aleatoire > (heureux + triste) and aleatoire < (heureux + triste + fatigue):
+            if aleatoire > (Eheureux + Etriste) and aleatoire < (Eheureux + Etriste + Efatigue):
                 fatigue()
                 
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
