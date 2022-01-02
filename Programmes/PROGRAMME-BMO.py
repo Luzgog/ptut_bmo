@@ -64,7 +64,7 @@ def etat():
 def humeur():
     global humeure
     return jsonify(HUMER = humeure)
-
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 def WEB():
     
     global battery
@@ -83,7 +83,7 @@ def WEB():
         
         
         time.sleep(2)
-        
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo        
         
 def heureux():
     #yeux heureux
@@ -109,27 +109,32 @@ def joueur():
     #yeux dodo
     emotion = "joueur"
     print("joueur")  
-
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 def humeur():
-    #ajustement des plages de chance d'avoir chaque emotions via les differents facteurs$
-    heureux = 25
-    triste = 50
-    fatigue = 75
-    joueur = 100
-    aleatoire = secrets.randbelow(100)
-    
-    if battery > 5: 
-        if aleatoire > 0 and aleatoire < heureux:
-            heureux()
-        if aleatoire > heureux and aleatoire < triste:
-            triste()
-        if aleatoire > triste and aleatoire < fatigue:
-            fatigue()
-        if aleatoire > fatigue and aleatoire < joueur:
-            joueur()
-    else:
-        dodo()
+    #ajustement des plages de chance d'avoir chaque emotions via les differents facteurs
+    while True:
+        heureux = 40
+        triste = 15
+        fatigue = 100 - battery
+        joueur = 15
+        total = (heureux + triste + fatigue + joueur)
         
+        aleatoire = secrets.randbelow(total)
+        
+        
+        if battery > 5: 
+            if aleatoire > 0 and aleatoire < heureux:
+                heureux()
+            if aleatoire > heureux and aleatoire < (heureux + triste):
+                triste()
+            if aleatoire > (heureux + triste) and aleatoire < (heureux + triste + fatigue):
+                fatigue()
+            if aleatoire > (heureux + triste + fatigue) and aleatoire < (heureux + triste + fatigue + joueur):
+                joueur()
+        else:
+            dodo()   
+        time.sleep(secrets.randbelow(20) + 10)
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo        
 def meteo_api():
     
     global temperature
@@ -158,6 +163,8 @@ if __name__ == "__main__":
         continue
     
     threadWEB = threading.Thread(target=WEB)
+    threadEMO = threading.Thread(target=humeur)
+    threadEMO.start()
     threadWEB.start()
     app.run(host='0.0.0.0')
 
