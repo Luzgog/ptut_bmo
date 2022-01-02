@@ -134,7 +134,7 @@ def humeureu():
     global Ejoueur
     global Eamour
     global Eerror
-
+    time.sleep(10)
 
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
     while True:
