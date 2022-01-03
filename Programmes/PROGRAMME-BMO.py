@@ -97,11 +97,11 @@ def heureux():
     #yeux heureux
     
     aleatoire = secrets.randbelow(totalH)                
-    if aleatoire > 0 and aleatoire < Ejoueur:
+    if aleatoire > 0 and aleatoire <= Ejoueur:
         joueur()
-    if aleatoire > Ejoueur and aleatoire < (Ejoueur + Eamour):
+    if aleatoire > Ejoueur and aleatoire <= (Ejoueur + Eamour):
         amour()
-    if aleatoire > (Ejoueur + Eamour) and aleatoire < (Ejoueur + Eamour + Eerror):
+    if aleatoire > (Ejoueur + Eamour) and aleatoire <= (Ejoueur + Eamour + Eerror):
         error()
     emotion = "heureux"
 #--------------------------------------------------------------       
