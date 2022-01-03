@@ -216,7 +216,8 @@ def humeureu():
         print (Eheureux)
         print (Etriste)
         print (Efatigue)
-        print (format(meteo))     
+        print (format(meteo))   
+        print (" ")
         time.sleep(secrets.randbelow(20) + 10)
 #--------------------------------------------------------------
 
