@@ -175,8 +175,6 @@ def humeureu():
             Etriste = 30
             Efatigue = 100 - battery
 
-            totalH = (Ejoueur + Eamour + Eerror)
-            total = (Eheureux + Etriste + Efatigue)
             aleatoire = secrets.randbelow(total)
             # Clear Sky = + 40 heureux
             if format(meteo) == "clear sky":
@@ -229,6 +227,9 @@ def humeureu():
             if format(meteo) == "snow":
                 Eheureux = Eheureux + 40
                 Efatigue = Efatigue + 10
+            
+            totalH = (Ejoueur + Eamour + Eerror)
+            total = (Eheureux + Etriste + Efatigue)
 
             if aleatoire >= 0 and aleatoire <= Eheureux:
                 heureux()
