@@ -28,7 +28,6 @@ ville = "Marseille"
 totalH = 0
 meteo = 0
 url_weather = "http://api.openweathermap.org/data/2.5/weather?q="+ville+"&APPID=beb97c1ce62559bba4e81e28de8be095"
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 #variable i2c arduino raspberry
 
 addr = 0x8 # addr de l'arduino(i2c)
@@ -66,7 +65,7 @@ def etat():
 def humeur():
     global humeure
     return jsonify(HUMER = humeure)
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+#--------------------------------------------------------------
 def WEB():
     
     global battery
@@ -84,7 +83,7 @@ def WEB():
         humeure = format(meteo)
         
         time.sleep(2)
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo        
+#--------------------------------------------------------------    
         
 def heureux():
     #yeux heureux
@@ -97,38 +96,37 @@ def heureux():
     if aleatoire > (Ejoueur + Eamour) and aleatoire < (Ejoueur + Eamour + Eerror):
         error()
     emotion = "heureux"
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo        
+#--------------------------------------------------------------       
 def triste():
     #yeux triste
     emotion = "triste"
     print("triste")
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo     
+#--------------------------------------------------------------     
 def fatigue():
     #yeux fatiguer
     emotion = "fatigue"
     print("fatigue")
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
+#--------------------------------------------------------------  
 def dodo():   
     #yeux dodo
     emotion = "endormie"
     print("dodo")    
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo 
+#--------------------------------------------------------------
 def joueur():   
     #yeux dodo
     emotion = "joueur"
     print("joueur")
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+#--------------------------------------------------------------
 def amour():   
     #yeux dodo
     emotion = "amour"
     print("amour")
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo 
+#--------------------------------------------------------------
 def error():   
     #yeux dodo
     emotion = "error"
     print("error")
-       
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+#--------------------------------------------------------------       
 def humeureu():
     global totalH
     global Ejoueur
@@ -220,7 +218,8 @@ def humeureu():
         print (Efatigue)
         print (format(meteo))     
         time.sleep(secrets.randbelow(20) + 10)
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo        
+#--------------------------------------------------------------
+
 def meteo_api():
     
     global temperature
