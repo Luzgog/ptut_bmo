@@ -5,6 +5,11 @@
 print("initialisation des libraries")
 from flask import Flask, render_template, jsonify
 from gpiozero import CPUTemperature
+
+from luma.core.interface.serial import i2c
+from luma.oled.device import sh1106
+from PIL import Image
+
 import smbus2 as smbus
 import time, threading
 import secrets
@@ -31,7 +36,10 @@ url_weather = "http://api.openweathermap.org/data/2.5/weather?q="+ville+"&APPID=
 #variable i2c arduino raspberry
 
 addr = 0x8 # addr de l'arduino(i2c)
-bus = smbus.SMBus(1) # creation du bus i2c
+arduinobus = smbus.SMBus(1) # creation du bus i2c
+ecranbus = i2c(port=1, address=0x3C)
+ecranoled = sh1106(ecranbus)
+ecranoled.clear() #on enleve l'image deja existant si il y en a
 recu = 0
 
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
@@ -76,9 +84,9 @@ def WEB():
     while True:
         chaleur = CPUTemperature().temperature
         meteo_api()
-        #bus.write_byte(addr, 101)
+        #arduinobus.write_byte(addr, 101)
         #time.sleep(0.5)
-        #battery = bus.read_byte(addr)
+        #battery = arduinobus.read_byte(addr)
         etats = "allumé"
         humeure = emotion #format(meteo)
         
@@ -101,21 +109,41 @@ def triste():
     #yeux triste
     emotion = "triste"
     print("triste")
+
+    ecranoled.clear() #on enleve l'image deja existant si il y en a
+    img = Image.open("affichage_oled/Oeil_triste.png")
+    ecranoled.display(img.convert(ecranoled.mode))
+    
 #--------------------------------------------------------------     
 def fatigue():
     #yeux fatiguer
     emotion = "fatigue"
     print("fatigue")
+    
+    ecranoled.clear() #on enleve l'image deja existant si il y en a
+    img = Image.open("affichage_oled/Oeil_batterie_faible.png")
+    ecranoled.display(img.convert(ecranoled.mode))
+    
 #--------------------------------------------------------------  
 def dodo():   
     #yeux dodo
     emotion = "endormie"
-    print("dodo")    
+    print("dodo")
+    
+    ecranoled.clear() #on enleve l'image deja existant si il y en a
+    img = Image.open("affichage_oled/Oeil_endormi.png")
+    ecranoled.display(img.convert(ecranoled.mode))
+        
 #--------------------------------------------------------------
 def joueur():   
     #yeux dodo
     emotion = "joueur"
     print("joueur")
+
+    ecranoled.clear() #on enleve l'image deja existant si il y en a
+    img = Image.open("affichage_oled/Oeil_content.png")
+    ecranoled.display(img.convert(ecranoled.mode))    
+    
 #--------------------------------------------------------------
 def amour():   
     #yeux dodo
