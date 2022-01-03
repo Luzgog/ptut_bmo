@@ -111,7 +111,7 @@ def triste():
     print("triste")
 
     ecranoled.clear() #on enleve l'image deja existant si il y en a
-    img = Image.open("affichage_oled/Oeil_triste.png")
+    img = Image.open("BMO/affichage_oled/Oeil_triste.png")
     ecranoled.display(img.convert(ecranoled.mode))
     
 #--------------------------------------------------------------     
@@ -121,7 +121,7 @@ def fatigue():
     print("fatigue")
     
     ecranoled.clear() #on enleve l'image deja existant si il y en a
-    img = Image.open("affichage_oled/Oeil_batterie_faible.png")
+    img = Image.open("BMO/affichage_oled/Oeil_batterie_faible.png")
     ecranoled.display(img.convert(ecranoled.mode))
     
 #--------------------------------------------------------------  
@@ -131,7 +131,7 @@ def dodo():
     print("dodo")
     
     ecranoled.clear() #on enleve l'image deja existant si il y en a
-    img = Image.open("affichage_oled/Oeil_endormi.png")
+    img = Image.open("BMO/affichage_oled/Oeil_endormi.png")
     ecranoled.display(img.convert(ecranoled.mode))
         
 #--------------------------------------------------------------
@@ -141,7 +141,7 @@ def joueur():
     print("joueur")
 
     ecranoled.clear() #on enleve l'image deja existant si il y en a
-    img = Image.open("affichage_oled/Oeil_content.png")
+    img = Image.open("BMO/affichage_oled/Oeil_content.png")
     ecranoled.display(img.convert(ecranoled.mode))    
     
 #--------------------------------------------------------------
