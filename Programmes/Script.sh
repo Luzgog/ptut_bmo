@@ -67,7 +67,7 @@ else
     echo ""
     sudo mkdir /home/pi/BMO
     sudo mv /home/pi/ptut_bmo/WEB/static /home/pi/BMO
-    sudo mv /home/pi/ptut_bmo/WEB/yeux /home/pi/BMO
+    sudo mv /home/pi/ptut_bmo/WEB/affichage_oled /home/pi/BMO
     sudo mv /home/pi/ptut_bmo/Programmes/PROGRAMME-BMO.py /home/pi/BMO
     sudo mv /home/pi/ptut_bmo/son/boot.wav /home/pi/BMO
 
