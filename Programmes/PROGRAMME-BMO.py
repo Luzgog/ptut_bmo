@@ -79,8 +79,8 @@ def WEB():
         #bus.write_byte(addr, 101)
         #time.sleep(0.5)
         #battery = bus.read_byte(addr)
-        etats = secrets.randbelow(100) #le nombre n'est pas compris dans la liste des nombre aleatoire 
-        humeure = format(meteo)
+        etats = "allumé"
+        humeure = emotion #format(meteo)
         
         time.sleep(2)
 #--------------------------------------------------------------    
