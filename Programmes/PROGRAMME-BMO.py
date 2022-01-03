@@ -97,7 +97,7 @@ def heureux():
     #yeux heureux
     
     aleatoire = secrets.randbelow(totalH)                
-    if aleatoire > 0 and aleatoire <= Ejoueur:
+    if aleatoire >= 0 and aleatoire <= Ejoueur:
         joueur()
     if aleatoire > Ejoueur and aleatoire <= (Ejoueur + Eamour):
         amour()
@@ -230,7 +230,7 @@ def humeureu():
                 Eheureux = Eheureux + 40
                 Efatigue = Efatigue + 10
 
-            if aleatoire > 0 and aleatoire <= Eheureux:
+            if aleatoire >= 0 and aleatoire <= Eheureux:
                 heureux()
             if aleatoire > Eheureux and aleatoire <= (Eheureux + Etriste):
                 triste()
@@ -240,7 +240,8 @@ def humeureu():
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 
         else:
-            dodo()    
+            dodo()
+        print (aleatoire)    
         print (Eheureux)
         print (Etriste)
         print (Efatigue)
