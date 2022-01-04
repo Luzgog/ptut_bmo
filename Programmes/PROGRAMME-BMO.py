@@ -40,6 +40,8 @@ arduinobus = smbus.SMBus(1) # creation du bus i2c
 ecranbus = i2c(port=1, address=0x3C)
 ecranoled = sh1106(ecranbus)
 ecranoled.clear() #on enleve l'image deja existant si il y en a
+img = Image.open("BMO/affichage_oled/Oeil_test.png")
+ecranoled.display(img.convert(ecranoled.mode))    
 recu = 0
 
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
