@@ -7,7 +7,7 @@ from flask import Flask, render_template, jsonify
 from gpiozero import CPUTemperature
 
 from luma.core.interface.serial import i2c
-from luma.oled.device import sh1306, sh1106 #libraries de l'ecran oled:
+from luma.oled.device import ssd1306, sh1106 #libraries de l'ecran oled:
 from PIL import Image
 
 import smbus2 as smbus
