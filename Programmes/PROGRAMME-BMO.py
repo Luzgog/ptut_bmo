@@ -1,7 +1,7 @@
 #PROGRAMME BMO
 
 #--------------------------------------------------------------
-#library :
+#libraries :
 print("initialisation des libraries")
 from flask import Flask, render_template, jsonify
 from gpiozero import CPUTemperature
