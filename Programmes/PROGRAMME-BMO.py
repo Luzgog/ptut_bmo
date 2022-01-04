@@ -88,7 +88,7 @@ def WEB():
         #time.sleep(0.5)
         #battery = arduinobus.read_byte(addr)
         etats = "allumé"
-        humeure = emotion #format(meteo)
+        humeure = emotion #str(meteo)
         
         time.sleep(2)
 #--------------------------------------------------------------    
@@ -97,11 +97,11 @@ def heureux():
     #yeux heureux
     
     aleatoire = secrets.randbelow(totalH)                
-    if aleatoire >= 0 and aleatoire <= Ejoueur:
+    if aleatoire >= 0 and aleatoire <= Chance_Joueur:
         joueur()
-    if aleatoire > Ejoueur and aleatoire <= (Ejoueur + Eamour):
+    if aleatoire > Chance_Joueur and aleatoire <= (Chance_Joueur + Chance_Amoureu):
         amour()
-    if aleatoire > (Ejoueur + Eamour) and aleatoire <= (Ejoueur + Eamour + Eerror):
+    if aleatoire > (Chance_Joueur + Chance_Amoureu) and aleatoire <= (Chance_Joueur + Chance_Amoureu + Chance_Error):
         error()
     emotion = "heureux"
 #--------------------------------------------------------------       
@@ -157,9 +157,9 @@ def error():
 #--------------------------------------------------------------       
 def humeureu():
     global totalH
-    global Ejoueur
-    global Eamour
-    global Eerror
+    global Chance_Joueur
+    global Chance_Amoureu
+    global Chance_Error
     time.sleep(10)
 
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
@@ -167,75 +167,75 @@ def humeureu():
              
         if battery > 5:
             #ajustement des plages de chance d'avoir chaque emotions via les differents facteurs
-            Ejoueur = 20
-            Eamour = 5
-            Eerror = 1
+            Chance_Joueur = 20
+            Chance_Amoureu = 5
+            Chance_Error = 1
 
-            Eheureux = 100
-            Etriste = 30
-            Efatigue = 100 - battery
+            Chance_Heureux = 100
+            Chance_Triste = 30
+            Chance_Fatigue = 100 - battery
 
             # Clear Sky = + 40 heureux
-            if format(meteo) == "clear sky":
-                Eheureux = Eheureux + 40
+            if str(meteo) == "clear sky":
+                Chance_Heureux = Chance_Heureux + 40
 
 
             # light rain = -20 heureux + 10 triste
-            if format(meteo) == "light rain":
-                Eheureux = Eheureux - 20
-                Etriste = Etriste + 10
+            if str(meteo) == "light rain":
+                Chance_Heureux = Chance_Heureux - 20
+                Chance_Triste = Chance_Triste + 10
 
             # moderate rain = -20 heureux + 40 triste
-            if format(meteo) == "moderate rain":
-                Eheureux = Eheureux - 20
-                Etriste = Etriste + 40    
+            if str(meteo) == "moderate rain":
+                Chance_Heureux = Chance_Heureux - 20
+                Chance_Triste = Chance_Triste + 40    
 
             # heavy intensity rain = -40 heureux + 80 triste
-            if format(meteo) == "heavy intensity rain":
-                Eheureux = Eheureux - 40
-                Etriste = Etriste + 80
+            if str(meteo) == "heavy intensity rain":
+                Chance_Heureux = Chance_Heureux - 40
+                Chance_Triste = Chance_Triste + 80
 
 
             # few cloud = -20 heureux + 10 triste
-            if format(meteo) == "few clouds":
-                Eheureux = Eheureux - 20
-                Etriste = Etriste + 10
+            if str(meteo) == "few clouds":
+                Chance_Heureux = Chance_Heureux - 20
+                Chance_Triste = Chance_Triste + 10
 
             # Scattered cloud = -30 heureux + 10 triste
-            if format(meteo) == "scattered clouds":
+            if str(meteo) == "scattered clouds":
                 print("caca")
-                Eheureux = Eheureux - 30
-                Etriste = Etriste + 10
+                Chance_Heureux = Chance_Heureux - 30
+                Chance_Triste = Chance_Triste + 10
 
             # broken cloud = -40 heureux + 20 triste
-            if format(meteo) == "broken clouds":
-                Eheureux = Eheureux - 40
-                Etriste = Etriste + 20
+            if str(meteo) == "broken clouds":
+                Chance_Heureux = Chance_Heureux - 40
+                Chance_Triste = Chance_Triste + 20
 
             # overcast cloud = -60 heureux + 30 triste
-            if format(meteo) == "overcast clouds":
-                Eheureux = Eheureux - 60
-                Etriste = Etriste + 30
+            if str(meteo) == "overcast clouds":
+                Chance_Heureux = Chance_Heureux - 60
+                Chance_Triste = Chance_Triste + 30
 
 
             # light snow = + 20 heureux
-            if format(meteo) == "light snow":
-                Eheureux = Eheureux + 20
+            if str(meteo) == "light snow":
+                Chance_Heureux = Chance_Heureux + 20
 
             # snow = + 40 heureux + 10 fatigue
-            if format(meteo) == "snow":
-                Eheureux = Eheureux + 40
-                Efatigue = Efatigue + 10
+            if str(meteo) == "snow":
+                Chance_Heureux = Chance_Heureux + 40
+                Chance_Fatigue = Chance_Fatigue + 10
             
-            totalH = (Ejoueur + Eamour + Eerror)
-            total = (Eheureux + Etriste + Efatigue)
+            totalH = (Chance_Joueur + Chance_Amoureu + Chance_Error)
+            total = (Chance_Heureux + Chance_Triste + Chance_Fatigue)
             aleatoire = secrets.randbelow(total)
 
-            if aleatoire >= 0 and aleatoire <= Eheureux:
+            if aleatoire >= 0 and aleatoire <= Chance_Heureux:
                 heureux()
-            if aleatoire > Eheureux and aleatoire <= (Eheureux + Etriste):
+            if aleatoire > Chance_Heureux and aleatoire <= (Chance_Heureux + Chance_Triste):
                 triste()
-            if aleatoire > (Eheureux + Etriste) and aleatoire <= (Eheureux + Etriste + Efatigue):
+            if aleatoire > (Chance_Heureux + Chance_Triste) and aleatoire <= (Chance_Heureux + Chance_Triste + Chance_Fatigue):
                 fatigue()
                 
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
@@ -243,10 +243,10 @@ def humeureu():
         else:
             dodo()
         print (aleatoire)    
-        print (Eheureux)
-        print (Etriste)
-        print (Efatigue)
-        print (format(meteo))   
+        print (Chance_Heureux)
+        print (Chance_Triste)
+        print (Chance_Fatigue)
+        print (str(meteo))   
         print (" ")
         time.sleep(secrets.randbelow(20) + 10)
 #--------------------------------------------------------------
@@ -257,8 +257,8 @@ def meteo_api():
     global meteo
     r_weather = requests.get(url_weather)
     data = r_weather.json()
-    temperature = data['main']['temp'] # .format(temperature)
-    meteo = data['weather'][0]['description'] # .format(meteo)
+    temperature = data['main']['temp'] # .str(temperature)
+    meteo = data['weather'][0]['description'] # .str(meteo)
 #--------------------------------------------------------------
 #Initialisation
 
