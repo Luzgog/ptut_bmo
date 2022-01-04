@@ -38,7 +38,7 @@ url_weather = "http://api.openweathermap.org/data/2.5/weather?q="+ville+"&APPID=
 addr = 0x8 # addr de l'arduino(i2c)
 arduinobus = smbus.SMBus(1) # creation du bus i2c
 ecranbus = i2c(port=1, address=0x3C)
-ecranoled = ssh1306(ecranbus)
+ecranoled = ssh1106(ecranbus)
 ecranoled.clear() #on enleve l'image deja existant si il y en a
 img = Image.open("BMO/affichage_oled/Oeil_test.png")
 ecranoled.display(img.convert(ecranoled.mode))    
