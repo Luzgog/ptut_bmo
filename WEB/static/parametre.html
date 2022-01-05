@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="static/style.css" />
-<script src="static/script.js"></script>
+<link rel="stylesheet" href="style.css" />
+<script src="script.js"></script>
 </head>
 <body>
 
@@ -13,12 +13,22 @@
 </div>
 
 <div class="row">
+  
+      <div class="col-9 menu">
 
+        <div class="col-12 menu">
+        <li onclick ="bouton_parametre('Meteo')">meteo : activer</li>
+        <li onclick ="bouton_parametre('Emo_meteo')">emotion meteo : activer</li>
+        <li onclick ="bouton_parametre('Reco_facial')">reconnaisance facial : activer</li>
+        </div>
 
-    <div class="col-6">
-        
-        <img src="static/Etat1.jpg" class="image">
-    </div>
+        <div class="col-12 menu">
+        <li>musique</li>
+        <li>dance</li>
+        <li>dance</li>
+        </div>
+
+      </div>
 
     <div class="col-3 right">
       <div class="aside">
@@ -37,6 +47,7 @@
   <div class="col-3 menu">
         <info>
         <ul>
+        <li><a href="../">accueil</a></li>
         <li>paramètres</li>
         <li>video feed</li>
         <li>musique</li>
