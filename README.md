@@ -128,5 +128,8 @@ refaire le shema de BMO avec les nouveau trucs(ampli ,arduino ,module vocal)
 preparer le compte rendu
 
 
+faire un systeme de memoire des paramètres 
+
+
 ----------------
 
