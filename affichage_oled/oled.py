@@ -11,3 +11,4 @@ img = Image.open("Oeil_2.png")
 
 ecranoled.display(img.convert(ecranoled.mode))
 input() #j'ai mit ca juste pour attendre, a la fin du programme ca enleve l'image automatiquement
+#commentaire
