@@ -23,6 +23,9 @@ import json
 #variable web
 print("initialisation des variables")
 app = Flask(__name__, template_folder = "static/")
+Activer_Meteo = True
+Activer_Emo_Meteo = True
+Activer_Facial = True
 chaleur = 0
 battery = 100
 etats = 0
@@ -33,6 +36,9 @@ ville = "Marseille"
 totalH = 0
 meteo = 0
 url_weather = "http://api.openweathermap.org/data/2.5/weather?q="+ville+"&APPID=beb97c1ce62559bba4e81e28de8be095"
+
+
+
 #variable i2c arduino raspberry
 
 addr = 0x8 # addr de l'arduino(i2c)
@@ -78,7 +84,30 @@ def humeur():
 
 @app.route("/button",methods = ["POST"])#si on va sur /button on
 def bouton():
-    print(request.get_json())
+    global Activer_Meteo
+    global Activer_Emo_Meteo
+    global Activer_Facial
+    
+    print(request.get_json())    
+    bouton_appuyer = request.get_json()
+    if bouton_appuyer == "Meteo":
+        if Activer_Meteo == False:   
+            Activer_Meteo = True
+        else: 
+            Activer_Meteo = False
+
+    if bouton_appuyer == "Emo_meteo":
+        if Activer_Emo_Meteo == False:   
+            Activer_Emo_Meteo = True
+        else: 
+            Activer_Emo_Meteo = False
+
+    if bouton_appuyer == "Reco_facial":
+        if Activer_Facial == False:   
+            Activer_Facial = True
+        else: 
+            Activer_Facial = False
+          
     return "cliquer bande de salope"
 #--------------------------------------------------------------
 def WEB():
@@ -96,8 +125,10 @@ def WEB():
         #battery = arduinobus.read_byte(addr)
         etats = "allumé"
         humeure = emotion #str(meteo)
-        
-        time.sleep(2)
+        print(Activer_Meteo)
+        print(Activer_Emo_Meteo)
+        print(Activer_Facial)
+        time.sleep(1)
 
 
 #--------------------------------------------------------------    
