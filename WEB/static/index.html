@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="static/style.css" />
-<script src="static/script.js"></script>
+<link rel="stylesheet" href="{{ url_for('static', 'style.css') }}" />
+<script src="{{ url_for('static', 'script.js') }}"></script>
 </head>
 <body>
 
@@ -17,7 +17,7 @@
 
     <div class="col-6">
         
-        <img src="static/Etat1.jpg" class="image">
+        <img src="{{ url_for('static', 'Etat1.jpg') }}" class="image">
     </div>
 
     <div class="col-3 right">
