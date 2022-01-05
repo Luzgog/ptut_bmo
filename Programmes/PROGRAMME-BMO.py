@@ -128,7 +128,7 @@ def WEB():
         #time.sleep(0.5)
         #battery = arduinobus.read_byte(addr)
         etats = "allumé"
-        humeure = emotion #str(meteo)
+        humeure = meteo#emotion #str(meteo)
         print(f"Activer_Meteo :{Activer_Meteo}, Activer_Emo_Meteo :{Activer_Emo_Meteo}, Activer_Facial :{Activer_Facial}")
         print(" ")
         print(" ")
@@ -296,13 +296,17 @@ def humeureu():
 #--------------------------------------------------------------
 
 def meteo_api():
-    
-    global temperature
-    global meteo
-    r_weather = requests.get(url_weather)
-    data = r_weather.json()
-    temperature = data['main']['temp'] # .str(temperature)
-    meteo = data['weather'][0]['description'] # .str(meteo)
+    if Activer_Meteo == True:
+        global temperature
+        global meteo
+        r_weather = requests.get(url_weather)
+        data = r_weather.json()
+        temperature = data['main']['temp'] # .str(temperature)
+        meteo = data['weather'][0]['description'] # .str(meteo)
+    else:
+        temperature = "NON ACTIVER"
+        meteo = "NON ACTIVER"
+        
 #--------------------------------------------------------------
 #Initialisation
 
