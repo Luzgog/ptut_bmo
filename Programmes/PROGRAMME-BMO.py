@@ -120,6 +120,8 @@ def WEB():
     global chaleur
     global etats
     global humeure
+    global temperature
+    global meteo
     
     while True:
         chaleur = CPUTemperature().temperature
@@ -297,8 +299,6 @@ def humeureu():
 #--------------------------------------------------------------
 
 def meteo_api():
-    global temperature
-    global meteo
     print("TRUC")        
     if Activer_Meteo == True:
         r_weather = requests.get(url_weather)
