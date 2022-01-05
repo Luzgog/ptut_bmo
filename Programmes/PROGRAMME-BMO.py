@@ -79,7 +79,7 @@ def humeur():
 @app.route("/button",methods = ["POST"])#si on va sur /button on
 def bouton():
     print(request.get_json())
-    return 
+    return "cliquer bande de salope"
 #--------------------------------------------------------------
 def WEB():
     
