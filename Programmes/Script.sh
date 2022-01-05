@@ -60,17 +60,7 @@ if (whiptail --title "Installation" --yesno "voulez vous lancer l'installation o
 else
     whiptail --title "Mise à Jour" --msgbox "Mise a jour en cours" 10 60
 
-    sudo rm -r /home/pi/BMO 
-    sudo rm -r /home/pi/ptut_bmo
-    echo ""
-    cd
-    sudo git clone https://github.com/Luzgog/ptut_bmo.git
-    echo ""
-    sudo mkdir /home/pi/BMO
-    sudo mv /home/pi/ptut_bmo/WEB/static /home/pi/BMO
-    sudo mv /home/pi/ptut_bmo/affichage_oled /home/pi/BMO
-    sudo mv /home/pi/ptut_bmo/Programmes/PROGRAMME-BMO.py /home/pi/BMO
-    sudo mv /home/pi/ptut_bmo/son/boot.wav /home/pi/BMO
+    git pull
 
 fi
 
