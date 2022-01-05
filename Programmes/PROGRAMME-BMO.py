@@ -125,9 +125,15 @@ def WEB():
         #battery = arduinobus.read_byte(addr)
         etats = "allumé"
         humeure = emotion #str(meteo)
+        print("Activer_Meteo :")
         print(Activer_Meteo)
+        print(" ")
+        print("Activer_Emo_Meteo :")
         print(Activer_Emo_Meteo)
+        print(" ")
+        print("Activer_Facial :")
         print(Activer_Facial)
+        print(" ")
         time.sleep(1)
 
 
