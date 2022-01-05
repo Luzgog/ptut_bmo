@@ -15,7 +15,6 @@ import time, threading
 import secrets
 import pygame
 import requests
-import logging
 import json
 
 #--------------------------------------------------------------
@@ -323,8 +322,6 @@ if __name__ == "__main__":
     threadWEB.start()
     
     app.run(host='0.0.0.0')
-    log = logging.getLogger('werkzeug')
-    log.disabled = True
 
 #--------------------------------------------------------------
 #boucle
