@@ -62,6 +62,10 @@ print("initialisation des fonctions")
 def index():
     return render_template("index.html")
 
+@app.route("/parametre")
+def parametre():
+    return render_template("parametre.html")
+
 @app.route("/temperature")#si on va sur /message on retourne le json { "message": "nouvelle valeur"}
 def tempera():
     global chaleur #variable python pour changer 
