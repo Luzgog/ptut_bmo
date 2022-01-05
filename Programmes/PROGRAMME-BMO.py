@@ -320,7 +320,9 @@ if __name__ == "__main__":
     threadEMO = threading.Thread(target=humeureu)
     threadEMO.start()
     threadWEB.start()
-    app.run(host='0.0.0.0',debug=False)
+    
+    app.debug = False
+    app.run(host='0.0.0.0')
 
 #--------------------------------------------------------------
 #boucle
