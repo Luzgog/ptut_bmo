@@ -105,12 +105,26 @@ Nos problemes:
 a faire :
 
 faire le systeme d'ampli audio
+
+
 faire la tête de bmo
+
+
 finir le pcb
+
+
 commander les composant pour le pcb
+
+
 faire la synthese vocal
+
+
 regarder si les ecrans et l'arduino ne s'embrouille pas avec l'i2c
+
+
 refaire le shema de BMO avec les nouveau trucs(ampli ,arduino ,module vocal)
+
+
 preparer le compte rendu
 
 
