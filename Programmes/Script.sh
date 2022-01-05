@@ -59,7 +59,7 @@ if (whiptail --title "Installation" --yesno "voulez vous lancer l'installation o
 
 else
     whiptail --title "Mise à Jour" --msgbox "Mise a jour en cours" 10 60
-    git pull
+    sudo git pull
     sudo mkdir /home/pi/BMO
     sudo mv /home/pi/ptut_bmo/WEB/static /home/pi/BMO
     sudo mv /home/pi/ptut_bmo/affichage_oled /home/pi/BMO
