@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css" />
-<script src="script.js"></script>
+<link rel="stylesheet" href="{{ url_for('static', 'style.css') }}" />
+<script src="{{ url_for('static', 'script.js') }}"></script>
 </head>
 <body>
 
@@ -47,7 +47,7 @@
   <div class="col-3 menu">
         <info>
         <ul>
-        <li><a href="../">accueil</a></li>
+        <li><a href="{{ url_for(index) }}">accueil</a></li>
         <li>paramètres</li>
         <li>video feed</li>
         <li>musique</li>
