@@ -299,14 +299,14 @@ def humeureu():
 def meteo_api():
     global temperature
     global meteo
-        
+    print("TRUC")        
     if Activer_Meteo == True:
         r_weather = requests.get(url_weather)
         data = r_weather.json()
         temperature = data['main']['temp'] # .str(temperature)
         meteo = data['weather'][0]['description'] # .str(meteo)
         print("machin TRUE")    
-    else:
+    else :
         temperature = "NON ACTIVER"
         meteo = "NON ACTIVER"
         print("machin FALSE")    
