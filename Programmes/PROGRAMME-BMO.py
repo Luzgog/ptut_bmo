@@ -3,7 +3,7 @@
 #--------------------------------------------------------------
 #libraries :
 print("initialisation des libraries")
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 from gpiozero import CPUTemperature
 
 from luma.core.interface.serial import i2c
@@ -75,6 +75,11 @@ def etat():
 def humeur():
     global humeure
     return jsonify(HUMER = humeure)
+
+@app.route("/button",methods = ["POST"])#si on va sur /button on
+def bouton():
+    print(request.get_json())
+    return 
 #--------------------------------------------------------------
 def WEB():
     
@@ -93,6 +98,8 @@ def WEB():
         humeure = emotion #str(meteo)
         
         time.sleep(2)
+
+
 #--------------------------------------------------------------    
         
 def heureux():
