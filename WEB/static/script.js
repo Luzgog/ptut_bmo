@@ -45,9 +45,9 @@ function humeurs(){
         valeur.innerText = j["HUMER"]
     })
 }
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+//oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+//oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+//oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 
 function PARAM_METEO(){
     
@@ -60,7 +60,7 @@ function PARAM_METEO(){
         valeur.innerText = j["Valeur_PARAMETRE_METEO"]
     })
 }
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+//oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 function PARAM_EMO_METEO(){
     
     fetch("/PARAMETRE_EMO_METEO")//on fait une requete a /message
@@ -72,7 +72,7 @@ function PARAM_EMO_METEO(){
         valeur.innerText = j["Valeur_PARAMETRE_EMO_METEO"]
     })
 }
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+//oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 function PARAM_RECO_FACIAL(){
     
     fetch("/PARAMETRE_RECO_FACIAL")//on fait une requete a /message
@@ -84,15 +84,16 @@ function PARAM_RECO_FACIAL(){
         valeur.innerText = j["Valeur_PARAMETRE_RECO_FACIAL"]
     })
 }
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+//oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+//oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+//oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 function bouton_parametre(variable){
     fetch("/button", {method:'POST',headers:{'Accept': 'application/json', 'Content-Type': 'application/json'}, body:JSON.stringify(variable)} )    
 }
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+//oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+//oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+//oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+
 setInterval(PARAM_METEO, 1000)
 setInterval(PARAM_EMO_METEO, 1000)
 setInterval(PARAM_RECO_FACIAL, 1000)
