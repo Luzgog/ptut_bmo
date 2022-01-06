@@ -48,9 +48,9 @@ totalH = 0
 #variable web
 
 app = Flask(__name__, template_folder = "static/")
-Activer_Meteo = True
-Activer_Emo_Meteo = True
-Activer_Facial = True
+Activer_Meteo = "Activer"
+Activer_Emo_Meteo = "Activer"
+Activer_Facial = "Activer"
 chaleur = 0
 battery = 100
 etats = 0
@@ -101,22 +101,22 @@ def bouton():
     print(request.get_json())    
     bouton_appuyer = request.get_json()
     if bouton_appuyer == "Meteo":
-        if Activer_Meteo == False:   
-            Activer_Meteo = True
+        if Activer_Meteo == "Désactiver":   
+            Activer_Meteo = "Activer"
         else: 
-            Activer_Meteo = False
+            Activer_Meteo = "Désactiver"
 
     if bouton_appuyer == "Emo_meteo":
-        if Activer_Emo_Meteo == False:   
-            Activer_Emo_Meteo = True
+        if Activer_Emo_Meteo == "Désactiver":   
+            Activer_Emo_Meteo = "Activer"
         else: 
-            Activer_Emo_Meteo = False
+            Activer_Emo_Meteo = "Désactiver"
 
     if bouton_appuyer == "Reco_facial":
-        if Activer_Facial == False:   
-            Activer_Facial = True
+        if Activer_Facial == "Désactiver":   
+            Activer_Facial = "Activer"
         else: 
-            Activer_Facial = False
+            Activer_Facial = "Désactiver"
           
     return "JE SAIS PAS QUOI RETURN MDR"
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
