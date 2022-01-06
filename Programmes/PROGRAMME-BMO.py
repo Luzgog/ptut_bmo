@@ -152,7 +152,7 @@ def WEB():
         #time.sleep(0.5)
         #battery = arduinobus.read_byte(addr)
         etats = "allumé"
-        humeure = str(meteo) #emotion str(meteo)
+        humeure = emotion #emotion str(meteo)
         time.sleep(1)
 
 
