@@ -174,6 +174,7 @@ def heureux():
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo      
 def triste():
     #yeux triste
+    global emotion
     emotion = "triste"
     print("triste")
 
@@ -183,6 +184,7 @@ def triste():
     
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
 def fatigue():
+    global emotion
     #yeux fatiguer
     emotion = "fatigue"
     print("fatigue")
@@ -192,7 +194,8 @@ def fatigue():
     ecranoled.display(img.convert(ecranoled.mode))
     
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo  
-def dodo():   
+def dodo():
+    global emotion   
     #yeux dodo
     emotion = "endormie"
     print("dodo")
@@ -202,7 +205,8 @@ def dodo():
     ecranoled.display(img.convert(ecranoled.mode))
         
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo 
-def joueur():   
+def joueur():
+    global emotion
     #yeux dodo
     emotion = "joueur"
     print("joueur")
@@ -212,15 +216,19 @@ def joueur():
     ecranoled.display(img.convert(ecranoled.mode))    
     
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo 
-def amour():   
+def amour():
+    global emotion   
     #yeux dodo
     emotion = "amour"
     print("amour")
+    
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo 
-def error():   
+def error():
+    global emotion   
     #yeux dodo
     emotion = "error"
     print("error")
+    
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo     
 #--------------------------------------------------------------
 
