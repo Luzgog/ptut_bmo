@@ -144,6 +144,7 @@ def WEB():
     global chaleur
     global etats
     global humeure
+    global emotion
     
     while True:
         chaleur = CPUTemperature().temperature
@@ -170,7 +171,6 @@ def heureux():
         amour()
     if aleatoire > (Chance_Joueur + Chance_Amoureu) and aleatoire <= (Chance_Joueur + Chance_Amoureu + Chance_Error):
         error()
-    emotion = "heureux"
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo      
 def triste():
     #yeux triste
