@@ -120,7 +120,6 @@ def bouton():
             Activer_Facial = "Désactiver"
     if bouton_appuyer == "SHUTDOWN":
         print("Shutting Down")
-        time.sleep(5)
         os.system("sudo shutdown -h now")            
 
     return "JE SAIS PAS QUOI RETURN MDR"
