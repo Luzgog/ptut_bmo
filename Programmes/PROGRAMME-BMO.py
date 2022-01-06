@@ -19,26 +19,14 @@ import json
 
 #--------------------------------------------------------------
 #variables:
-
-#variable web
 print("initialisation des variables")
-app = Flask(__name__, template_folder = "static/")
-Activer_Meteo = True
-Activer_Emo_Meteo = True
-Activer_Facial = True
-chaleur = 0
-battery = 100
-etats = 0
-humeure = 0
-recharge = 0
-emotion = "aucune"
-ville = "Marseille"
-totalH = 0
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+#variable systeme emotion
 meteo = 0
+ville = "Marseille"
 url_weather = "http://api.openweathermap.org/data/2.5/weather?q="+ville+"&APPID=beb97c1ce62559bba4e81e28de8be095"
 
-
-
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 #variable i2c arduino raspberry
 
 addr = 0x8 # addr de l'arduino(i2c)
@@ -53,39 +41,57 @@ recu = 0
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 #variable systeme emotion
 
-emotion = 0
+emotion = "aucune"
+totalH = 0
+
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+#variable web
+
+app = Flask(__name__, template_folder = "static/")
+Activer_Meteo = True
+Activer_Emo_Meteo = True
+Activer_Facial = True
+chaleur = 0
+battery = 100
+etats = 0
+humeure = 0
+recharge = 0
 
 #--------------------------------------------------------------
-#fonctions
+#--------------------------------------------------------------
+#--------------------------------------------------------------
+#fonctions WEB ,interactive javascript ,python ,html
+#fonction tableau d'infos
+
 print("initialisation des fonctions")
 @app.route("/")
 def index():
     return render_template("index.html")
-
-@app.route("/parametre")
-def parametre():
-    return render_template("parametre.html")
-
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
 @app.route("/temperature")#si on va sur /message on retourne le json { "message": "nouvelle valeur"}
 def tempera():
     global chaleur #variable python pour changer 
     return jsonify(TEMPE = chaleur)
-
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
 @app.route("/batterie")#si on va sur /message on retourne le json { "message": "nouvelle valeur"}
 def batter():
     global battery
     return jsonify(BATTE = battery)
-
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
 @app.route("/etats")#si on va sur /message on retourne le json { "message": "nouvelle valeur"}
 def etat():
     global etats
     return jsonify(STATS = etats)
-
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
 @app.route("/humeurs")#si on va sur /message on retourne le json { "message": "nouvelle valeur"}
 def humeur():
     global humeure
     return jsonify(HUMER = humeure)
-
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+#--------------------------------------------------------------
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+#fonction web page parametre
+    
 @app.route("/button",methods = ["POST"])#si on va sur /button on
 def bouton():
     global Activer_Meteo
@@ -112,8 +118,26 @@ def bouton():
         else: 
             Activer_Facial = False
           
-    return "cliquer bande de salope"
+    return "JE SAIS PAS QUOI RETURN MDR"
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
+@app.route("/PARAMETRE_METEO")#si on va sur /message on retourne le json { "message": "nouvelle valeur"}
+def tempera():
+    global Valeur_PARAMETRE_METEO
+    return jsonify(Valeur_PARAMETRE_METEO = Activer_Meteo)
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
+@app.route("/PARAMETRE_EMO_METEO")#si on va sur /message on retourne le json { "message": "nouvelle valeur"}
+def batter():
+    global Valeur_PARAMETRE_EMO_METEO
+    return jsonify(Valeur_PARAMETRE_EMO_METEO = Activer_Emo_Meteo)
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
+@app.route("/PARAMETRE_RECO_FACIAL")#si on va sur /message on retourne le json { "message": "nouvelle valeur"}
+def etat():
+    global Valeur_PARAMETRE_RECO_FACIAL
+    return jsonify(Valeur_PARAMETRE_RECO_FACIAL = Activer_Facial)
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
 #--------------------------------------------------------------
+#fonctions WEB qui gere les variables en temps réel
+
 def WEB():
     
     global battery
@@ -133,6 +157,8 @@ def WEB():
 
 
 #--------------------------------------------------------------    
+#--------------------------------------------------------------
+#--------------------------------------------------------------
         
 def heureux():
     #yeux heureux
@@ -145,7 +171,7 @@ def heureux():
     if aleatoire > (Chance_Joueur + Chance_Amoureu) and aleatoire <= (Chance_Joueur + Chance_Amoureu + Chance_Error):
         error()
     emotion = "heureux"
-#--------------------------------------------------------------       
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo      
 def triste():
     #yeux triste
     emotion = "triste"
@@ -155,7 +181,7 @@ def triste():
     img = Image.open("BMO/affichage_oled/Oeil_triste.png")
     ecranoled.display(img.convert(ecranoled.mode))
     
-#--------------------------------------------------------------     
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
 def fatigue():
     #yeux fatiguer
     emotion = "fatigue"
@@ -165,7 +191,7 @@ def fatigue():
     img = Image.open("BMO/affichage_oled/Oeil_batterie_faible.png")
     ecranoled.display(img.convert(ecranoled.mode))
     
-#--------------------------------------------------------------  
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo  
 def dodo():   
     #yeux dodo
     emotion = "endormie"
@@ -175,7 +201,7 @@ def dodo():
     img = Image.open("BMO/affichage_oled/Oeil_endormi.png")
     ecranoled.display(img.convert(ecranoled.mode))
         
-#--------------------------------------------------------------
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo 
 def joueur():   
     #yeux dodo
     emotion = "joueur"
@@ -185,18 +211,20 @@ def joueur():
     img = Image.open("BMO/affichage_oled/Oeil_content.png")
     ecranoled.display(img.convert(ecranoled.mode))    
     
-#--------------------------------------------------------------
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo 
 def amour():   
     #yeux dodo
     emotion = "amour"
     print("amour")
-#--------------------------------------------------------------
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo 
 def error():   
     #yeux dodo
     emotion = "error"
     print("error")
-#--------------------------------------------------------------       
-def humeureu():
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo     
+#--------------------------------------------------------------
+
+def Humeur_BMO():
     global totalH
     global Chance_Joueur
     global Chance_Amoureu
@@ -268,7 +296,7 @@ def humeureu():
                 Chance_Heureux = Chance_Heureux + 40
                 Chance_Fatigue = Chance_Fatigue + 10
             
-            totalH = (Chance_Joueur + Chance_Amoureu + Chance_Error)
+            totalH = (Chance_Joueur + Chance_Amoureu + Chance_Error)+
             total = (Chance_Heureux + Chance_Triste + Chance_Fatigue)
             aleatoire = secrets.randbelow(total)
 
@@ -278,8 +306,6 @@ def humeureu():
                 triste()
             if aleatoire > (Chance_Heureux + Chance_Triste) and aleatoire <= (Chance_Heureux + Chance_Triste + Chance_Fatigue):
                 fatigue()
-                
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 
         else:
             dodo()
@@ -290,6 +316,8 @@ def humeureu():
         print (str(meteo))   
         print (" ")
         time.sleep(secrets.randbelow(20) + 10)
+#--------------------------------------------------------------
+#--------------------------------------------------------------
 #--------------------------------------------------------------
 
 def meteo_api():
@@ -304,12 +332,10 @@ def meteo_api():
         temperature = "NON ACTIVER"
         meteo = "NON ACTIVER"
         
+#--------------------------------------------------------------    
+#--------------------------------------------------------------
 #--------------------------------------------------------------
 #Initialisation
-
-#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-#site web
-
 if __name__ == "__main__":
     
     pygame.mixer.init()
@@ -322,10 +348,9 @@ if __name__ == "__main__":
         continue
     #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
     threadWEB = threading.Thread(target=WEB)
-    threadEMO = threading.Thread(target=humeureu)
+    threadEMO = threading.Thread(target=Humeur_BMO)
     threadEMO.start()
     threadWEB.start()
-    
     app.run(host='0.0.0.0')
 
 #--------------------------------------------------------------
