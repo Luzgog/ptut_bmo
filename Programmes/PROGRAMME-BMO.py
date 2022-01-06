@@ -121,17 +121,17 @@ def bouton():
     return "JE SAIS PAS QUOI RETURN MDR"
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
 @app.route("/PARAMETRE_METEO")#si on va sur /message on retourne le json { "message": "nouvelle valeur"}
-def tempera():
+def PARAMETRE_METEO():
     global Valeur_PARAMETRE_METEO
     return jsonify(Valeur_PARAMETRE_METEO = Activer_Meteo)
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
 @app.route("/PARAMETRE_EMO_METEO")#si on va sur /message on retourne le json { "message": "nouvelle valeur"}
-def batter():
+def PARAMETRE_EMO_METEO():
     global Valeur_PARAMETRE_EMO_METEO
     return jsonify(Valeur_PARAMETRE_EMO_METEO = Activer_Emo_Meteo)
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
 @app.route("/PARAMETRE_RECO_FACIAL")#si on va sur /message on retourne le json { "message": "nouvelle valeur"}
-def etat():
+def PARAMETRE_RECO_FACIAL():
     global Valeur_PARAMETRE_RECO_FACIAL
     return jsonify(Valeur_PARAMETRE_RECO_FACIAL = Activer_Facial)
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
