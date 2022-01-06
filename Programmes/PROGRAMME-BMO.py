@@ -13,6 +13,7 @@ from PIL import Image
 import smbus2 as smbus
 import time, threading
 import secrets
+import os
 import pygame
 import requests
 import json
@@ -117,7 +118,11 @@ def bouton():
             Activer_Facial = "Activer"
         else: 
             Activer_Facial = "Désactiver"
-          
+    if bouton_appuyer == "SHUTDOWN":
+        print("Shutting Down")
+        time.sleep(5)
+        os.system("sudo shutdown -h now")            
+
     return "JE SAIS PAS QUOI RETURN MDR"
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
 @app.route("/PARAMETRE_METEO")#si on va sur /message on retourne le json { "message": "nouvelle valeur"}
