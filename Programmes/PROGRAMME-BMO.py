@@ -296,7 +296,7 @@ def Humeur_BMO():
                 Chance_Heureux = Chance_Heureux + 40
                 Chance_Fatigue = Chance_Fatigue + 10
             
-            totalH = (Chance_Joueur + Chance_Amoureu + Chance_Error)+
+            totalH = (Chance_Joueur + Chance_Amoureu + Chance_Error)
             total = (Chance_Heureux + Chance_Triste + Chance_Fatigue)
             aleatoire = secrets.randbelow(total)
 
