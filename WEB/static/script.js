@@ -93,6 +93,9 @@ function bouton_parametre(variable){
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+setInterval(PARAM_METEO, 1000)
+setInterval(PARAM_EMO_METEO, 1000)
+setInterval(PARAM_RECO_FACIAL, 1000)
 
 setInterval(humeurs, 1000)
 setInterval(etats, 1000)
