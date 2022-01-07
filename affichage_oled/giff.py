@@ -20,6 +20,7 @@ Where <display_type> is one of:
   * dhmini - 320x240 2.0" Display HAT Mini
 """.format(sys.argv[0]))
 
+image_file = sys.argv[1]
 try:
     display_type = sys.argv[1]
 except IndexError:
