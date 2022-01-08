@@ -36,7 +36,7 @@ height = ecranD.height
 # Load an image.
 
 aleatoire = secrets.randbelow(9) 
-imageD = Image.open("NO ACCESS/"+aleatoire+".gif")
+imageD = Image.open("NO ACCESS/"+str(aleatoire)+".gif")
 aleatoire = secrets.randbelow(9) 
 imageG = Image.open("NO ACCESS/"+aleatoire+".gif")
 
