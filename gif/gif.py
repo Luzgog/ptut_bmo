@@ -33,10 +33,11 @@ ecranG.begin()
 
 width = ecranD.width
 height = ecranD.height
+# Load an image.
 
 aleatoire = secrets.randbelow(9) 
-# Load an image.
-imageD = Image.open("NO ACCESS/PTDR.gif")
+imageD = Image.open("NO ACCESS/"+aleatoire+".gif")
+aleatoire = secrets.randbelow(9) 
 imageG = Image.open("NO ACCESS/"+aleatoire+".gif")
 
 frame = 0
