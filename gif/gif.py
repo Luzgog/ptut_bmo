@@ -54,3 +54,7 @@ while True:
 
     except EOFError:
         frame = 0
+    except KeyboardInterrupt:
+        imageG.close()
+        imageD.close()   
+        print("press control-c again to quit")
