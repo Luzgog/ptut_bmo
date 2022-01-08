@@ -17,7 +17,7 @@ ecranD = ST7789.ST7789(
 ecranG = ST7789.ST7789(
         height= 240,
         rotation= 180,
-        port=1,
+        port=0,
         cs=ST7789.BG_SPI_CS_BACK,  # BG_SPI_CS_BACK or BG_SPI_CS_FRONT
         dc=9,
         backlight=19,               # 18 for back BG slot, 19 for front BG slot.
@@ -46,7 +46,7 @@ while True:
         ecranD.display(imageD.resize((width, height)))
         ecranG.display(imageG.resize((width, height)))
         frame += 1
-        time.sleep(0.03)
+        time.sleep(0.02)
 
     except EOFError:
         frame = 0
