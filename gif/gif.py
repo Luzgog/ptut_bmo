@@ -5,24 +5,31 @@ import time
 import sys
 
 print("""
-shapes.py - Display test shapes on the LCD using PIL.
+gif.py - Display a gif on the LCD.
 
 If you're using Breakout Garden, plug the 1.3" LCD (SPI)
 breakout into the front slot.
 
-Usage: {} <display_type>
+""")
 
-Where <display_type> is one of:
+if len(sys.argv) < 2:
+    print("""Usage: {path} <gif_file> <display_type>
 
+Where <gif_file> is a .gif file.
+  Hint: {path} deployrainbows.gif
+
+And <display_type> is one of:
   * square - 240x240 1.3" Square LCD
   * round  - 240x240 1.3" Round LCD (applies an offset)
   * rect   - 240x135 1.14" Rectangular LCD (applies an offset)
   * dhmini - 320x240 2.0" Display HAT Mini
-""".format(sys.argv[0]))
+""".format(path=sys.argv[0]))
+    sys.exit(1)
 
 image_file = sys.argv[1]
+
 try:
-    display_type = sys.argv[1]
+    display_type = sys.argv[2]
 except IndexError:
     display_type = "square"
 
