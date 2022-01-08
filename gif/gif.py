@@ -41,8 +41,10 @@ frame = 0
 
 while True:
     try:
-        image.seek(frame)
-        ecranD.display(image.resize((width, height)))
+        imageG.seek(frame)
+        imageD.seek(frame)
+        ecranD.display(imageD.resize((width, height)))
+        ecranG.display(imageG.resize((width, height)))
         frame += 1
         time.sleep(0.03)
 
