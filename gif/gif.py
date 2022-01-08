@@ -2,6 +2,7 @@
 from PIL import Image
 import ST7789
 import time
+import secrets
 
 ecranD = ST7789.ST7789(
         height= 240,
@@ -33,11 +34,13 @@ ecranG.begin()
 width = ecranD.width
 height = ecranD.height
 
+aleatoire = secrets.randbelow(9) 
 # Load an image.
 imageD = Image.open("NO ACCESS/PTDR.gif")
-imageG = Image.open("NO ACCESS/rickrolled.gif")
+imageG = Image.open("NO ACCESS/"+aleatoire+".gif")
 
 frame = 0
+
 
 while True:
     try:
