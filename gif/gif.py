@@ -38,7 +38,7 @@ height = ecranD.height
 aleatoire = secrets.randbelow(9) 
 imageD = Image.open("thumbs up/"+str(aleatoire)+".gif")
 aleatoire = secrets.randbelow(9) 
-imageG = Image.open("thumbs up/"+aleatoire+".gif")
+imageG = Image.open("thumbs up/"+str(aleatoire)+".gif")
 
 frame = 0
 
