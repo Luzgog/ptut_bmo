@@ -34,8 +34,8 @@ width = ecranD.width
 height = ecranD.height
 
 # Load an image.
-imageD = Image.open("shutdown2.gif")
-imageG = Image.open("shutdown.gif")
+imageD = Image.open("NO ACCESS/PTDR.gif")
+imageG = Image.open("NO ACCESS/rickrolled.gif")
 
 frame = 0
 
