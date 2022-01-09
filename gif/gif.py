@@ -40,16 +40,18 @@ imageD = Image.open("thumbs up/"+str(aleatoire)+".gif")#on met le gif dans la va
 aleatoire = secrets.randbelow(9) 
 imageG = Image.open("thumbs up/"+str(aleatoire)+".gif") #on met le gif dans la variable imageG
 
-frame = 0
+frameG = 0
+frameD = 0
 
 
 while True:
     try:
-        imageG.seek(frame) #on enregistre le nombre de frame dans le gif et on enregistre ce nombre dans frame
-        imageD.seek(frame) #on enregistre le nombre de frame dans le gif et on enregistre ce nombre dans frame
+        imageG.seek(frameG) #on enregistre le nombre de frame dans le gif et on enregistre ce nombre dans frame
+        imageD.seek(frameD) #on enregistre le nombre de frame dans le gif et on enregistre ce nombre dans frame
         ecranD.display(imageD.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
         ecranG.display(imageG.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
-        frame += 1 #on avance d'une frame
+        frameG += 1 #on avance d'une frame
+        frameD += 1
         time.sleep(0.02)
 
     except EOFError:
