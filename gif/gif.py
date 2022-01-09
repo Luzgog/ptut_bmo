@@ -56,5 +56,3 @@ while True:
 
     except EOFError:
         frame = 0
-    except KeyboardInterrupt:
-        print("press control-c again to quit")
