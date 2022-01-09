@@ -3,6 +3,7 @@ from PIL import Image
 import ST7789
 import time
 import secrets
+import RPi.GPIO as GPIO
 
 ecranD = ST7789.ST7789(
         height= 240, #hauteur de l'ecran
@@ -27,7 +28,7 @@ ecranG = ST7789.ST7789(
         offset_top= 0 #decalage avec le top
 )
     # Initialize display.
-
+GPIO.output(23,1)
 ecranD.begin() #on démare chaque ecran logicielement parlant
 ecranG.begin() #on démare chaque ecran logicielement parlant
 
@@ -61,5 +62,8 @@ while True:
     except EOFError: #quand on arrive a la fin du gif alors sa reset les frames pour retourner au debut du fichier
         frameD = 0
         frameG = 0
+    except KeyboardInterrupt:
+        GPIO.output(23,0)
+        exit()
 #probleme actuel 
     #obligé de faire marcher chaque oeuil dans un thread different
