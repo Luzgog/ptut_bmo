@@ -5,56 +5,54 @@ import time
 import secrets
 
 ecranD = ST7789.ST7789(
-        height= 240,
-        rotation= 0,
-        port=0,
-        cs=ST7789.BG_SPI_CS_FRONT,  # BG_SPI_CS_BACK or BG_SPI_CS_FRONT
-        dc=9,
-        backlight=19,               # 18 for back BG slot, 19 for front BG slot.
-        spi_speed_hz=80 * 1000 * 1000,
-        offset_left= 40,
-        offset_top= 0
+        height= 240, #hauteur de l'ecran
+        rotation= 0, #rotation de 180 de l'ecran
+        port=0, #jsp ce que c'est mais ballec
+        cs=ST7789.BG_SPI_CS_FRONT, #choix de la broche esclave de l'ecran (ST7789.BG_SPI_CS_BACK = pin CE1)
+        dc=9, #choix de la pin data control
+        backlight=19, #choix de la pin du controle de l'eclairage
+        spi_speed_hz=80 * 1000 * 1000, #vitesse du spi
+        offset_left= 40, #decalage avec la gauche
+        offset_top= 0 #decalage avec le top
 )
 ecranG = ST7789.ST7789(
-        height= 240,
-        rotation= 180,
-        port=0,
-        cs=ST7789.BG_SPI_CS_BACK,  # BG_SPI_CS_BACK or BG_SPI_CS_FRONT
-        dc=9,
-        backlight=19,               # 18 for back BG slot, 19 for front BG slot.
-        spi_speed_hz=80 * 1000 * 1000,
-        offset_left= 40,
-        offset_top= 0
+        height= 240, #hauteur de l'ecran
+        rotation= 180, #rotation de 180 de l'ecran
+        port=0, #jsp ce que c'est mais ballec
+        cs=ST7789.BG_SPI_CS_BACK, #choix de la broche esclave de l'ecran (ST7789.BG_SPI_CS_BACK = pin CE0)
+        dc=9,#choix de la pin data control
+        backlight=19,#choix de la pin du controle de l'eclairage
+        spi_speed_hz=80 * 1000 * 1000, #vitesse du spi
+        offset_left= 40, #decalage avec la gauche
+        offset_top= 0 #decalage avec le top
 )
     # Initialize display.
 
-ecranD.begin()
-ecranG.begin()
+ecranD.begin() #on démare chaque ecran logicielement parlant
+ecranG.begin() #on démare chaque ecran logicielement parlant
 
-width = ecranD.width
-height = ecranD.height
+width = ecranD.width #on definie la largeur a partir des info des ecrans si dessus
+height = ecranD.height #on definie la hauteur a partir des info des ecrans si dessus
 # Load an image.
 
 aleatoire = secrets.randbelow(9) 
-imageD = Image.open("thumbs up/"+str(aleatoire)+".gif")
+imageD = Image.open("thumbs up/"+str(aleatoire)+".gif")#on met le gif dans la variable imageD
 aleatoire = secrets.randbelow(9) 
-imageG = Image.open("thumbs up/"+str(aleatoire)+".gif")
+imageG = Image.open("thumbs up/"+str(aleatoire)+".gif") #on met le gif dans la variable imageG
 
 frame = 0
 
 
 while True:
     try:
-        imageG.seek(frame)
-        imageD.seek(frame)
-        ecranD.display(imageD.resize((width, height)))
-        ecranG.display(imageG.resize((width, height)))
-        frame += 1
+        imageG.seek(frame) #on enregistre le nombre de frame dans le gif et on enregistre ce nombre dans frame
+        imageD.seek(frame) #on enregistre le nombre de frame dans le gif et on enregistre ce nombre dans frame
+        ecranD.display(imageD.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
+        ecranG.display(imageG.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
+        frame += 1 #on avance d'une frame
         time.sleep(0.02)
 
     except EOFError:
         frame = 0
     except KeyboardInterrupt:
-        imageG.close()
-        imageD.close()   
         print("press control-c again to quit")
