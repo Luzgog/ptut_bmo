@@ -28,6 +28,9 @@ ecranG = ST7789.ST7789(
         offset_top= 0 #decalage avec le top
 )
     # Initialize display.
+GPIO.setup(23,GPIO.OUT)
+    
+    
 GPIO.output(23,1)
 ecranD.begin() #on démare chaque ecran logicielement parlant
 ecranG.begin() #on démare chaque ecran logicielement parlant
