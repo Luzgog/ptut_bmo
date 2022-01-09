@@ -55,8 +55,9 @@ while True:
         ecranG.display(imageG.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
         
         frameG += 1 #on avance d'une frame
-        #frameD = 1
+        frameD += 1
         time.sleep(0.02)
 
     except EOFError:
-        frame = 0
+        frameD = 0
+        frameG = 0
