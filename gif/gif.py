@@ -46,10 +46,14 @@ frameD = 0
 
 while True:
     try:
+        print(frameG)
+        print(frameD)
         imageG.seek(frameG) #on enregistre le nombre de frame dans le gif et on enregistre ce nombre dans frame
         imageD.seek(frameD) #on enregistre le nombre de frame dans le gif et on enregistre ce nombre dans frame
+        
         ecranD.display(imageD.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
         ecranG.display(imageG.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
+        
         frameG += 1 #on avance d'une frame
         frameD += 1
         time.sleep(0.02)
