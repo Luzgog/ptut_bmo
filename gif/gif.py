@@ -58,6 +58,8 @@ while True:
         frameD += 1
         time.sleep(0.02)
 
-    except EOFError:
+    except EOFError: #quand on arrive a la fin du gif alors sa reset les frames pour retourner au debut du fichier
         frameD = 0
         frameG = 0
+#probleme actuel 
+    #obligé de faire marcher chaque oeuil dans un thread different
