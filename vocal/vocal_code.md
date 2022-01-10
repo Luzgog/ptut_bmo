@@ -6,7 +6,7 @@
 
 4:
 
-5:
+5:Shutdown
 
 6:SIMON
 
@@ -14,9 +14,9 @@
 
 8:
 
-9:
+9:Mode
 
-10:
+10:Paramètre
 
 11:
 
