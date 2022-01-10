@@ -67,11 +67,44 @@ void loop() {
               menu = LOW;
           }        
           if(buf[1] == 10){
-              Serial.println("Paramètre");
-              menu = LOW;
-          }
+            Serial.println("Paramètre");
+            buf[1] = 0;
+            delay(500);
+            
+            myVR.clear();
+            myVR.load((uint8_t)11);
+            myVR.load((uint8_t)12);
+            myVR.load((uint8_t)13);
+            myVR.load((uint8_t)14);
+            myVR.load((uint8_t)15);
+            myVR.load((uint8_t)16);
+            
+            while(menu == HIGH){
+              myVR.recognize(buf, 50);
+              
+              if(buf[1] == 11){
+                Serial.println("Vocal");
+                menu = LOW;
+              }
+              if(buf[1] == 12){
+                Serial.println("Ecran");
+                menu = LOW;
+              }
+              if(buf[1] == 13){
+                Serial.println("Meteo");
+                menu = LOW;
+              }        
+              if(buf[1] == 14){
+                Serial.println("Je sais pas");
+                  
+              }
+              if(buf[1] == 15){
+                Serial.println("Paramètre Suplementaire");
+                  
+              }
+            }
 
-        }
+          }
       }
    }
 }
