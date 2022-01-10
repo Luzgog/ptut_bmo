@@ -59,7 +59,7 @@ void loop() {
               menu = LOW;
           }
           if(buf[1] == 6){
-              Serial.println("Simon");
+              Serial.println("Francois");
               menu = LOW;
           }
           if(buf[1] == 9){
