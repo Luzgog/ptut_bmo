@@ -1,5 +1,6 @@
 #include <SoftwareSerial.h>
 #include "VoiceRecognitionV3.h"
+
 VR myVR(2,3);
 uint8_t buf[64];
 
@@ -31,7 +32,7 @@ void loop() {
   int ret;
   ret = myVR.recognize(buf, 50);
   if(ret>0){
-      
+
     myVR.clear();
     myVR.load((uint8_t)1);
     myVR.load((uint8_t)6);
