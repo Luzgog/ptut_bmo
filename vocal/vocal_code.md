@@ -6,7 +6,7 @@
 
 4:
 
-5:
+5:Shutdown
 
 6:SIMON
 
@@ -14,9 +14,9 @@
 
 8:
 
-9:
+9:Mode
 
-10:
+10:Paramètre
 
 11:
 
@@ -130,8 +130,8 @@
 
 66:
 
-67:
+67:ETEINT BMO
 
-68:ETEINT BMO
+68:TANTOUZE
 
 69:SECRET WORD
