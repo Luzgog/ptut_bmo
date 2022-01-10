@@ -9,7 +9,7 @@ uint8_t buf[64];
 void setup() { 
     myVR.begin(9600);
     Serial.begin(115200);
-    
+
     if(myVR.clear() == 0){
       Serial.println("Recognizer cleared.");
     }
@@ -31,10 +31,12 @@ void loop() {
   int ret;
   ret = myVR.recognize(buf, 50);
   if(ret>0){
+      
     myVR.clear();
     myVR.load((uint8_t)1);
     myVR.load((uint8_t)6);
     myVR.load((uint8_t)69);
+
     if(buf[1] == 1){
         Serial.println("hey BMO");    
     }
