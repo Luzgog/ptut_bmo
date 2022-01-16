@@ -3,7 +3,7 @@ opencv2
 CMakeFiles/
 build
 CMakeCache.txt
-entrainement/**
-result/**
-facial_reco/calibration/**
-facial_reco/image_simple/**
+facial_programme/entrainement/**
+facial_programme/result/**
+facial_programme/calibration/**
+facial_programme/image_simple/**
