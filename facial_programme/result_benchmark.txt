@@ -1,0 +1,21 @@
+Debut des tests
+data/haarcascades/haarcascade_frontalface_alt2.xml 
+data/haarcascades/haarcascade_frontalface_alt2.xml : 427.23887290700003, detection : 431
+data/haarcascades/haarcascade_frontalface_alt_tree.xml 
+data/haarcascades/haarcascade_frontalface_alt_tree.xml : 268.887327196, detection : 1
+data/haarcascades/haarcascade_frontalface_alt.xml 
+data/haarcascades/haarcascade_frontalface_alt.xml : 418.019608769, detection : 415
+data/haarcascades/haarcascade_frontalface_default.xml 
+data/haarcascades/haarcascade_frontalface_default.xml : 308.4923662420001, detection : 596
+data/lbpcascades/lbpcascade_frontalface_improved.xml 
+data/lbpcascades/lbpcascade_frontalface_improved.xml : 204.9195685950001, detection : 539
+data/lbpcascades/lbpcascade_frontalface.xml 
+data/lbpcascades/lbpcascade_frontalface.xml : 165.62250351600005, detection : 386
+dlib 
+dlib : 13968.431173542, detection : 672
+dlib_hog 
+dlib_hog : 597.8120057739998, detection : 427
+face_recognition cnn
+face_recognition cnn: 13950.923424257999, detection : 0
+face_recognition hog
+face_recognition hog: 724.1539680149981, detection : 0
