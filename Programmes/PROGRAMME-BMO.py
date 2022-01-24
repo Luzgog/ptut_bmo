@@ -27,7 +27,7 @@ url_weather = "http://api.openweathermap.org/data/2.5/weather?q="+ville+"&APPID=
 #variable i2c arduino raspberry
 
 addr = 0x8 # addr de l'arduino(i2c)
-arduinobus = smbus.SMBus(1) # creation du bus i2c   
+#arduinobus = smbus.SMBus(1) # creation du bus i2c   
 recu = 0
 
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
