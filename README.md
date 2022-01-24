@@ -142,6 +142,12 @@ avancer dans la reconnaisance vocal(bastien)
 matos qui manque :
 
 1 clé wifi usb
+
+
 1 disque dure(optionnel)
+
+
 1 haut parleur
+
+
 1 carte son audio et micro en usb
