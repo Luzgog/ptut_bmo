@@ -341,7 +341,7 @@ if __name__ == "__main__":
     threadEMO = threading.Thread(target=Humeur_BMO)
     threadEMO.start()
     threadWEB.start()
-    app.run(host='0.0.0.0')
+    app.run(host='10.3.141.1')
 
 #--------------------------------------------------------------
 #boucle
