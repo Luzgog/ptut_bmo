@@ -104,32 +104,44 @@ Nos problemes:
 ----------------
 a faire :
 
-faire le systeme d'ampli audio
+faire le systeme d'ampli audio(inshalla celui que j'ai acheter fonctionne bien)
 
 
-faire la tête de bmo
+faire la tête de bmo(nino)
 
 
-finir le pcb
+finir le pcb(dimitri)
 
 
-commander les composant pour le pcb
+commander les composant pour le pcb(tous ensemble avec moulin)
 
 
-faire la synthese vocal
+faire la synthese vocal et la reconnaisance(dimitri)
 
 
-regarder si les ecrans et l'arduino ne s'embrouille pas avec l'i2c
+preparer le compte rendu(mateo)
 
 
-refaire le shema de BMO avec les nouveau trucs(ampli ,arduino ,module vocal)
+faire un systeme de memoire des paramètres(dimitri) 
 
 
-preparer le compte rendu
+faire le systeme de routeur wifi(raspap)(necessite la clé wifi)(--disponible--)
 
 
-faire un systeme de memoire des paramètres 
+faire les yeux un peut plus epuré(maxime)
+
+
+faire le qrcode pour ce connecter au routeur BMO(quelqu'un)
+
+
+avancer dans la reconnaisance vocal(bastien)
 
 
 ----------------
 
+matos qui manque :
+
+1 clé wifi usb
+1 disque dure(optionnel)
+1 haut parleur
+1 carte son audio et micro en usb
