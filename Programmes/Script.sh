@@ -32,6 +32,7 @@ if (whiptail --title "Installation" --yesno "voulez vous lancer l'installation o
     sudo apt-get dist-upgrade -y |lolcat
     sudo rpi-update -y |lolcat
     sudo apt-get upgrade -y |lolcat
+    sudo apt-get full-upgrade -y |lolcat
     sudo apt update -y |lolcat
     echo ""
 
