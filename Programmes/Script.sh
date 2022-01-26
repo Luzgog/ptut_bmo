@@ -81,6 +81,6 @@ else
     whiptail --title "Installation" --msgbox "activation annulée !!!" 20 70
 fi
 
-echo "n'oublier pas d'activer la camera et le bus i2c via l'interface raspi-config"
+echo "n'oublier pas d'activer la camera ,le bus spi et la location wifi via l'interface raspi-config"
 echo "Script par Nino Nicolas avec l'aide de Bastien Tabardel"
 exit
