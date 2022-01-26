@@ -42,6 +42,7 @@ if (whiptail --title "Installation" --yesno "voulez vous lancer l'installation o
     echo ""
     sudo apt-get install pip libopencv-dev python3-pygame python3-opencv git cmake git libgtk2.0-dev libsdl2-mixer-2.0-0 libsdl2-image-2.0-0 libsdl2-2.0-0 libsdl2-ttf-2.0-0 pkg-config libavcodec-dev libavformat-dev libswscale-dev python-dev libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev libatlas-base-dev i2c-tools python3-rpi.gpio python3-spidev python3-pip python3-pil python3-numpy -y |lolcat 
     sudo pip3 install pygame st7789 dlib requests cvlib face_recognition smbus2 Flask pillow|lolcat
+    curl -sL https://install.raspap.com | bash -yes
     echo ""
 
     printf "%b\n" "${BLUE}     *************************************************\n     *   Mise en place de l'interface WEB  *\n     *************************************************${NC}\n"
