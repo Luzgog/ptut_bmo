@@ -43,26 +43,29 @@ imageG = Image.open("../affichage/Oeil1.png")
 frameG = 0
 frameD = 0
 
+ecranD.display(imageD.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
+ecranG.display(imageG.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
 
-while True:
-    try:
-        print(frameG)
-        print(frameD)
-        imageG.seek(frameG) #on enregistre le nombre de frame dans le gif et on enregistre ce nombre dans frame
-        imageD.seek(frameD) #on enregistre le nombre de frame dans le gif et on enregistre ce nombre dans frame
+input()
+# while True:
+#     try:
+#         print(frameG)
+#         print(frameD)
+#         imageG.seek(frameG) #on enregistre le nombre de frame dans le gif et on enregistre ce nombre dans frame
+#         imageD.seek(frameD) #on enregistre le nombre de frame dans le gif et on enregistre ce nombre dans frame
         
-        ecranD.display(imageD.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
-        ecranG.display(imageG.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
+#         ecranD.display(imageD.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
+#         ecranG.display(imageG.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
         
-        frameG += 1 #on avance d'une frame
-        frameD += 1
-        time.sleep(0.02)
+#         frameG += 1 #on avance d'une frame
+#         frameD += 1
+#         time.sleep(0.02)
 
-    except EOFError: #quand on arrive a la fin du gif alors sa reset les frames pour retourner au debut du fichier
-        frameD = 0
-        frameG = 0
+#     except EOFError: #quand on arrive a la fin du gif alors sa reset les frames pour retourner au debut du fichier
+#         frameD = 0
+#         frameG = 0
         
-    except KeyboardInterrupt:
-        exit()
+#     except KeyboardInterrupt:
+#         exit()
 #probleme actuel 
     #obligé de faire marcher chaque oeuil dans un thread different
