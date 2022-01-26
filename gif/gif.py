@@ -34,10 +34,11 @@ width = ecranD.width #on definie la largeur a partir des info des ecrans si dess
 height = ecranD.height #on definie la hauteur a partir des info des ecrans si dessus
 # Load an image.
 
-aleatoire = secrets.randbelow(9) 
-imageD = Image.open("thumbs up/"+str(aleatoire)+".gif")#on met le gif dans la variable imageD
-aleatoire = secrets.randbelow(9) 
-imageG = Image.open("thumbs up/"+str(aleatoire)+".gif") #on met le gif dans la variable imageG
+# aleatoire = secrets.randbelow(9) 
+imageD = Image.open("../affichage/Oeil1.png")#on met le gif dans la variable imageD
+# aleatoire = secrets.randbelow(9) 
+# imageG = Image.open("thumbs up/"+str(aleatoire)+".gif") #on met le gif dans la variable imageG
+imageG = Image.open("../affichage/Oeil1.png")
 
 frameG = 0
 frameD = 0
