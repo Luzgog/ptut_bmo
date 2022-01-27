@@ -7,7 +7,7 @@ import secrets
 ecranD = ST7789.ST7789(
         height= 240, #hauteur de l'ecran
         rotation= 0, #rotation de 180 de l'ecran
-        port=0, #jsp ce que c'est mais ballec
+        port=0,
         cs=ST7789.BG_SPI_CS_FRONT, #choix de la broche esclave de l'ecran (ST7789.BG_SPI_CS_BACK = pin CE1)
         dc=9, #choix de la pin data control
         backlight=19, #choix de la pin du controle de l'eclairage
@@ -18,7 +18,7 @@ ecranD = ST7789.ST7789(
 ecranG = ST7789.ST7789(
         height= 240, #hauteur de l'ecran
         rotation= 180, #rotation de 180 de l'ecran
-        port=0, #jsp ce que c'est mais ballec
+        port=0,
         cs=ST7789.BG_SPI_CS_BACK, #choix de la broche esclave de l'ecran (ST7789.BG_SPI_CS_BACK = pin CE0)
         dc=9,#choix de la pin data control
         backlight=19,#choix de la pin du controle de l'eclairage
@@ -34,19 +34,25 @@ width = ecranD.width #on definie la largeur a partir des info des ecrans si dess
 height = ecranD.height #on definie la hauteur a partir des info des ecrans si dessus
 # Load an image.
 
+# Load d'un png
+imageD = Image.open("../affichage/Oeil1.png") #on met le png dans la variable imageD
+imageG = Image.open("../affichage/Oeil1.png") #on met le png dans la variable imageG
+
+# Load d'un gif aleatoire
 # aleatoire = secrets.randbelow(9) 
-imageD = Image.open("../affichage/Oeil1.png")#on met le gif dans la variable imageD
-# aleatoire = secrets.randbelow(9) 
+# imageD = Image.open("thumbs up/"+str(aleatoire)+".gif") #on met le gif dans la variable imageD
+# aleatoire = secrets.randbelow(9)
 # imageG = Image.open("thumbs up/"+str(aleatoire)+".gif") #on met le gif dans la variable imageG
-imageG = Image.open("../affichage/Oeil1.png")
 
 frameG = 0
 frameD = 0
 
-ecranD.display(imageD.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
-ecranG.display(imageG.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
+ecranD.display(imageD.resize((width, height))) #on prend l'image (png / gif) et on la resize a la taille de l'ecran
+ecranG.display(imageG.resize((width, height))) #on prend l'image (png / gif) et on la resize a la taille de l'ecran
 
 input()
+
+# Boucle pour les gifs
 # while True:
 #     try:
 #         print(frameG)
