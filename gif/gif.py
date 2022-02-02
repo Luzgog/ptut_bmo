@@ -34,44 +34,37 @@ width = ecranD.width #on definie la largeur a partir des info des ecrans si dess
 height = ecranD.height #on definie la hauteur a partir des info des ecrans si dessus
 # Load an image.
 
-# Load d'un png
-imageD = Image.open("../affichage/Oeil1.png") #on met le png dans la variable imageD
-imageG = Image.open("../affichage/Oeil1.png") #on met le png dans la variable imageG
-
 # Load d'un gif aleatoire
-# aleatoire = secrets.randbelow(9) 
-# imageD = Image.open("thumbs up/"+str(aleatoire)+".gif") #on met le gif dans la variable imageD
-# aleatoire = secrets.randbelow(9)
-# imageG = Image.open("thumbs up/"+str(aleatoire)+".gif") #on met le gif dans la variable imageG
+aleatoire = secrets.randbelow(9) 
+imageD = Image.open("thumbs up/"+str(aleatoire)+".gif") #on met le gif dans la variable imageD
+aleatoire = secrets.randbelow(9)
+imageG = Image.open("thumbs up/"+str(aleatoire)+".gif") #on met le gif dans la variable imageG
 
 frameG = 0
 frameD = 0
 
-ecranD.display(imageD.resize((width, height))) #on prend l'image (png / gif) et on la resize a la taille de l'ecran
-ecranG.display(imageG.resize((width, height))) #on prend l'image (png / gif) et on la resize a la taille de l'ecran
-
 input()
 
 # Boucle pour les gifs
-# while True:
-#     try:
-#         print(frameG)
-#         print(frameD)
-#         imageG.seek(frameG) #on enregistre le nombre de frame dans le gif et on enregistre ce nombre dans frame
-#         imageD.seek(frameD) #on enregistre le nombre de frame dans le gif et on enregistre ce nombre dans frame
+while True:
+     try:
+        print(frameG)
+        print(frameD)
+        imageG.seek(frameG) #on enregistre le nombre de frame dans le gif et on enregistre ce nombre dans frame
+        imageD.seek(frameD) #on enregistre le nombre de frame dans le gif et on enregistre ce nombre dans frame
         
-#         ecranD.display(imageD.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
-#         ecranG.display(imageG.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
+        ecranD.display(imageD.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
+        ecranG.display(imageG.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
         
-#         frameG += 1 #on avance d'une frame
-#         frameD += 1
-#         time.sleep(0.02)
+        frameG += 1 #on avance d'une frame
+        frameD += 1
+        time.sleep(0.02)
 
-#     except EOFError: #quand on arrive a la fin du gif alors sa reset les frames pour retourner au debut du fichier
-#         frameD = 0
-#         frameG = 0
+     except EOFError: #quand on arrive a la fin du gif alors sa reset les frames pour retourner au debut du fichier
+        frameD = 0
+        frameG = 0
         
-#     except KeyboardInterrupt:
-#         exit()
+     except KeyboardInterrupt:
+        exit()
 #probleme actuel 
-    #obligé de faire marcher chaque oeuil dans un thread different
+        #obligé de faire marcher chaque oeuil dans un thread different
