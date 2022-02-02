@@ -95,11 +95,11 @@ class Facial_reco:
         bottom = faces[0][1]+faces[0][3]
         left = faces[0][0]
         return [(top, right, bottom, left)]
-
-facial_reco = Facial_reco(2)
-facial_reco.start()
-time.sleep(10)
-facial_reco.stop()
+if __name__ == "__main__":
+    facial_reco = Facial_reco(2)
+    facial_reco.start()
+    time.sleep(10)
+    facial_reco.stop()
 
 
 
