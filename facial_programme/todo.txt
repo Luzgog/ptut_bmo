@@ -1,4 +1,0 @@
-tester avec le multithreading
-tester avec le multiprocessing
-ameliorer la resolution
-si perf trop basse faire passer par un ordi a pars

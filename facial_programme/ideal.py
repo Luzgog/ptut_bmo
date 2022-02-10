@@ -4,7 +4,7 @@ import numpy as np
 import pickle
 import time
 import threading
-class VideoCapture:
+class VideoCapture:#lance un thread qui ne fait que capturer les images de la cam
     def __init__(self, name):
         self.cap = cv2.VideoCapture(name)
         _, frame = self.cap.read()
@@ -15,14 +15,13 @@ class VideoCapture:
         self.t.daemon = True
         self.t.start()
 
-  # read frames as soon as they are available, keeping only most recent one
     def _reader(self):
         while self.running:
             ret, frame = self.cap.read()
             if not ret:
                 break
-            self.lock.acquire()
-            self.frame = frame
+            self.lock.acquire()#permet d'etre thread safe
+            self.frame = frame#on ne garde que la derniere thread
             self.lock.release()
 
     def read(self):
@@ -40,7 +39,7 @@ class VideoCapture:
 
 
 class Facial_reco:
-    def __init__(self, index_capture):
+    def __init__(self, index_capture=0 , resize = 0.25):
         self.process = False
         self.t = threading.Thread(target=self.detect)
         self.video_capture = VideoCapture(index_capture)
@@ -48,6 +47,7 @@ class Facial_reco:
         self.known_face_encodings = np.array(self.known_face_encodings)
         self.face_cascade = cv2.CascadeClassifier("lbpcascade_frontalface_improved.xml")
         self.face_encoding = []
+        self.resize = resize
         
     def detect(self):
         while self.process:
@@ -61,7 +61,7 @@ class Facial_reco:
         self.video_capture.release()
     def detection(self):
         frame = self.video_capture.read()
-        gray, img = self.traitement_image(frame)
+        gray, img = self.traitement_image(frame, self.resize)
         faces = self.face_cascade.detectMultiScale(gray, 1.1, 4)
         if not isinstance(faces, tuple):
             convert = self.convert_opencv_to_face_recognition(faces)
@@ -82,21 +82,28 @@ class Facial_reco:
         with open("encodage", 'rb') as f:#on ouvre le fichier encodage
             known_face_encodings, known_face_names = pickle.load(f)#on reprend les objets qui etait dans le fichier
         return known_face_encodings, known_face_names
-    def traitement_image(self,img):  
+    def traitement_image(self,img, resize):  
         #crop = img[100:480 , 200:550]
-        #small_frame = cv2.resize(img, (0, 0), fx=0.25, fy=0.25)#division de la taille par 4 pour gagner en rapidité (mais perte precision)
+        small_frame = cv2.resize(img, (0, 0), fx=resize, fy=resize)#division de la taille par 4 pour gagner en rapidité (mais perte precision)
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)#on convertie en noir et blanc
         # return gray, small_frame
-        return gray, img
+        return gray, small_frame
 
     def convert_opencv_to_face_recognition(self, faces):
+        """
+        Opencv et face_recognition utilise pas le meme objet pour montrer ou se trouve un visage,
+        opencv nous donne 1 point d'un rectangle avec la hauteur et largeur du rectangle tandis que facial_recognition utilise
+        les coeerdonné des 2 extremité du rectangle
+        Cette fonction permet de convertir le mode d'opencv a facial_recogntion car il s'est averé que 
+        opencv est plus rapide a detecter les visage que facial_recognition
+        """
         top = faces[0][1]
         right =  faces[0][0]+faces[0][2]
         bottom = faces[0][1]+faces[0][3]
         left = faces[0][0]
         return [(top, right, bottom, left)]
-if __name__ == "__main__":
-    facial_reco = Facial_reco(2)
+if __name__ == "__main__":#test
+    facial_reco = Facial_reco(0)#index 0 pour le pi et 2 pour la webcam brancher a mon ordi
     facial_reco.start()
     time.sleep(10)
     facial_reco.stop()
