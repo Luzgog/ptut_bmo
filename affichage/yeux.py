@@ -33,6 +33,14 @@ ecranG.begin() #on démare chaque ecran logicielement parlant
 width = ecranD.width #on definie la largeur a partir des info des ecrans si dessus
 height = ecranD.height #on definie la hauteur a partir des info des ecrans si dessus
 
+emotion = {
+        "content" : (Image.open("Oeil1.png"), Image.open("Oeil1.png")),
+        "pas_content": (Image.open("pas_content_D.png"), Image.open("pas_content_G.png")),
+        "dodo" : (Image.open("dodo_D.png"), Image.open("dodo_G.png")),
+        "triste" : (Image.open("triste_D.png"), Image.open("triste_G.png")),
+        "etourdi" : (Image.open("etourdi_D.png"), Image.open("etourdi_G.png"))
+        }
+imgeD, imageG = emotion["content"]
 # Load d'un png
 imageD = Image.open("Oeil1.png") #on met le png dans la variable imageD
 imageG = Image.open("Oeil1.png") #on met le png dans la variable imageG

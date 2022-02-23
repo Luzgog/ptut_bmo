@@ -144,7 +144,7 @@ def WEB():
     while True:
         chaleur = CPUTemperature().temperature
         meteo_api()
-        #arduinobus.write_byte(addr, 101)
+        #arduinobus.tristewrite_byte(addr, 101)
         #time.sleep(0.5)
         #battery = arduinobus.read_byte(addr)
         etats = "allumé"
