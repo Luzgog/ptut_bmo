@@ -6,12 +6,10 @@ import time
 import threading
 import sys
 class VideoCapture:#lance un thread qui ne fait que capturer les images de la cam
-    def __init__(self):
-        i = 0
-        self.cap = cv2.VideoCapture(i)
-        while not self.cap.isOpened() and i<10:
-            i+=1
-            self.cap = cv2.VideoCapture(i)
+    def __init__(self, name):
+
+        self.cap = cv2.VideoCapture(name)
+
         if i ==10:
             print("Camera index introuvable")
             sys.exit(1)
@@ -44,10 +42,10 @@ class VideoCapture:#lance un thread qui ne fait que capturer les images de la ca
 
 
 class Facial_reco:
-    def __init__(self, condition_object , resize = 0.25, ):
+    def __init__(self, condition_object ,index_capture =0, resize = 0.25, ):
         self.process = False
         self.t = threading.Thread(target=self.detect)
-        self.video_capture = VideoCapture()
+        self.video_capture = VideoCapture(index_capture)
         self.known_face_encodings , self.known_face_names = self.encodage_visage()
         self.known_face_encodings = np.array(self.known_face_encodings)
         self.face_cascade = cv2.CascadeClassifier("lbpcascade_frontalface_improved.xml")
@@ -110,7 +108,7 @@ class Facial_reco:
         left = faces[0][0]
         return [(top, right, bottom, left)]
 if __name__ == "__main__":#test
-    c = threadingCondition()    
+    c = threadingCondition()
     facial_reco = Facial_reco(c , 0)#index 0 pour le pi et 2 pour la webcam brancher a mon ordi
     facial_reco.start()
     time.sleep(10)
