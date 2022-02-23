@@ -65,10 +65,10 @@ else
     echo ""
     sudo mkdir /home/pi/BMO
     sudo mv /home/pi/ptut_bmo/WEB/static /home/pi/BMO
-    sudo mv /home/pi/ptut_bmo/affichage_oled /home/pi/BMO
-    sudo mv /home/pi/ptut_bmo/Programmes/PROGRAMME-BMO.py /home/pi/BMO
+    sudo mv /home/pi/ptut_bmo/affichage /home/pi/BMO
+    sudo mv /home/pi/ptut_bmo/Programmes/home/pi/BMO
     sudo mv /home/pi/ptut_bmo/son/boot.wav /home/pi/BMO
-
+    sudo mv /home/pi/ptut_bmo/encodage /home/pi/BMO
 fi
 
 echo ""
