@@ -205,7 +205,7 @@ def dodo():
 def joueur():
     global emotion
     #yeux dodo
-    emotion = {"joueur": (Image.open("affichage/Oeil1.png"), Image.open("affichage/Oeil1.png"))}
+    emotion = {"joueur": (Image.open("affichage/Oeil1.png"))}
     print("joueur")
     imgeD, imageG = emotion["joueur"]
     ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
