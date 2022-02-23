@@ -9,10 +9,6 @@ class VideoCapture:#lance un thread qui ne fait que capturer les images de la ca
     def __init__(self, name):
 
         self.cap = cv2.VideoCapture(name)
-
-        if i ==10:
-            print("Camera index introuvable")
-            sys.exit(1)
         _, frame = self.cap.read()
         self.frame=frame
         self.running = True
