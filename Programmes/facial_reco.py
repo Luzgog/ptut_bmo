@@ -109,7 +109,7 @@ class Facial_reco:
         return [(top, right, bottom, left)]
 if __name__ == "__main__":#test
     c = threadingCondition()
-    facial_reco = Facial_reco(c , 0)#index 0 pour le pi et 2 pour la webcam brancher a mon ordi
+    facial_reco = Facial_reco(c , 1)#index 0 pour le pi et 2 pour la webcam brancher a mon ordi
     facial_reco.start()
     time.sleep(10)
     facial_reco.stop()
