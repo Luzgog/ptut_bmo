@@ -80,7 +80,7 @@ class Facial_reco:
                 condition_object.notify()
             condition_object.acquire()
     def encodage_visage(self):
-        with open("encodage", 'rb') as f:#on ouvre le fichier encodage
+        with open("../encodage", 'rb') as f:#on ouvre le fichier encodage
             known_face_encodings, known_face_names = pickle.load(f)#on reprend les objets qui etait dans le fichier
         return known_face_encodings, known_face_names
     def traitement_image(self,img, resize):  
