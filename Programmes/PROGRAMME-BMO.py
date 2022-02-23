@@ -385,7 +385,7 @@ def quand_visage_detecté():
 #Initialisation
 if __name__ == "__main__":
     
-    facial = facial_reco.Facial_reco(c, 2)
+    facial = facial_reco.Facial_reco(c, 0)
     pygame.mixer.init()
     #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
     #son de démarage
