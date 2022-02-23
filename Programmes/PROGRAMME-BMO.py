@@ -216,7 +216,7 @@ def joueur():
 def amour():
     global emotion   
     #yeux dodo
-    emotion = "amour"
+    emotion = {"amour": (Image.open("affichage/coeur.png"))}
     print("amour")
     imgeD, imageG = emotion["amour"]
     ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
