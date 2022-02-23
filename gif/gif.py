@@ -46,7 +46,8 @@ frameD = 0
 input()
 
 # Boucle pour les gifs
-while True:
+X=0
+while X<2:
      try:
         print(frameG)
         print(frameD)
@@ -63,6 +64,7 @@ while True:
      except EOFError: #quand on arrive a la fin du gif alors sa reset les frames pour retourner au debut du fichier
         frameD = 0
         frameG = 0
+        X=X+1
         
      except KeyboardInterrupt:
         exit()

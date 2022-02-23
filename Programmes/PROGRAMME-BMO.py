@@ -170,31 +170,43 @@ def heureux():
 def triste():
     #yeux triste
     global emotion
-    emotion = "triste"
+    emotion = {"triste": (Image.open("triste_D.png"), Image.open("triste_G.png"))}
     print("triste")
+    imgeD, imageG = emotion["triste"]
+    ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
+    ecranG.display(imageG.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
     
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
 def fatigue():
     global emotion
     #yeux fatiguer
-    emotion = "fatigue"
+    emotion = {"fatigue": (Image.open("etourdi_D.png"), Image.open("etourdi_G.png"))}
     print("fatigue")
+    imgeD, imageG = emotion["fatigue"]
+    ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
+    ecranG.display(imageG.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
     
     
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo  
 def dodo():
     global emotion   
     #yeux dodo
-    emotion = "endormie"
+    emotion = {"endormie": (Image.open("dodo_D.png"), Image.open("dodo_G.png"))}
     print("dodo")
+    imgeD, imageG = emotion["endormie"]
+    ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
+    ecranG.display(imageG.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
     
         
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo 
 def joueur():
     global emotion
     #yeux dodo
-    emotion = "joueur"
+    emotion = {"joueur": (Image.open("Oeil1.png"), Image.open("Oeil1.png"))}
     print("joueur")
+    imgeD, imageG = emotion["joueur"]
+    ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
+    ecranG.display(imageG.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
   
     
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo 
@@ -203,13 +215,43 @@ def amour():
     #yeux dodo
     emotion = "amour"
     print("amour")
+    imgeD, imageG = emotion["amour"]
+    ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
+    ecranG.display(imageG.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
     
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo 
 def error():
     global emotion   
     #yeux dodo
-    emotion = "error"
+    emotion = {"error": (Image.open("Shutdown.gif"))}
     print("error")
+    imgeD, imageG = emotion["error"]
+    frameG = 0
+    frameD = 0
+    # Boucle pour les gifs
+    X=0
+    while X<2:
+        try:
+            print(frameG)
+            print(frameD)
+            imageG.seek(frameG) #on enregistre le nombre de frame dans le gif et on enregistre ce nombre dans frame
+            imageD.seek(frameD) #on enregistre le nombre de frame dans le gif et on enregistre ce nombre dans frame
+        
+            ecranD.display(imageD.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
+            ecranG.display(imageG.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
+        
+            frameG += 1 #on avance d'une frame
+            frameD += 1
+            time.sleep(0.02)
+
+        except EOFError: #quand on arrive a la fin du gif alors sa reset les frames pour retourner au debut du fichier
+            frameD = 0
+            frameG = 0
+            X=X+1
+        
+        except KeyboardInterrupt:
+            exit()
+
     
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo     
 #--------------------------------------------------------------
@@ -299,6 +341,7 @@ def Humeur_BMO():
 
         else:
             dodo()
+        
         print (aleatoire)    
         print (Chance_Heureux)
         print (Chance_Triste)
