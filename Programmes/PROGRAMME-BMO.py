@@ -13,7 +13,7 @@ import os
 import pygame
 import requests
 import json
-
+import facial_reco
 #--------------------------------------------------------------
 #variables:
 print("initialisation des variables")
@@ -48,7 +48,10 @@ battery = 100
 etats = 0
 humeure = 0
 recharge = 0
+name = "Unknown"
+c = threading.Condition()
 
+visage_detect_running = True
 #--------------------------------------------------------------
 #--------------------------------------------------------------
 #--------------------------------------------------------------
@@ -368,9 +371,21 @@ def meteo_api():
 #--------------------------------------------------------------    
 #--------------------------------------------------------------
 #--------------------------------------------------------------
+
+def quand_visage_detecté():
+    global name
+    while visage_detect_running:
+        c.acquire()
+        c.wait()
+        print(facial_reco.name)
+        c.release()
+
+
+
 #Initialisation
 if __name__ == "__main__":
     
+    facial = facial_reco(c)
     pygame.mixer.init()
     #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
     #son de démarage
@@ -384,6 +399,7 @@ if __name__ == "__main__":
     threadEMO = threading.Thread(target=Humeur_BMO)
     threadEMO.start()
     threadWEB.start()
+    facial.start()
     app.run(host='10.3.141.1')
 
 #--------------------------------------------------------------

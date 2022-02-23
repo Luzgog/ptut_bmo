@@ -32,20 +32,17 @@ class VideoCapture:#lance un thread qui ne fait que capturer les images de la ca
     def release(self):
         self.running=False
         self.cap.release()
-  
-
-
 
 
 
 class Facial_reco:
-    def __init__(self, index_capture=0 , resize = 0.25):
+    def __init__(self, condition_object , index_capture=0 , resize = 0.25, ):
         self.process = False
         self.t = threading.Thread(target=self.detect)
         self.video_capture = VideoCapture(index_capture)
         self.known_face_encodings , self.known_face_names = self.encodage_visage()
         self.known_face_encodings = np.array(self.known_face_encodings)
-        self.face_cascade = cv2.CascadeClassifier("../facial_programme/lbpcascade_frontalface_improved.xml")
+        self.face_cascade = cv2.CascadeClassifier("lbpcascade_frontalface_improved.xml")
         self.face_encoding = []
         self.resize = resize
         
@@ -60,6 +57,7 @@ class Facial_reco:
         self.process =False
         self.video_capture.release()
     def detection(self):
+        global name
         frame = self.video_capture.read()
         gray, img = self.traitement_image(frame, self.resize)
         faces = self.face_cascade.detectMultiScale(gray, 1.1, 4)
@@ -72,14 +70,15 @@ class Facial_reco:
             # print(type(face_encoding))
             # print(type(known_face_encodings))
             matches = face_recognition.compare_faces(self.known_face_encodings, np.array(self.face_encoding))
+            condition_object.acquire()
             name = "Unknown"
-
             if True in matches:
                 first_match_index = matches.index(True)
                 name = self.known_face_names[first_match_index]
-            print(name)
+                condition_object.notify()
+            condition_object.acquire()
     def encodage_visage(self):
-        with open("../facial_programme/encodage", 'rb') as f:#on ouvre le fichier encodage
+        with open("encodage", 'rb') as f:#on ouvre le fichier encodage
             known_face_encodings, known_face_names = pickle.load(f)#on reprend les objets qui etait dans le fichier
         return known_face_encodings, known_face_names
     def traitement_image(self,img, resize):  
@@ -103,10 +102,10 @@ class Facial_reco:
         left = faces[0][0]
         return [(top, right, bottom, left)]
 if __name__ == "__main__":#test
-    facial_reco = Facial_reco(0)#index 0 pour le pi et 2 pour la webcam brancher a mon ordi
+    c = threadingCondition()    
+    facial_reco = Facial_reco(c , 0)#index 0 pour le pi et 2 pour la webcam brancher a mon ordi
     facial_reco.start()
     time.sleep(10)
     facial_reco.stop()
-
 
 
