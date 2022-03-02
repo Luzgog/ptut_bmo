@@ -42,8 +42,8 @@ emotion = {
         }
 imgeD, imageG = emotion["content"]
 # Load d'un png
-imageD = Image.open("content") #on met le png dans la variable imageD
-imageG = Image.open("content") #on met le png dans la variable imageG
+imageD = Image.open("triste") #on met le png dans la variable imageD
+imageG = Image.open("triste") #on met le png dans la variable imageG
 
 ecranD.display(imageD.resize((width, height))) #on prend l'image (png / gif) et on la resize a la taille de l'ecran
 ecranG.display(imageG.resize((width, height))) #on prend l'image (png / gif) et on la resize a la taille de l'ecran
