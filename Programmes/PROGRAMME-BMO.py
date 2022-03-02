@@ -173,7 +173,7 @@ def heureux():
 def triste():
     #yeux triste
     global emotion
-    emotion = {"triste": (Image.open("affichage/triste_D.png"), Image.open("affichage/triste_G.png"))}
+    emotion = {"triste": (Image.open("../affichage/triste_D.png"), Image.open("../affichage/triste_G.png"))}
     print("triste")
     imgeD, imageG = emotion["triste"]
     ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
@@ -183,7 +183,7 @@ def triste():
 def fatigue():
     global emotion
     #yeux fatiguer
-    emotion = {"fatigue": (Image.open("affichage/etourdi_D.png"), Image.open("affichage/etourdi_G.png"))}
+    emotion = {"fatigue": (Image.open("../affichage/etourdi_D.png"), Image.open("../affichage/etourdi_G.png"))}
     print("fatigue")
     imgeD, imageG = emotion["fatigue"]
     ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
@@ -194,7 +194,7 @@ def fatigue():
 def dodo():
     global emotion   
     #yeux dodo
-    emotion = {"endormie": (Image.open("affichage/dodo_D.png"), Image.open("affichage/dodo_G.png"))}
+    emotion = {"endormie": (Image.open("../affichage/dodo_D.png"), Image.open("../affichage/dodo_G.png"))}
     print("dodo")
     imgeD, imageG = emotion["endormie"]
     ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
@@ -205,7 +205,7 @@ def dodo():
 def joueur():
     global emotion
     #yeux dodo
-    emotion = {"joueur": (Image.open("affichage/content.png"), Image.open("../affichage/content.png"))}
+    emotion = {"joueur": (Image.open("../affichage/content.png"), Image.open("../affichage/content.png"))}
     print("joueur")
     imgeD, imageG = emotion["joueur"]
     ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
@@ -216,7 +216,7 @@ def joueur():
 def amour():
     global emotion   
     #yeux dodo
-    emotion = {"amour": (Image.open("affichage/coeur.png"),Image.open("../affichage/coeur.png"))}
+    emotion = {"amour": (Image.open("../affichage/coeur.png"),Image.open("../affichage/coeur.png"))}
     print("amour")
     imgeD, imageG = emotion["amour"]
     ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
@@ -389,7 +389,7 @@ if __name__ == "__main__":
     pygame.mixer.init()
     #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
     #son de démarage
-    demarage = pygame.mixer.Sound('.boot.wav')
+    demarage = pygame.mixer.Sound('../son/boot.wav')
     demarage.set_volume(1.0)
     demarage.play()
     while pygame.mixer.music.get_busy() == True:
