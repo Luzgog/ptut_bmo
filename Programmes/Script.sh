@@ -62,7 +62,8 @@ echo ""
 
 if (whiptail --title "Installation" --yesno "voulez vous activer BMO ?" --yes-button "oui" --no-button "non" 20 70) then
     clear
-    python3 /home/pi/ptut_bmo/Programmes/PROGRAMME-BMO.py 
+    cd python3 /home/pi/ptut_bmo/Programmes/
+    python3 PROGRAMME-BMO.py 
 
 else
     whiptail --title "Installation" --msgbox "activation annulée !!!" 20 70
