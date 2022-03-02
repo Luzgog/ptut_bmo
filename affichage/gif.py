@@ -36,9 +36,9 @@ height = ecranD.height #on definie la hauteur a partir des info des ecrans si de
 
 # Load d'un gif aleatoire
 aleatoire = secrets.randbelow(9) 
-imageD = Image.open("thumbs up/"+str(aleatoire)+".gif") #on met le gif dans la variable imageD
+imageD = Image.open("PTDR.gif") #on met le gif dans la variable imageD
 aleatoire = secrets.randbelow(9)
-imageG = Image.open("thumbs up/"+str(aleatoire)+".gif") #on met le gif dans la variable imageG
+imageG = Image.open("PTDR.gif") #on met le gif dans la variable imageG
 
 frameG = 0
 frameD = 0
