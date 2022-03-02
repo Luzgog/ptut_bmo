@@ -44,7 +44,7 @@ class Facial_reco:
         self.video_capture = VideoCapture(index_capture)
         self.known_face_encodings , self.known_face_names = self.encodage_visage()
         self.known_face_encodings = np.array(self.known_face_encodings)
-        self.face_cascade = cv2.CascadeClassifier("lbpcascade_frontalface_improved.xml")
+        self.face_cascade = cv2.CascadeClassifier("../facial_programme/lbpcascade_frontalface_improved.xml")
         self.face_encoding = []
         self.resize = resize
         
@@ -80,7 +80,7 @@ class Facial_reco:
                 condition_object.notify()
             condition_object.acquire()
     def encodage_visage(self):
-        with open("../encodage", 'rb') as f:#on ouvre le fichier encodage
+        with open("../facial_programme/encodage", 'rb') as f:#on ouvre le fichier encodage
             known_face_encodings, known_face_names = pickle.load(f)#on reprend les objets qui etait dans le fichier
         return known_face_encodings, known_face_names
     def traitement_image(self,img, resize):  

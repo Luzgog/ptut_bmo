@@ -27,55 +27,43 @@ if (whiptail --title "Installation" --yesno "voulez vous lancer l'installation o
 
     printf "%b\n" "${BLUE}     ********************************\n     *   Mise a jour du raspberry   *\n     ********************************${NC}\n"
     echo ""
-    sudo apt-get install lolcat -y 
-    sudo apt-get update -y |lolcat
-    sudo apt-get dist-upgrade -y |lolcat
-    sudo rpi-update -y |lolcat
-    sudo apt-get upgrade -y |lolcat
-    sudo apt-get full-upgrade -y |lolcat
-    sudo apt update -y |lolcat
+    apt-get install lolcat -y 
+    apt-get update -y |/usr/games/lolcat
+    apt-get dist-upgrade -y |/usr/games/lolcat
+    rpi-update -y |/usr/games/lolcat
+    apt-get upgrade -y |/usr/games/lolcat
+    apt-get full-upgrade -y |/usr/games/lolcat
+    apt update -y |/usr/games/lolcat
     echo ""
 
 
 
     printf "%b\n" "${BLUE}     *************************************************\n     *   installation des librarys  *\n     *************************************************${NC}\n"
     echo ""
-    sudo apt-get install pip libopencv-dev python3-pygame python3-opencv git cmake git libgtk2.0-dev libsdl2-mixer-2.0-0 libsdl2-image-2.0-0 libsdl2-2.0-0 libsdl2-ttf-2.0-0 pkg-config libavcodec-dev libavformat-dev libswscale-dev python-dev libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev libatlas-base-dev i2c-tools python3-rpi.gpio python3-spidev python3-pip python3-pil python3-numpy -y |lolcat 
-    sudo pip3 install pygame st7789 dlib requests cvlib face_recognition smbus2 Flask pillow|lolcat
-    curl -sL https://install.raspap.com | bash -s -- --yes | lolcat
+    apt-get install pip libopencv-dev python3-pygame python3-opencv git cmake git libgtk2.0-dev libsdl2-mixer-2.0-0 libsdl2-image-2.0-0 libsdl2-2.0-0 libsdl2-ttf-2.0-0 pkg-config libavcodec-dev libavformat-dev libswscale-dev python-dev libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev libatlas-base-dev i2c-tools python3-rpi.gpio python3-spidev python3-pip python3-pil python3-numpy -y |/usr/games/lolcat 
+    pip3 install pygame st7789 dlib requests cvlib face_recognition smbus2 Flask pillow|/usr/games/lolcat
+    curl -sL https://install.raspap.com | bash -s -- --yes | /usr/games/lolcat
     echo ""
 
     printf "%b\n" "${BLUE}     *************************************************\n     *   Mise en place de l'interface WEB  *\n     *************************************************${NC}\n"
     
-    sudo rm -r /home/pi/BMO 
-    sudo rm -r /home/pi/ptut_bmo
-    sudo git clone https://github.com/Luzgog/ptut_bmo.git |lolcat
+    rm -r /home/pi/BMO 
+    rm -r /home/pi/ptut_bmo
+    git clone https://github.com/Luzgog/ptut_bmo.git |/usr/games/lolcat
     echo ""
-    sudo mkdir /home/pi/BMO
-    sudo mv /home/pi/ptut_bmo/WEB/static /home/pi/BMO
-    sudo mv /home/pi/ptut_bmo/affichage_oled /home/pi/BMO
-    sudo mv /home/pi/ptut_bmo/Programmes/PROGRAMME-BMO.py /home/pi/BMO
-    sudo mv /home/pi/ptut_bmo/son/boot.wav /home/pi/BMO
-
 else
     whiptail --title "Mise à Jour" --msgbox "Mise a jour en cours" 10 60
-    sudo rm -r /home/pi/BMO 
-    sudo rm -r /home/pi/ptut_bmo
-    sudo git clone https://github.com/Luzgog/ptut_bmo.git |lolcat
+    rm -r /home/pi/ptut_bmo
+    git clone https://github.com/Luzgog/ptut_bmo.git |/usr/games/lolcat
     echo ""
-    sudo mkdir /home/pi/BMO
-    sudo mv /home/pi/ptut_bmo/WEB/static /home/pi/BMO
-    sudo mv /home/pi/ptut_bmo/affichage /home/pi/BMO
-    sudo mv /home/pi/ptut_bmo/Programmes/home/pi/BMO
-    sudo mv /home/pi/ptut_bmo/son/boot.wav /home/pi/BMO
-    sudo mv /home/pi/ptut_bmo/encodage /home/pi/BMO
 fi
 
 echo ""
 
 if (whiptail --title "Installation" --yesno "voulez vous activer BMO ?" --yes-button "oui" --no-button "non" 20 70) then
     clear
-    sudo python3 /home/pi/BMO/PROGRAMME-BMO.py 
+    cd /home/pi/ptut_bmo/Programmes/
+    python3 PROGRAMME-BMO.py 
 
 else
     whiptail --title "Installation" --msgbox "activation annulée !!!" 20 70
