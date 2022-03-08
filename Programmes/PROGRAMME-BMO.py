@@ -39,7 +39,7 @@ totalH = 0
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 #variable web
 
-app = Flask(__name__, template_folder = "static/")
+app = Flask(__name__, template_folder = "../WEB/static")
 Activer_Meteo = "Activer"
 Activer_Emo_Meteo = "Activer"
 Activer_Facial = "Activer"
@@ -82,6 +82,9 @@ def etat():
 def humeur():
     global humeure
     return jsonify(HUMER = humeure)
+
+
+
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 #--------------------------------------------------------------
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
@@ -400,7 +403,7 @@ if __name__ == "__main__":
     threadEMO.start()
     threadWEB.start()
     facial.start()
-    app.run(host='10.3.141.1')
+    app.run(host='0.0.0.0')
 
 #--------------------------------------------------------------
 #boucle
