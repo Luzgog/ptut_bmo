@@ -14,6 +14,7 @@ import pygame
 import requests
 import json
 import facial_reco
+import pickle
 #--------------------------------------------------------------
 #variables:
 print("initialisation des variables")
@@ -40,9 +41,6 @@ totalH = 0
 #variable web
 
 app = Flask(__name__, template_folder = "../WEB/static")
-Activer_Meteo = "Activer"
-Activer_Emo_Meteo = "Activer"
-Activer_Facial = "Activer"
 chaleur = 0
 battery = 100
 etats = 0
@@ -92,9 +90,8 @@ def humeur():
     
 @app.route("/button",methods = ["POST"])#si on va sur /button on
 def bouton():
-    global Activer_Meteo
-    global Activer_Emo_Meteo
-    global Activer_Facial
+    with open("configuration_bmo", "rb") as f:
+        Activer_Meteo, Activer_Emo_Meteo, Activer_Facial = pickle.load(f)
     
     print(request.get_json())    
     bouton_appuyer = request.get_json()
@@ -117,8 +114,9 @@ def bouton():
             Activer_Facial = "Désactiver"
     if bouton_appuyer == "SHUTDOWN":
         print("Shutting Down")
-        os.system("sudo shutdown -h now")            
-
+        os.system("sudo shutdown -h now")
+    with open("configuration_bmo", "wb") as f:
+        pickle.dump((Activer_Meteo, Activer_Emo_Meteo, Activer_Facial) , f)
     return "JE SAIS PAS QUOI RETURN MDR"
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
 @app.route("/PARAMETRE_METEO")#si on va sur /message on retourne le json { "message": "nouvelle valeur"}
