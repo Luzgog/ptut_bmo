@@ -15,6 +15,7 @@ import requests
 import json
 import facial_reco
 import pickle
+import ST7789
 #--------------------------------------------------------------
 #variables:
 print("initialisation des variables")
