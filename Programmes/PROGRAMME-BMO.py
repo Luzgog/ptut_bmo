@@ -15,6 +15,7 @@ import requests
 import json
 import facial_reco
 import pickle
+import ST7789
 #--------------------------------------------------------------
 #variables:
 print("initialisation des variables")
@@ -23,7 +24,34 @@ print("initialisation des variables")
 meteo = 0
 ville = "Marseille"
 url_weather = "http://api.openweathermap.org/data/2.5/weather?q="+ville+"&APPID=beb97c1ce62559bba4e81e28de8be095"
+with open("configuration_bmo", "rb") as f:
+    Activer_Meteo, Activer_Emo_Meteo, Activer_Facial = pickle.load(f)
 
+ecranD = ST7789.ST7789(
+        height= 240, #hauteur de l'ecran
+        rotation= 0, #rotation de 180 de l'ecran
+        port=0,
+        cs=ST7789.BG_SPI_CS_FRONT, #choix de la broche esclave de l'ecran (ST7789.BG_SPI_CS_BACK = pin CE1)
+        dc=9, #choix de la pin data control
+        backlight=19, #choix de la pin du controle de l'eclairage
+        spi_speed_hz=80 * 1000 * 1000, #vitesse du spi
+        offset_left= 40, #decalage avec la gauche
+        offset_top= 0 #decalage avec le top
+)
+ecranG = ST7789.ST7789(
+        height= 240, #hauteur de l'ecran
+        rotation= 180, #rotation de 180 de l'ecran
+        port=0,
+        cs=ST7789.BG_SPI_CS_BACK, #choix de la broche esclave de l'ecran (ST7789.BG_SPI_CS_BACK = pin CE0)
+        dc=9,#choix de la pin data control
+        backlight=19,#choix de la pin du controle de l'eclairage
+        spi_speed_hz=80 * 1000 * 1000, #vitesse du spi
+        offset_left= 40, #decalage avec la gauche
+        offset_top= 0 #decalage avec le top
+)
+    # Initialize display.
+ecranD.begin() #on démare chaque ecran logicielement parlant
+ecranG.begin() #on démare chaque ecran logicielement parlant
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 #variable i2c arduino raspberry
 
@@ -81,7 +109,24 @@ def humeur():
     global humeure
     return jsonify(HUMER = humeure)
 
+@app.route("/encodage", methods=["GET" , 'POST'])
+def post():
+    if request.method == "POST":
+        print(f"{request.form['Nom']}")
+        file = request.files["img"]
+        npimg = np.frombuffer(file.read(), np.uint8)#on transforme le file qu'on a recu en chaine de int
+        decode = cv2.imdecode(npimg, cv2.IMREAD_COLOR)#on decode ca en image
+        dst = cv2.cvtColor(decode, cv2.COLOR_BGR2RGB)#on transforme l'image BGR en RGB
+        img = Image.fromarray(dst.astype("uint8"))#on load l'image avec le module Pillow
+        encoding = face_recognition.face_encodings(np.array(img))
+        if len(encoding)!=0:
+            img.save(f"static/img_dl/{request.form['Nom']}.jpeg")
+            return render_template("encodage.html",msg ="Success", images = os.listdir("static/img_dl/"))
+        else:
+            return render_template("encodage.html",msg ="Visage non detecté", images = os.listdir("static/img_dl/"))
 
+    else:
+        return render_template("encodage.html", images = os.listdir("static/img_dl/"))
 
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 #--------------------------------------------------------------
@@ -90,9 +135,8 @@ def humeur():
     
 @app.route("/button",methods = ["POST"])#si on va sur /button on
 def bouton():
-    with open("configuration_bmo", "rb") as f:
-        Activer_Meteo, Activer_Emo_Meteo, Activer_Facial = pickle.load(f)
     
+    global Activer_Meteo, Activer_Emo_Meteo, Activer_Facial
     print(request.get_json())    
     bouton_appuyer = request.get_json()
     if bouton_appuyer == "Meteo":
@@ -342,7 +386,6 @@ def Humeur_BMO():
                 triste()
             if aleatoire > (Chance_Heureux + Chance_Triste) and aleatoire <= (Chance_Heureux + Chance_Triste + Chance_Fatigue):
                 fatigue()
-
         else:
             dodo()
         
@@ -358,6 +401,7 @@ def Humeur_BMO():
 #--------------------------------------------------------------
 
 def meteo_api():
+    global Activer_Meteo
     global temperature
     global meteo
     if Activer_Meteo == True:
