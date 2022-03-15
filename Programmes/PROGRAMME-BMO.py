@@ -21,6 +21,7 @@ import ST7789
 print("initialisation des variables")
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 #variable systeme emotion
+facial = facial_reco.Facial_reco(c)
 meteo = 0
 ville = "Marseille"
 url_weather = "http://api.openweathermap.org/data/2.5/weather?q="+ville+"&APPID=beb97c1ce62559bba4e81e28de8be095"
@@ -48,8 +49,7 @@ ecranG = ST7789.ST7789(
         spi_speed_hz=80 * 1000 * 1000, #vitesse du spi
         offset_left= 40, #decalage avec la gauche
         offset_top= 0 #decalage avec le top
-)
-    # Initialize display.
+)# Initialize display.
 ecranD.begin() #on démare chaque ecran logicielement parlant
 ecranG.begin() #on démare chaque ecran logicielement parlant
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
@@ -112,7 +112,6 @@ def humeur():
 @app.route("/encodage", methods=["GET" , 'POST'])
 def post():
     if request.method == "POST":
-        print(f"{request.form['Nom']}")
         file = request.files["img"]
         npimg = np.frombuffer(file.read(), np.uint8)#on transforme le file qu'on a recu en chaine de int
         decode = cv2.imdecode(npimg, cv2.IMREAD_COLOR)#on decode ca en image
@@ -121,6 +120,9 @@ def post():
         encoding = face_recognition.face_encodings(np.array(img))
         if len(encoding)!=0:
             img.save(f"static/img_dl/{request.form['Nom']}.jpeg")
+            facial.known_face_encodings.append(encoding[0])
+            facial.known_face_names.append(request.form["Nom"])
+
             return render_template("encodage.html",msg ="Success", images = os.listdir("static/img_dl/"))
         else:
             return render_template("encodage.html",msg ="Visage non detecté", images = os.listdir("static/img_dl/"))
@@ -430,7 +432,7 @@ def quand_visage_detecté():
 #Initialisation
 if __name__ == "__main__":
     
-    facial = facial_reco.Facial_reco(c)
+    
     pygame.mixer.init()
     #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
     #son de démarage
