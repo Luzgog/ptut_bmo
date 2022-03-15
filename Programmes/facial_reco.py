@@ -5,6 +5,8 @@ import pickle
 import time
 import threading
 import sys
+import os
+import re
 class VideoCapture:#lance un thread qui ne fait que capturer les images de la cam
     def __init__(self, name):
 
@@ -42,7 +44,7 @@ class Facial_reco:
         self.process = False
         self.t = threading.Thread(target=self.detect)
         self.video_capture = VideoCapture(index_capture)
-        self.known_face_encodings , self.known_face_names = self.encodage_visage()
+        self.known_face_encodings , self.known_face_names = self.encodage_dl()
         self.known_face_encodings = np.array(self.known_face_encodings)
         self.face_cascade = cv2.CascadeClassifier("../facial_programme/lbpcascade_frontalface_improved.xml")
         self.face_encoding = []
@@ -79,10 +81,35 @@ class Facial_reco:
                 name = self.known_face_names[first_match_index]
                 condition_object.notify()
             condition_object.acquire()
-    def encodage_visage(self):
-        with open("../facial_programme/encodage", 'rb') as f:#on ouvre le fichier encodage
+    def encodage_visage_pickle(self):
+        with open("encodage", 'rb') as f:#on ouvre le fichier encodage
             known_face_encodings, known_face_names = pickle.load(f)#on reprend les objets qui etait dans le fichier
         return known_face_encodings, known_face_names
+    def encodage_dl(self):
+        path = "../WEB/static/img_dl"
+
+        known_face_encodings = []
+        known_face_names = []
+        for f in os.listdir("path"):
+            if f.endswith(".jpeg"):
+                img = face_recognition.load_image_file(path+f)
+                encoding = face_recognition.face_encodings(img)
+                if len(encoding) == 0:
+                    print(f"erreur pour le fichier {path + f}")
+                    continue
+                known_face_encodings.append(encoding[0])
+                known_face_names.append(f[ : f.index('.jpeg')])
+
+        with open("encodage_dl", 'wb') as f:#on ouvre le fichier en ecriture binaire,
+            pickle.dump( (known_face_encodings, known_face_names), f)
+        return known_face_names, known_face_encodings
+    
+
+
+
+
+
+
     def traitement_image(self,img, resize):  
         #crop = img[100:480 , 200:550]
         small_frame = cv2.resize(img, (0, 0), fx=resize, fy=resize)#division de la taille par 4 pour gagner en rapidité (mais perte precision)
