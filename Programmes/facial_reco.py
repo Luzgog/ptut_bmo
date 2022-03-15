@@ -10,14 +10,14 @@ import re
 class VideoCapture:#lance un thread qui ne fait que capturer les images de la cam
     def __init__(self, name):
 
-        self.cap = cv2.VideoCapture(name)
-        _, frame = self.cap.read()
+        self.cap = cv2.VideoCapture(name)#on initialise une capture Opencv d'index name 
+        _, frame = self.cap.read()#on prend la premiere frame
         self.frame=frame
         self.running = True
-        self.lock = threading.Lock()
+        self.lock = threading.Lock()#on initialise un lock qui va gerer la variable frame pour qu'un seul thread y accede a la fois
         self.t = threading.Thread(target=self._reader)
         self.t.daemon = True
-        self.t.start()
+        self.t.start()#on lance le frame reader
 
     def _reader(self):
         while self.running:
@@ -40,13 +40,13 @@ class VideoCapture:#lance un thread qui ne fait que capturer les images de la ca
 
 
 class Facial_reco:
-    def __init__(self, condition_object ,index_capture =0, resize = 0.25, ):
+    def __init__(self, condition_object ,index_capture =0, resize = 0.25 ):
         self.process = False
-        self.t = threading.Thread(target=self.detect)
-        self.video_capture = VideoCapture(index_capture)
-        self.known_face_encodings , self.known_face_names = self.encodage_dl()
+        self.t = threading.Thread(target=self.detect)#on prepare un thread de detection
+        self.video_capture = VideoCapture(index_capture)#on lance une video capture
+        self.known_face_encodings , self.known_face_names = self.encodage_dl()#on encode les images deja existante
         self.known_face_encodings = np.array(self.known_face_encodings)
-        self.face_cascade = cv2.CascadeClassifier("../facial_programme/lbpcascade_frontalface_improved.xml")
+        self.face_cascade = cv2.CascadeClassifier("../facial_programme/lbpcascade_frontalface_improved.xml")#on prepare le cascade classifier
         self.face_encoding = []
         self.resize = resize
         
@@ -62,24 +62,24 @@ class Facial_reco:
         self.video_capture.release()
     def detection(self):
         global name
-        frame = self.video_capture.read()
-        gray, img = self.traitement_image(frame, self.resize)
-        faces = self.face_cascade.detectMultiScale(gray, 1.1, 4)
-        if not isinstance(faces, tuple):
-            convert = self.convert_opencv_to_face_recognition(faces)
+        frame = self.video_capture.read()#on choppe la derniere frame 
+        gray, img = self.traitement_image(frame, self.resize)# on traite l'image
+        faces = self.face_cascade.detectMultiScale(gray, 1.1, 4)#on detecte les visages presents
+        if not isinstance(faces, tuple):#si on detecte un visage
+            convert = self.convert_opencv_to_face_recognition(faces)#on conveti les coordonnée du carré contenant le visage pour face_recognition
             # print(convert)
-            rgb_small_frame = img[:, :, ::-1]
-            self.face_encoding = face_recognition.face_encodings(rgb_small_frame, known_face_locations=convert)
+            rgb_small_frame = img[:, :, ::-1]#on converti le BGR en RGB
+            self.face_encoding = face_recognition.face_encodings(rgb_small_frame, known_face_locations=convert)#on encode le visage detecté
             # print(face_encoding)
             # print(type(face_encoding))
             # print(type(known_face_encodings))
-            matches = face_recognition.compare_faces(self.known_face_encodings, np.array(self.face_encoding))
+            matches = face_recognition.compare_faces(self.known_face_encodings, np.array(self.face_encoding))# on compare les encodages
             condition_object.acquire()
             name = "Unknown"
-            if True in matches:
+            if True in matches:#si on retrouve un des visages 
                 first_match_index = matches.index(True)
                 name = self.known_face_names[first_match_index]
-                condition_object.notify()
+                condition_object.notify()#on notify the thread de detection de visage
             condition_object.acquire()
     def encodage_visage_pickle(self):
         with open("encodage", 'rb') as f:#on ouvre le fichier encodage
@@ -87,13 +87,12 @@ class Facial_reco:
         return known_face_encodings, known_face_names
     def encodage_dl(self):
         path = "../WEB/static/img_dl"
-
         known_face_encodings = []
         known_face_names = []
-        for f in os.listdir("path"):
-            if f.endswith(".jpeg"):
-                img = face_recognition.load_image_file(path+f)
-                encoding = face_recognition.face_encodings(img)
+        for f in os.listdir(path):
+            if f.endswith(".jpeg"):#on liste toutes les images
+                img = face_recognition.load_image_file(path+f)#on load l'image
+                encoding = face_recognition.face_encodings(img)#on fais son encodage
                 if len(encoding) == 0:
                     print(f"erreur pour le fichier {path + f}")
                     continue
@@ -121,7 +120,7 @@ class Facial_reco:
         """
         Opencv et face_recognition utilise pas le meme objet pour montrer ou se trouve un visage,
         opencv nous donne 1 point d'un rectangle avec la hauteur et largeur du rectangle tandis que facial_recognition utilise
-        les coeerdonné des 2 extremité du rectangle
+        les coordonné des 2 extremité du rectangle
         Cette fonction permet de convertir le mode d'opencv a facial_recogntion car il s'est averé que 
         opencv est plus rapide a detecter les visage que facial_recognition
         """
