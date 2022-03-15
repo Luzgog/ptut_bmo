@@ -36,9 +36,9 @@ height = ecranD.height #on definie la hauteur a partir des info des ecrans si de
 
 # Load d'un gif aleatoire
 aleatoire = secrets.randbelow(9) 
-imageD = Image.open("PTDR.gif") #on met le gif dans la variable imageD
+imageD = Image.open("Ouverture_oeil.gif") #on met le gif dans la variable imageD
 aleatoire = secrets.randbelow(9)
-imageG = Image.open("PTDR.gif") #on met le gif dans la variable imageG
+imageG = Image.open("Ouverture_oeil.gif") #on met le gif dans la variable imageG
 
 frameG = 0
 frameD = 0
@@ -46,9 +46,7 @@ frameD = 0
 input()
 
 # Boucle pour les gifs
-X=0
-while X<2:
-     try:
+try:
         print(frameG)
         print(frameD)
         imageG.seek(frameG) #on enregistre le nombre de frame dans le gif et on enregistre ce nombre dans frame
@@ -61,12 +59,11 @@ while X<2:
         frameD += 1
         time.sleep(0.02)
 
-     except EOFError: #quand on arrive a la fin du gif alors sa reset les frames pour retourner au debut du fichier
-        frameD = 0
-        frameG = 0
-        X=X+1
+     #except EOFError: #quand on arrive a la fin du gif alors sa reset les frames pour retourner au debut du fichier
+        #frameD = 0
+        #frameG = 0
         
-     except KeyboardInterrupt:
+except KeyboardInterrupt:
         exit()
-#probleme actuel 
-        #obligé de faire marcher chaque oeuil dans un thread different
+
+        
