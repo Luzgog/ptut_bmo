@@ -23,6 +23,7 @@ print("initialisation des variables")
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 #variable systeme emotion
 facial = facial_reco.Facial_reco(c)
+MOUVEMENT = 0
 meteo = 0
 ville = "Marseille"
 url_weather = "http://api.openweathermap.org/data/2.5/weather?q="+ville+"&APPID=beb97c1ce62559bba4e81e28de8be095"
@@ -162,6 +163,30 @@ def bouton():
     if bouton_appuyer == "SHUTDOWN":
         print("Shutting Down")
         os.system("sudo shutdown -h now")
+    
+    if bouton_appuyer == "Avancer":
+        print("Avancer")
+        MOUVEMENT = 1
+    if bouton_appuyer == "Reculer":
+        print("Reculer")
+        MOUVEMENT = 2          
+    if bouton_appuyer == "SlideG":
+        print("SlideG")
+        MOUVEMENT = 3
+    if bouton_appuyer == "SlideD":
+        print("SlideD")
+        MOUVEMENT = 4
+    if bouton_appuyer == "TourneG":
+        print("TourneG")
+        MOUVEMENT = 5
+    if bouton_appuyer == "TourneD":
+        print("TourneD")
+        MOUVEMENT = 6
+    if bouton_appuyer == "Stop":
+        print("Stop")
+        MOUVEMENT = 7
+        
+    
     with open("configuration_bmo", "wb") as f:
         pickle.dump((Activer_Meteo, Activer_Emo_Meteo, Activer_Facial) , f)
     return "JE SAIS PAS QUOI RETURN MDR"
@@ -419,6 +444,13 @@ def meteo_api():
 #--------------------------------------------------------------    
 #----------------------------------------------Humeur_BMO----------------
 #--------------------------------------------------------------
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo 
+def Move():
+    aleatoire = secrets.randbelow(6)  
+       
+    print("deplacement")
+    
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo 
 
 def quand_visage_detecté():
     global name
@@ -495,9 +527,11 @@ if __name__ == "__main__":
     #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
     threadWEB = threading.Thread(target=WEB)
     threadEMO = threading.Thread(target=Humeur_BMO)
+    threadMove = threading.Thread(target=Move)
     threadVisage = threading.Thread(target=quand_visage_detecté)
     threadEMO.start()
     threadWEB.start()
+    threadMove.start()
     facial.start()
     threadVisage.start()
     app.run(host='0.0.0.0')
