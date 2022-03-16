@@ -425,7 +425,7 @@ def quand_visage_detecté():
     while visage_detect_running:
         c.acquire()
         c.wait()
-        print(facial_reco.name)
+        retour_facial(facial_reco.name)
         c.release()
 
 def retour_facial(nom):
@@ -466,9 +466,11 @@ if __name__ == "__main__":
     #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
     threadWEB = threading.Thread(target=WEB)
     threadEMO = threading.Thread(target=Humeur_BMO)
+    threadVisage = threading.Thread(target=quand_visage_detecté)
     threadEMO.start()
     threadWEB.start()
     facial.start()
+    threadVisage()
     app.run(host='0.0.0.0')
 
 #--------------------------------------------------------------
