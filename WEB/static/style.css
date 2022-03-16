@@ -31,7 +31,7 @@ html {
 */
 
 .header {
-  background-color: #961313;
+  background-color: #005f15;
   color: #ffffff;
   padding: 5px;
   text-align: center; 
@@ -49,23 +49,23 @@ html {
 }
 
 .menu li {/* MENU */
-  border: 75px solid #961313;
+  border: 75px solid #005f15 ;
   text-align: center;
   height: 200px;
   padding: 8px;
   margin-bottom: 7px;
-  background-color: #961313;
+  background-color: #005f15 ;
   color: #ffffff;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 .menu li:hover {
-  background-color: #500b0b;
-  border: 75px solid #500b0b;
+  background-color: #005f1552;
+  border: 75px solid #005f1552;
 }
 
 .aside {/* INFO */
-  background-color: #961313;
+  background-color: #005f15 ;
   padding: 15px;
   color: #ffffff;
   text-align: center;
@@ -74,7 +74,7 @@ html {
 }
 
 .footer {
-  background-color: #961313;
+  background-color: #005f15 ;
   color: #ffffff;
   text-align: center;
   font-size: 12px;
