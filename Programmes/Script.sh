@@ -45,7 +45,7 @@ if (whiptail --title "Installation" --yesno "voulez vous lancer l'installation o
     if ( whiptail --title "Installation" --yesno "Voulez vous installer RaspAP" --yes-button "Installer" --no-button "Ne pas installer" )then
         curl -sL https://install.raspap.com | bash -s -- --yes | /usr/games/lolcat
         echo ""
-
+    fi
     printf "%b\n" "${BLUE}     *************************************************\n     *   Mise en place de l'interface WEB  *\n     *************************************************${NC}\n"
     
     rm -r /home/pi/BMO 
