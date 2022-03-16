@@ -429,26 +429,55 @@ def quand_visage_detecté():
         c.release()
 
 def retour_facial(nom):
+    gif = False
+    path = "../affichage/"
     if "bastien" in nom:
-        imageD = Image.open("PTDR.gif")
-        imageG = Image.open("PTDR.gif")
-        frameG = 0
-        frameD = 0
-        input()
+        imageD = Image.open(path+"PTDR.gif")
+        imageG = Image.open(path+"PTDR.gif") 
+        gif=True
+    elif "nino" in nom:
+        imageD = Image.open(path+"PTDR.gif")
+        imageG = Image.open(path+"PTDR.gif")
+        gif=True
+    elif "dimitri" in nom:
+        imageD = Image.open(path+"coeur.png")
+        imageG = Image.open(path+"coeur.png")
+        gif=False
+    elif "maxime" in nom:
+        imageD = Image.open(path+"optique.gif")
+        imageG = Image.open(path+"optique.gif")
+        gif=True
+    elif "matteo" in nom:
+        imageD = Image.open(path+"PTDR.gif")
+        imageG = Image.open(path+"PTDR.gif")
+        gif=True
+    else:
+        imageD = Image.open(path+"Oeil1.png")
+        imageG = Image.open(path+"Oeil1.png")
+        gif=False
+    
+    if gif:
         try:
-            print(frameG)
-            print(frameD)
+
+            frameG = 0
+            frameD = 0
+            # print(frameG)
+            # print(frameD)
             imageG.seek(frameG) #on enregistre le nombre de frame dans le gif et on enregistre ce nombre dans frame
             imageD.seek(frameD) #on enregistre le nombre de frame dans le gif et on enregistre ce nombre dans frame
-        
             ecranD.display(imageD.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
             ecranG.display(imageG.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
-        
+    
             frameG += 1 #on avance d'une frame
             frameD += 1
             time.sleep(0.02)
-        except KeyboardInterrupt:
-            exit()
+        except EOFError: #quand on arrive a la fin du gif alors sa reset les frames pour retourner au debut du fichier
+            frameD = 0
+            frameG = 0
+    else:
+        ecranD.display(imageD.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
+        ecranG.display(imageG.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
+    
 
 
 #Initialisation
