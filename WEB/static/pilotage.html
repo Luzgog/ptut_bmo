@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="FR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css" />
+<script src="script.js"></script>
+</head>
+<body>
+
+<div class="header">
+  <h1>Project B.M.O</h1>
+</div>
+
+<div class="row">
+  <div class="row">
+    <div class="col-4 menu">
+      <li onclick ="bouton_parametre('Avancer')">Avancer</li>
+      <li onclick ="bouton_parametre('Reculer')">Reculer</li>
+      <li onclick ="bouton_parametre('Stop')">Stop</li>
+      </div>
+      <div class="col-4 menu">
+        <li onclick ="bouton_parametre('SlideG')">SlideG</li>
+        <li onclick ="bouton_parametre('SlideD')">SlideD</li>
+        <li onclick ="bouton_parametre('Stop')">Rien</li>
+        </div>   
+  
+
+    <div class="col-3 right">
+      <div class="aside">
+
+      <h2>Temperature:</h2>
+      <p><a id ="TEMP"> NON CONNECTER</a> °celsius</p>
+      <h2>Batterie:</h2>
+      <p><a id ="BATT"> NON CONNECTER</a> %</p>
+      <h2>Etat:</h2>
+      <p id ="STAT">NON CONNECTER</p>
+      <h2>Humeur:</h2>
+      <p id ="MOOD">NON CONNECTER</p>
+
+    </div>
+  </div>
+  <div class="col-3 menu">
+        <info>
+        <ul>
+        <li onclick="window.location.href = '../';"><a>accueil</a></li>
+        <li>paramètres</li>
+        <li>video feed</li>
+        <li>musique</li>
+        <li>dance</li>
+
+        </ul>
+        </info>
+    </div>
+</div>
+
+<div class="footer">
+  <p>Projet BMO du DUT GEII Marseille</p>
+</div>
+
+</body>
+</html>
+
+
