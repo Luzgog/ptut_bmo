@@ -429,33 +429,34 @@ def quand_visage_detecté():
         c.release()
 
 def retour_facial(nom):
-    n = False
+    gif = False
+    path = "../affichage/"
     if "bastien" in nom:
-        imageD = Image.open("PTDR.gif")
-        imageG = Image.open("PTDR.gif") 
-        n=True
+        imageD = Image.open(path+"PTDR.gif")
+        imageG = Image.open(path+"PTDR.gif") 
+        gif=True
     elif "nino" in nom:
-        imageD = Image.open("PTDR.gif")
-        imageG = Image.open("PTDR.gif")
-        n=True
+        imageD = Image.open(path+"PTDR.gif")
+        imageG = Image.open(path+"PTDR.gif")
+        gif=True
     elif "dimitri" in nom:
-        imageD = Image.open("coeur.png")
-        imageG = Image.open("coeur.png")
-        n=False
+        imageD = Image.open(path+"coeur.png")
+        imageG = Image.open(path+"coeur.png")
+        gif=False
     elif "maxime" in nom:
-        imageD = Image.open("optique.gif")
-        imageG = Image.open("optique.gif")
-        n=True
+        imageD = Image.open(path+"optique.gif")
+        imageG = Image.open(path+"optique.gif")
+        gif=True
     elif "matteo" in nom:
-        imageD = Image.open("PTDR.gif")
-        imageG = Image.open("PTDR.gif")
-        n=True
+        imageD = Image.open(path+"PTDR.gif")
+        imageG = Image.open(path+"PTDR.gif")
+        gif=True
     else:
-        imageD = Image.open("Oeil1.png")
-        imageG = Image.open("Oeil1.png")
-        n=False
+        imageD = Image.open(path+"Oeil1.png")
+        imageG = Image.open(path+"Oeil1.png")
+        gif=False
     
-    if n:
+    if gif:
         try:
 
             frameG = 0
