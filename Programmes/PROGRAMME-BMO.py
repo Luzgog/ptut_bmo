@@ -30,7 +30,8 @@ ville = "Marseille"
 url_weather = "http://api.openweathermap.org/data/2.5/weather?q="+ville+"&APPID=beb97c1ce62559bba4e81e28de8be095"
 with open("configuration_bmo", "rb") as f:
     Activer_Meteo, Activer_Emo_Meteo, Activer_Facial = pickle.load(f)
-
+height =240
+width = 240
 ecranD = ST7789.ST7789(
         height= 240, #hauteur de l'ecran
         rotation= 0, #rotation de 180 de l'ecran
