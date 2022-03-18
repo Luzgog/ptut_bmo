@@ -82,6 +82,9 @@ name = "Unknown"
 
 visage_detect_running = True
 #--------------------------------------------------------------
+imageD = Image.open("../affichage/"+"Oeil1.png")
+imageG = Image.open("../affichage/"+"Oeil1.png")
+
 #--------------------------------------------------------------
 #--------------------------------------------------------------
 #fonctions WEB ,interactive javascript ,python ,html
@@ -234,6 +237,7 @@ def WEB():
 #--------------------------------------------------------------
         
 def heureux():
+
     #yeux heureux
     
     aleatoire = secrets.randbelow(totalH)                
@@ -258,6 +262,8 @@ def triste():
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
 def fatigue():
     global emotion
+    global imageD
+    global imageG
     #yeux fatiguer
     emotion = {"fatigue": (Image.open("../affichage/etourdi_D.png"), Image.open("../affichage/etourdi_G.png"))}
     print("fatigue")
@@ -268,7 +274,9 @@ def fatigue():
     
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo  
 def dodo():
-    global emotion   
+    global emotion
+    global imageD
+    global imageG
     #yeux dodo
     emotion = {"endormie": (Image.open("../affichage/dodo_D.png"), Image.open("../affichage/dodo_G.png"))}
     print("dodo")
@@ -280,6 +288,8 @@ def dodo():
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo 
 def joueur():
     global emotion
+    global imageD
+    global imageG
     #yeux dodo
     emotion = {"joueur": (Image.open("../affichage/content.png"), Image.open("../affichage/content.png"))}
     print("joueur")
@@ -290,7 +300,9 @@ def joueur():
     
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo 
 def amour():
-    global emotion   
+    global emotion
+    global imageD
+    global imageG 
     #yeux dodo
     emotion = {"amour": (Image.open("../affichage/coeur.png"),Image.open("../affichage/coeur.png"))}
     print("amour")
@@ -300,7 +312,9 @@ def amour():
     
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo 
 def error():
-    global emotion   
+    global emotion
+    global imageD
+    global imageG 
     #yeux dodo
     emotion = {"error": (Image.open("affichage/Shutdown.gif"), Image.open("../affichage/Shutdown.gif"))}
     print("error")
@@ -539,7 +553,7 @@ if __name__ == "__main__":
     threadMove.start()
     facial.start()
     threadVisage.start()
-    app.run(host='0.0.0.0', template_folder="../WEB/static")
+    app.run(host='0.0.0.0')
 
 # --------------------------------------------------------------
 #boucle
