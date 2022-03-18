@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="FR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+<script src="{{url_for('static', filename='script.js')}}"></script>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Project B.M.O</h1>
+  </div>
+<div class="row">
+  <ul>
+  <div class="col-12 menu">
+    <li onclick ="bouton_parametre('SHUTDOWN')"> Eteindre BMO </li>
+  </div>
+  <div class="col-12 menu">
+    <li onclick="window.location.href = '{{url_for(\'static\', filename=\'parametre.html\')}}';">Retour</li>
+  </div>
+  </ul>
+</div>
+</body>
+<div class="footer">
+  <p>Projet BMO du DUT GEII Marseille</p>
+</div>
+</html>

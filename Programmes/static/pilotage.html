@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="{{url_for('static', filename='../../WEB/static/style.css')}}" />
-<script src="{{url_for('static', filename='../../WEB/static/script.js')}}"></script>
+<link rel="stylesheet" href="../WEB/style.css" />
+<script src="../WEB/script.js"></script>
 </head>
 <body>
 
@@ -13,12 +13,18 @@
 </div>
 
 <div class="row">
-
-
-    <div class="col-6">
-        
-        <img src="{{ url_for('static', filename='../../WEB/static/Etat1.jpg')}}" class="image">
-    </div>
+  <div class="row">
+    <div class="col-4 menu">
+      <li onclick ="bouton_parametre('Avancer')">Avancer</li>
+      <li onclick ="bouton_parametre('Reculer')">Reculer</li>
+      <li onclick ="bouton_parametre('Stop')">Stop</li>
+      </div>
+      <div class="col-4 menu">
+        <li onclick ="bouton_parametre('SlideG')">SlideG</li>
+        <li onclick ="bouton_parametre('SlideD')">SlideD</li>
+        <li onclick ="bouton_parametre('Stop')">Rien</li>
+        </div>   
+  
 
     <div class="col-3 right">
       <div class="aside">
@@ -37,7 +43,8 @@
   <div class="col-3 menu">
         <info>
         <ul>
-        <li onclick="window.location.href = "{{url_for('static', filename='../../WEB/static/parametre.html')}};"><a>paramètres</a></li>
+        <li onclick="window.location.href = '../';"><a>accueil</a></li>
+        <li>paramètres</li>
         <li>video feed</li>
         <li>musique</li>
         <li>dance</li>
@@ -53,3 +60,5 @@
 
 </body>
 </html>
+
+
