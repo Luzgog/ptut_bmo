@@ -245,6 +245,8 @@ def heureux():
         error()
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo      
 def triste():
+    global imageD
+    global imageG
     #yeux triste
     global emotion
     emotion = {"triste": (Image.open("../affichage/triste_D.png"), Image.open("../affichage/triste_G.png"))}
@@ -462,6 +464,8 @@ def quand_visage_detecté():
         c.release()
 
 def retour_facial(nom):
+    global imageD
+    global imageG
     gif = False
     path = "../affichage/"
     if "bastien" in nom:
