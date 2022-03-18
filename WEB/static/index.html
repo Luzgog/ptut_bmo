@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../WEB/static/style.css" />
-<script src="../WEB/static/script.js"></script>
+<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+<script src="{{url_for('static', filename='script.js')}}"></script>
 </head>
 <body>
 
@@ -17,7 +17,7 @@
 
     <div class="col-6">
         
-        <img src="../WEB/static/Etat1.jpg" class="image">
+        <img src="{{ url_for('static', filename='Etat1.jpg')}}" class="image">
     </div>
 
     <div class="col-3 right">
@@ -37,7 +37,7 @@
   <div class="col-3 menu">
         <info>
         <ul>
-        <li onclick="window.location.href = '../WEB/static/parametre.html';"><a>paramètres</a></li>
+        <li onclick="window.location.href = "{{url_for('static' , filename='parametre.html')}};"><a>paramètres</a></li>
         <li>video feed</li>
         <li>musique</li>
         <li>dance</li>
