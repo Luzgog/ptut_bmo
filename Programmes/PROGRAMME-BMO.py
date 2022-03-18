@@ -115,6 +115,9 @@ def etat():
 def humeur():
     global humeure
     return jsonify(HUMER = humeure)
+@app.route("/parametre")
+def parametre():
+    return render_template("parametre.html")
 
 @app.route("/encodage", methods=["GET" , 'POST'])
 def post():
