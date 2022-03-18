@@ -86,7 +86,7 @@ class Facial_reco:
             known_face_encodings, known_face_names = pickle.load(f)#on reprend les objets qui etait dans le fichier
         return known_face_encodings, known_face_names
     def encodage_dl(self):
-        path = "../WEB/static/img_dl"
+        path = "../WEB/static/img_dl/"
         known_face_encodings = []
         known_face_names = []
         for f in os.listdir(path):
