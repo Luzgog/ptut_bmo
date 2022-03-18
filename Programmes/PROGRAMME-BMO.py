@@ -539,7 +539,7 @@ if __name__ == "__main__":
     threadMove.start()
     facial.start()
     threadVisage.start()
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', template_folder="../WEB/static")
 
 # --------------------------------------------------------------
 #boucle
