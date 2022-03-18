@@ -22,6 +22,7 @@ import ST7789
 print("initialisation des variables")
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 #variable systeme emotion
+c = threading.Condition()
 facial = facial_reco.Facial_reco(c)
 MOUVEMENT = 0
 meteo = 0
@@ -77,7 +78,7 @@ etats = 0
 humeure = 0
 recharge = 0
 name = "Unknown"
-c = threading.Condition()
+
 
 visage_detect_running = True
 #--------------------------------------------------------------
