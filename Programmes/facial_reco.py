@@ -73,7 +73,7 @@ class Facial_reco:
             # print(face_encoding)
             # print(type(face_encoding))
             # print(type(known_face_encodings))
-            matches = face_recognition.compare_faces(slef.known_face_encodings_array , np.array(self.face_encoding))# on compare les encodages
+            matches = face_recognition.compare_faces(self.known_face_encodings_array , np.array(self.face_encoding))# on compare les encodages
             condition_object.acquire()
             name = "Unknown"
             if True in matches:#si on retrouve un des visages 
