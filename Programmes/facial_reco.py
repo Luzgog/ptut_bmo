@@ -45,7 +45,7 @@ class Facial_reco:
         self.t = threading.Thread(target=self.detect)#on prepare un thread de detection
         self.video_capture = VideoCapture(index_capture)#on lance une video capture
         self.known_face_encodings , self.known_face_names = self.encodage_dl()#on encode les images deja existante
-        self.known_face_encodings = np.array(self.known_face_encodings)
+        self.known_face_encodings_array = np.array(self.known_face_encodings)
         self.face_cascade = cv2.CascadeClassifier("../facial_programme/lbpcascade_frontalface_improved.xml")#on prepare le cascade classifier
         self.face_encoding = []
         self.resize = resize
@@ -73,7 +73,7 @@ class Facial_reco:
             # print(face_encoding)
             # print(type(face_encoding))
             # print(type(known_face_encodings))
-            matches = face_recognition.compare_faces(self.known_face_encodings, np.array(self.face_encoding))# on compare les encodages
+            matches = face_recognition.compare_faces(slef.known_face_encodings_array , np.array(self.face_encoding))# on compare les encodages
             condition_object.acquire()
             name = "Unknown"
             if True in matches:#si on retrouve un des visages 
@@ -86,7 +86,7 @@ class Facial_reco:
             known_face_encodings, known_face_names = pickle.load(f)#on reprend les objets qui etait dans le fichier
         return known_face_encodings, known_face_names
     def encodage_dl(self):
-        path = "static/img_dl/"
+        path = "../WEB/static/img_dl"
         known_face_encodings = []
         known_face_names = []
         for f in os.listdir(path):
