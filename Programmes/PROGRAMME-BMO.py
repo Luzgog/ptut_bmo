@@ -23,7 +23,7 @@ print("initialisation des variables")
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 #variable systeme emotion
 c = threading.Condition()
-###facial = facial_reco.Facial_reco(c)
+facial = facial_reco.Facial_reco(c)
 MOUVEMENT = 0
 meteo = 0
 ville = "Marseille"
@@ -563,8 +563,8 @@ if __name__ == "__main__":
     threadEMO.start()
     threadWEB.start()
     threadMove.start()
-    ###facial.start()
-    ###threadVisage.start()
+    facial.start()
+    threadVisage.start()
     app.run(host='0.0.0.0')
 
 # --------------------------------------------------------------
