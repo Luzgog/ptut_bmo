@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}" />
-<script src="{{url_for('static', filename='script.js')}}"></script>
+<link rel="stylesheet" href="style.css" />
+<script src="script.js"></script>
 </head>
 <body>
 
@@ -13,13 +13,23 @@
 </div>
 
 <div class="row">
+  
+      <div class="col-9 menu">
+        <ul>
+        <div class="col-12 menu">
+        <li onclick ="bouton_parametre('Meteo')">meteo :  <a id ="PARAM_METEO">activer</a></li>
+        <li onclick ="bouton_parametre('Emo_meteo')">emotion meteo :  <a id ="PARAM_EMO_METEO">activer</a></li>
+        <li onclick ="bouton_parametre('Reco_facial')">reconnaisance facial :  <a id ="PARAM_RECO_FACIAL">activer</a></li>
+        </div>
 
-
-    <div class="col-6">
-        
-        <img src="{{ url_for('static', filename='Etat1.jpg')}}" class="image">
-    </div>
-
+        <div class="col-12 menu">
+        <li>parametre a definir</li>
+        <li>parametre a definir</li>
+        <li onclick="window.location.href = 'shutdown.html';">Eteindre BMO</li>
+        </div>
+      </ul>
+      </div>
+ 
     <div class="col-3 right">
       <div class="aside">
 
@@ -37,7 +47,8 @@
   <div class="col-3 menu">
         <info>
         <ul>
-        <li onclick="window.location.href = 'static/parametre.html';"><a>paramètres</a></li>
+        <li onclick="window.location.href = '../';"><a>accueil</a></li>
+        <li>paramètres</li>
         <li>video feed</li>
         <li>musique</li>
         <li>dance</li>
@@ -53,3 +64,5 @@
 
 </body>
 </html>
+
+

@@ -22,30 +22,36 @@ import ST7789
 print("initialisation des variables")
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 #variable systeme emotion
-facial = facial_reco.Facial_reco(c)
+c = threading.Condition()
+###facial = facial_reco.Facial_reco(c)
 MOUVEMENT = 0
 meteo = 0
 ville = "Marseille"
 url_weather = "http://api.openweathermap.org/data/2.5/weather?q="+ville+"&APPID=beb97c1ce62559bba4e81e28de8be095"
 with open("configuration_bmo", "rb") as f:
     Activer_Meteo, Activer_Emo_Meteo, Activer_Facial = pickle.load(f)
+height =240
+width = 240
+frameG = 0
+frameD = 0
 
 ecranD = ST7789.ST7789(
         height= 240, #hauteur de l'ecran
-        rotation= 0, #rotation de 180 de l'ecran
+        rotation= 180, #rotation de 180 de l'ecran
         port=0,
-        cs=ST7789.BG_SPI_CS_FRONT, #choix de la broche esclave de l'ecran (ST7789.BG_SPI_CS_BACK = pin CE1)
+        cs=ST7789.BG_SPI_CS_BACK, #choix de la broche esclave de l'ecran (ST7789.BG_SPI_CS_BACK = pin CE1)
         dc=9, #choix de la pin data control
         backlight=19, #choix de la pin du controle de l'eclairage
         spi_speed_hz=80 * 1000 * 1000, #vitesse du spi
         offset_left= 40, #decalage avec la gauche
         offset_top= 0 #decalage avec le top
 )
+
 ecranG = ST7789.ST7789(
         height= 240, #hauteur de l'ecran
-        rotation= 180, #rotation de 180 de l'ecran
+        rotation= 0, #rotation de 180 de l'ecran
         port=0,
-        cs=ST7789.BG_SPI_CS_BACK, #choix de la broche esclave de l'ecran (ST7789.BG_SPI_CS_BACK = pin CE0)
+        cs=ST7789.BG_SPI_CS_FRONT, #choix de la broche esclave de l'ecran (ST7789.BG_SPI_CS_BACK = pin CE0)
         dc=9,#choix de la pin data control
         backlight=19,#choix de la pin du controle de l'eclairage
         spi_speed_hz=80 * 1000 * 1000, #vitesse du spi
@@ -70,17 +76,20 @@ totalH = 0
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 #variable web
 
-app = Flask(__name__, template_folder = "../WEB/static")
+app = Flask(__name__, template_folder = "static")
 chaleur = 0
 battery = 100
 etats = 0
 humeure = 0
 recharge = 0
 name = "Unknown"
-c = threading.Condition()
+
 
 visage_detect_running = True
 #--------------------------------------------------------------
+imageD = Image.open("../affichage/"+"Oeil1.png")
+imageG = Image.open("../affichage/"+"Oeil1.png")
+
 #--------------------------------------------------------------
 #--------------------------------------------------------------
 #fonctions WEB ,interactive javascript ,python ,html
@@ -110,6 +119,9 @@ def etat():
 def humeur():
     global humeure
     return jsonify(HUMER = humeure)
+@app.route("/parametre")
+def parametre():
+    return render_template("parametre.html")
 
 @app.route("/encodage", methods=["GET" , 'POST'])
 def post():
@@ -162,6 +174,7 @@ def bouton():
             Activer_Facial = "Désactiver"
     if bouton_appuyer == "SHUTDOWN":
         print("Shutting Down")
+        error()
         os.system("sudo shutdown -h now")
     
     if bouton_appuyer == "Avancer":
@@ -224,7 +237,7 @@ def WEB():
         #time.sleep(0.5)
         #battery = arduinobus.read_byte(addr)
         etats = "allumé"
-        humeure = emotion #emotion str(meteo)
+        #humeure = emotion #emotion str(meteo)
         time.sleep(1)
 
 
@@ -233,6 +246,7 @@ def WEB():
 #--------------------------------------------------------------
         
 def heureux():
+
     #yeux heureux
     
     aleatoire = secrets.randbelow(totalH)                
@@ -244,32 +258,38 @@ def heureux():
         error()
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo      
 def triste():
+    global imageD
+    global imageG
     #yeux triste
     global emotion
     emotion = {"triste": (Image.open("../affichage/triste_D.png"), Image.open("../affichage/triste_G.png"))}
     print("triste")
-    imgeD, imageG = emotion["triste"]
+    imageD, imageG = emotion["triste"]
     ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
     ecranG.display(imageG.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
     
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
 def fatigue():
     global emotion
+    global imageD
+    global imageG
     #yeux fatiguer
     emotion = {"fatigue": (Image.open("../affichage/etourdi_D.png"), Image.open("../affichage/etourdi_G.png"))}
     print("fatigue")
-    imgeD, imageG = emotion["fatigue"]
+    imageD, imageG = emotion["fatigue"]
     ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
     ecranG.display(imageG.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
     
     
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo  
 def dodo():
-    global emotion   
+    global emotion
+    global imageD
+    global imageG
     #yeux dodo
     emotion = {"endormie": (Image.open("../affichage/dodo_D.png"), Image.open("../affichage/dodo_G.png"))}
     print("dodo")
-    imgeD, imageG = emotion["endormie"]
+    imageD, imageG = emotion["endormie"]
     ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
     ecranG.display(imageG.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
     
@@ -277,31 +297,37 @@ def dodo():
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo 
 def joueur():
     global emotion
+    global imageD
+    global imageG
     #yeux dodo
     emotion = {"joueur": (Image.open("../affichage/content.png"), Image.open("../affichage/content.png"))}
     print("joueur")
-    imgeD, imageG = emotion["joueur"]
+    imageD, imageG = emotion["joueur"]
     ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
     ecranG.display(imageG.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
   
     
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo 
 def amour():
-    global emotion   
+    global emotion
+    global imageD
+    global imageG 
     #yeux dodo
     emotion = {"amour": (Image.open("../affichage/coeur.png"),Image.open("../affichage/coeur.png"))}
     print("amour")
-    imgeD, imageG = emotion["amour"]
+    imageD, imageG = emotion["amour"]
     ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
     ecranG.display(imageG.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
     
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo 
 def error():
-    global emotion   
+    global emotion
+    global imageD
+    global imageG 
     #yeux dodo
     emotion = {"error": (Image.open("affichage/Shutdown.gif"), Image.open("../affichage/Shutdown.gif"))}
     print("error")
-    imgeD, imageG = emotion["error"]
+    imageD, imageG = emotion["error"]
     frameG = 0
     frameD = 0
     # Boucle pour les gifs
@@ -461,6 +487,8 @@ def quand_visage_detecté():
         c.release()
 
 def retour_facial(nom):
+    global imageD
+    global imageG
     gif = False
     path = "../affichage/"
     if "bastien" in nom:
@@ -532,8 +560,8 @@ if __name__ == "__main__":
     threadEMO.start()
     threadWEB.start()
     threadMove.start()
-    facial.start()
-    threadVisage.start()
+    ###facial.start()
+    ###threadVisage.start()
     app.run(host='0.0.0.0')
 
 # --------------------------------------------------------------

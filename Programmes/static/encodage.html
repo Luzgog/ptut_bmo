@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+    {% if msg %}
+        <h1>{{ msg}}</h1>
+    {%endif%}
+    {% if images %}
+    <h2>Images deja connu </h2>
+    {% endif%}
+    {%for i in images %}
+        <img src="{{ url_for( 'static', filename='img_dl/' + i )}}" class = "img">
+    {%endfor%}
+    <h2>Ajout de nouvelles images</h2>
+    <form action="/encodage" method="post" enctype = "multipart/form-data">
+        <input type="file" name="img" required="true">
+        <input type="text" name="Nom" required="true">
+        <input type="submit" value="Upload Image" name="submit">
+    </form>
+    <style>
+    .img {
+        width: 400px;
+        height : auto
+      }
+    body{
+        background-color:  rgb(177, 175, 175);
+    }
+      </style>
+</body>
+</html> 
