@@ -32,6 +32,9 @@ with open("configuration_bmo", "rb") as f:
     Activer_Meteo, Activer_Emo_Meteo, Activer_Facial = pickle.load(f)
 height =240
 width = 240
+frameG = 0
+frameD = 0
+
 ecranD = ST7789.ST7789(
         height= 240, #hauteur de l'ecran
         rotation= 0, #rotation de 180 de l'ecran
@@ -170,6 +173,7 @@ def bouton():
             Activer_Facial = "Désactiver"
     if bouton_appuyer == "SHUTDOWN":
         print("Shutting Down")
+        error()
         os.system("sudo shutdown -h now")
     
     if bouton_appuyer == "Avancer":
@@ -259,7 +263,7 @@ def triste():
     global emotion
     emotion = {"triste": (Image.open("../affichage/triste_D.png"), Image.open("../affichage/triste_G.png"))}
     print("triste")
-    imgeD, imageG = emotion["triste"]
+    imageD, imageG = emotion["triste"]
     ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
     ecranG.display(imageG.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
     
@@ -271,7 +275,7 @@ def fatigue():
     #yeux fatiguer
     emotion = {"fatigue": (Image.open("../affichage/etourdi_D.png"), Image.open("../affichage/etourdi_G.png"))}
     print("fatigue")
-    imgeD, imageG = emotion["fatigue"]
+    imageD, imageG = emotion["fatigue"]
     ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
     ecranG.display(imageG.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
     
@@ -284,7 +288,7 @@ def dodo():
     #yeux dodo
     emotion = {"endormie": (Image.open("../affichage/dodo_D.png"), Image.open("../affichage/dodo_G.png"))}
     print("dodo")
-    imgeD, imageG = emotion["endormie"]
+    imageD, imageG = emotion["endormie"]
     ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
     ecranG.display(imageG.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
     
@@ -297,7 +301,7 @@ def joueur():
     #yeux dodo
     emotion = {"joueur": (Image.open("../affichage/content.png"), Image.open("../affichage/content.png"))}
     print("joueur")
-    imgeD, imageG = emotion["joueur"]
+    imageD, imageG = emotion["joueur"]
     ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
     ecranG.display(imageG.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
   
@@ -310,7 +314,7 @@ def amour():
     #yeux dodo
     emotion = {"amour": (Image.open("../affichage/coeur.png"),Image.open("../affichage/coeur.png"))}
     print("amour")
-    imgeD, imageG = emotion["amour"]
+    imageD, imageG = emotion["amour"]
     ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
     ecranG.display(imageG.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
     
@@ -322,7 +326,7 @@ def error():
     #yeux dodo
     emotion = {"error": (Image.open("affichage/Shutdown.gif"), Image.open("../affichage/Shutdown.gif"))}
     print("error")
-    imgeD, imageG = emotion["error"]
+    imageD, imageG = emotion["error"]
     frameG = 0
     frameD = 0
     # Boucle pour les gifs
