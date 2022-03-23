@@ -37,7 +37,7 @@ frameD = 0
 
 ecranD = ST7789.ST7789(
         height= 240, #hauteur de l'ecran
-        rotation= 0, #rotation de 180 de l'ecran
+        rotation= 180, #rotation de 180 de l'ecran
         port=0,
         cs=ST7789.BG_SPI_CS_BACK, #choix de la broche esclave de l'ecran (ST7789.BG_SPI_CS_BACK = pin CE1)
         dc=9, #choix de la pin data control
@@ -49,7 +49,7 @@ ecranD = ST7789.ST7789(
 
 ecranG = ST7789.ST7789(
         height= 240, #hauteur de l'ecran
-        rotation= 180, #rotation de 180 de l'ecran
+        rotation= 0, #rotation de 180 de l'ecran
         port=0,
         cs=ST7789.BG_SPI_CS_FRONT, #choix de la broche esclave de l'ecran (ST7789.BG_SPI_CS_BACK = pin CE0)
         dc=9,#choix de la pin data control
