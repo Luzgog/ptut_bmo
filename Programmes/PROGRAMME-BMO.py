@@ -174,7 +174,11 @@ def bouton():
             Activer_Facial = "Désactiver"
     if bouton_appuyer == "SHUTDOWN":
         print("Shutting Down")
-        error()
+        emotion = {"error": (Image.open("../affichage/shutdown.gif"), Image.open("../affichage/shutdown.gif"))}
+        imageD, imageG = emotion["error"]
+        ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
+        ecranG.display(imageG.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
+        time.sleep(3)
         os.system("sudo shutdown -h now")
     
     if bouton_appuyer == "Avancer":
