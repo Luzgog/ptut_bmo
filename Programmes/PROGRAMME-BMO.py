@@ -565,7 +565,7 @@ if __name__ == "__main__":
     threadWEB.start()
     threadMove.start()
     ##facial.start()
-    threadVisage.start()
+    ##threadVisage.start()
     app.run(host='0.0.0.0')
 
 # --------------------------------------------------------------
