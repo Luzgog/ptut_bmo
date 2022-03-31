@@ -22,8 +22,8 @@ import ST7789
 print("initialisation des variables")
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 #variable systeme emotion
-#c = threading.Condition()
-#facial = facial_reco.Facial_reco(c)
+##c = threading.Condition()
+##facial = facial_reco.Facial_reco(c)
 MOUVEMENT = 0
 meteo = 0
 ville = "Marseille"
@@ -560,11 +560,11 @@ if __name__ == "__main__":
     threadWEB = threading.Thread(target=WEB)
     threadEMO = threading.Thread(target=Humeur_BMO)
     threadMove = threading.Thread(target=Move)
-    threadVisage = threading.Thread(target=quand_visage_detecté)
+    ##threadVisage = threading.Thread(target=quand_visage_detecté)
     threadEMO.start()
     threadWEB.start()
     threadMove.start()
-    #facial.start()
+    ##facial.start()
     threadVisage.start()
     app.run(host='0.0.0.0')
 
