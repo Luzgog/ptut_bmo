@@ -28,7 +28,7 @@ MOUVEMENT = 0
 meteo = 0
 ville = "Marseille"
 url_weather = "http://api.openweathermap.org/data/2.5/weather?q="+ville+"&APPID=beb97c1ce62559bba4e81e28de8be095"
-with open("configuration_bmo", "rb") as f:
+with open("/home/pi/ptut_bmo/Programmes/configuration_bmo", "rb") as f:
     Activer_Meteo, Activer_Emo_Meteo, Activer_Facial = pickle.load(f)
 height =240
 width = 240
