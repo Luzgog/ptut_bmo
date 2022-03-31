@@ -178,7 +178,8 @@ def bouton():
         imageD, imageG = emotion["error"]
         ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
         ecranG.display(imageG.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
-        os.system("sudo shutdown -h now")
+        quit()
+        #os.system("sudo shutdown -h now")
     
     if bouton_appuyer == "Avancer":
         print("Avancer")
