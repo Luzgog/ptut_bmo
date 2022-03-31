@@ -6,9 +6,9 @@ import secrets
 
 ecranD = ST7789.ST7789(
         height= 240, #hauteur de l'ecran
-        rotation= 0, #rotation de 180 de l'ecran
+        rotation= 0,
         port=0,
-        cs=ST7789.BG_SPI_CS_FRONT, #choix de la broche esclave de l'ecran (ST7789.BG_SPI_CS_BACK = pin CE1)
+        cs=ST7789.BG_SPI_CS_FRONT, #choix de la broche esclave de l'ecran (ST7789.BG_SPI_CS_FRONT = pin CE1)
         dc=9, #choix de la pin data control
         backlight=19, #choix de la pin du controle de l'eclairage
         spi_speed_hz=80 * 1000 * 1000, #vitesse du spi
@@ -26,7 +26,7 @@ ecranG = ST7789.ST7789(
         offset_left= 40, #decalage avec la gauche
         offset_top= 0 #decalage avec le top
 )
-    # Initialize display.
+
 ecranD.begin() #on démare chaque ecran logicielement parlant
 ecranG.begin() #on démare chaque ecran logicielement parlant
 
