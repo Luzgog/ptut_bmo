@@ -76,7 +76,7 @@ totalH = 0
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 #variable web
 
-app = Flask(__name__, template_folder = "static")
+app = Flask(__name__, template_folder = "/home/pi/ptut_bmo/Programmes/static")
 chaleur = 0
 battery = 100
 etats = 0
