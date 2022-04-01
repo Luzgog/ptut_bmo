@@ -87,8 +87,8 @@ name = "Unknown"
 
 visage_detect_running = True
 #--------------------------------------------------------------
-imageD = Image.open("../affichage/"+"Oeil1.png")
-imageG = Image.open("../affichage/"+"Oeil1.png")
+imageD = Image.open("/home/pi/ptut_bmo/affichage/"+"Oeil1.png")
+imageG = Image.open("/home/pi/ptut_bmo/affichage/"+"Oeil1.png")
 
 #--------------------------------------------------------------
 #--------------------------------------------------------------
@@ -174,7 +174,7 @@ def bouton():
             Activer_Facial = "Désactiver"
     if bouton_appuyer == "SHUTDOWN":
         print("Shutting Down")
-        emotion = {"error": (Image.open("../affichage/shutdown.gif"), Image.open("../affichage/shutdown.gif"))}
+        emotion = {"error": (Image.open("/home/pi/ptut_bmo/affichage/shutdown.gif"), Image.open("/home/pi/ptut_bmo/affichage/shutdown.gif"))}
         imageD, imageG = emotion["error"]
         ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
         ecranG.display(imageG.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
@@ -203,7 +203,7 @@ def bouton():
         MOUVEMENT = 7
         
     
-    with open("configuration_bmo", "wb") as f:
+    with open("/home/pi/ptut_bmo/Programmes/configuration_bmo", "wb") as f:
         pickle.dump((Activer_Meteo, Activer_Emo_Meteo, Activer_Facial) , f)
     return "JE SAIS PAS QUOI RETURN MDR"
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
@@ -265,7 +265,7 @@ def triste():
     global imageG
     #yeux triste
     global emotion
-    emotion = {"triste": (Image.open("../affichage/triste_D.png"), Image.open("../affichage/triste_G.png"))}
+    emotion = {"triste": (Image.open("/home/pi/ptut_bmo/affichage/triste_D.png"), Image.open("/home/pi/ptut_bmo/affichage/triste_G.png"))}
     print("triste")
     imageD, imageG = emotion["triste"]
     ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
@@ -277,7 +277,7 @@ def fatigue():
     global imageD
     global imageG
     #yeux fatiguer
-    emotion = {"fatigue": (Image.open("../affichage/etourdi_D.png"), Image.open("../affichage/etourdi_G.png"))}
+    emotion = {"fatigue": (Image.open("/home/pi/ptut_bmo/affichage/etourdi_D.png"), Image.open("/home/pi/ptut_bmo/affichage/etourdi_G.png"))}
     print("fatigue")
     imageD, imageG = emotion["fatigue"]
     ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
@@ -290,7 +290,7 @@ def dodo():
     global imageD
     global imageG
     #yeux dodo
-    emotion = {"endormie": (Image.open("../affichage/dodo_D.png"), Image.open("../affichage/dodo_G.png"))}
+    emotion = {"endormie": (Image.open("/home/pi/ptut_bmo/affichage/dodo_D.png"), Image.open("/home/pi/ptut_bmo/affichage/dodo_G.png"))}
     print("dodo")
     imageD, imageG = emotion["endormie"]
     ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
@@ -303,7 +303,7 @@ def joueur():
     global imageD
     global imageG
     #yeux dodo
-    emotion = {"joueur": (Image.open("../affichage/content.png"), Image.open("../affichage/content.png"))}
+    emotion = {"joueur": (Image.open("/home/pi/ptut_bmo/affichage/content.png"), Image.open("/home/pi/ptut_bmo/affichage/content.png"))}
     print("joueur")
     imageD, imageG = emotion["joueur"]
     ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
@@ -316,7 +316,7 @@ def amour():
     global imageD
     global imageG 
     #yeux dodo
-    emotion = {"amour": (Image.open("../affichage/coeur.png"),Image.open("../affichage/coeur.png"))}
+    emotion = {"amour": (Image.open("/home/pi/ptut_bmo/affichage/coeur.png"),Image.open("/home/pi/ptut_bmo/affichage/coeur.png"))}
     print("amour")
     imageD, imageG = emotion["amour"]
     ecranD.display(imageD.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
@@ -328,7 +328,7 @@ def error():
     global imageD
     global imageG 
     #yeux dodo
-    emotion = {"error": (Image.open("affichage/Shutdown.gif"), Image.open("../affichage/Shutdown.gif"))}
+    emotion = {"error": (Image.open("/home/pi/ptut_bmo/affichage/Shutdown.gif"), Image.open("/home/pi/ptut_bmo/affichage/Shutdown.gif"))}
     print("error")
     imageD, imageG = emotion["error"]
     frameG = 0
@@ -493,7 +493,7 @@ def retour_facial(nom):
     global imageD
     global imageG
     gif = False
-    path = "../affichage/"
+    path = "/home/pi/ptut_bmo/affichage/"
     if "bastien" in nom:
         imageD = Image.open(path+"PTDR.gif")
         imageG = Image.open(path+"PTDR.gif") 
@@ -550,7 +550,7 @@ if __name__ == "__main__":
     pygame.mixer.init()
     #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
     #son de démarage
-    demarage = pygame.mixer.Sound('../son/boot.wav')
+    demarage = pygame.mixer.Sound('/home/pi/ptut_bmo/son/boot.wav')
     demarage.set_volume(1.0)
     demarage.play()
     while pygame.mixer.music.get_busy() == True:
