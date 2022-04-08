@@ -208,7 +208,6 @@ def bouton():
         triste()
     if bouton_appuyer == "Fatigue":
         fatigue()
-            
     if bouton_appuyer == "Dodo":
         dodo()
     if bouton_appuyer == "Joueur":
@@ -341,7 +340,7 @@ def joie():
     global emotion
     global imageD
     global imageG 
-    #yeux dodo
+    #yeux joie
     emotion = {"joie": (Image.open("affichage/Oeil1.png"), Image.open("../affichage/Oeil1.png"))}
     print("joie")
     imageD, imageG = emotion["joie"]
