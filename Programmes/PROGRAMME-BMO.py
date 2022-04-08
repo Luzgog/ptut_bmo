@@ -345,32 +345,8 @@ def error():
     emotion = {"error": (Image.open("affichage/Shutdown.gif"), Image.open("../affichage/Shutdown.gif"))}
     print("error")
     imageD, imageG = emotion["error"]
-    frameG = 0
-    frameD = 0
-    # Boucle pour les gifs
-    X=0
-    while X<2:
-        try:
-            print(frameG)
-            print(frameD)
-            imageG.seek(frameG) #on enregistre le nombre de frame dans le gif et on enregistre ce nombre dans frame
-            imageD.seek(frameD) #on enregistre le nombre de frame dans le gif et on enregistre ce nombre dans frame
-        
-            ecranD.display(imageD.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
-            ecranG.display(imageG.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
-        
-            frameG += 1 #on avance d'une frame
-            frameD += 1
-            time.sleep(0.02)
-
-        except EOFError: #quand on arrive a la fin du gif alors sa reset les frames pour retourner au debut du fichier
-            frameD = 0
-            frameG = 0
-            X=X+1
-        
-        except KeyboardInterrupt:
-            exit()
-
+    ecranD.display(imageD.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
+    ecranG.display(imageG.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
     
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo     
 #--------------------------------------------------------------
@@ -559,7 +535,6 @@ def retour_facial(nom):
 
 #Initialisation
 if __name__ == "__main__":
-    
     
     pygame.mixer.init()
     #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
