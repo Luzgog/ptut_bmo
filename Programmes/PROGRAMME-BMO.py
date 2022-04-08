@@ -203,7 +203,7 @@ def bouton():
         MOUVEMENT = 7
 ##########################################################################
     if bouton_appuyer == "Heureux":
-        heureux()
+        joie()
     if bouton_appuyer == "Triste":
         triste()
     if bouton_appuyer == "Fatigue":
