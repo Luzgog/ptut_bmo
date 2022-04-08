@@ -254,7 +254,7 @@ def WEB():
         #time.sleep(0.5)
         #battery = arduinobus.read_byte(addr)
         etats = "allumé"
-        #humeure = emotion #emotion str(meteo)
+        humeure = emotion #emotion str(meteo)
         time.sleep(1)
 
 
@@ -485,7 +485,7 @@ def meteo_api():
         meteo = "NON ACTIVER"
         
 #--------------------------------------------------------------    
-#----------------------------------------------Humeur_BMO----------------
+#------------------------------------Humeur_BMO----------------
 #--------------------------------------------------------------
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo 
 def Move():
