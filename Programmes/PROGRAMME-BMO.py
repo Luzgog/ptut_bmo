@@ -271,8 +271,8 @@ def heureux():
         joueur()
     if aleatoire > Chance_Joueur and aleatoire <= (Chance_Joueur + Chance_Amoureu):
         amour()
-    if aleatoire > (Chance_Joueur + Chance_Amoureu) and aleatoire <= (Chance_Joueur + Chance_Amoureu + Chance_Error):
-        error()
+    if aleatoire > (Chance_Joueur + Chance_Amoureu) and aleatoire <= (Chance_Joueur + Chance_Amoureu + Chance_Joie):
+        joie()
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo      
 def triste():
     global imageD
@@ -355,7 +355,7 @@ def Humeur_BMO():
     global totalH
     global Chance_Joueur
     global Chance_Amoureu
-    global Chance_Error
+    global Chance_Joie
     time.sleep(10)
 
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo    
@@ -365,7 +365,7 @@ def Humeur_BMO():
             #ajustement des plages de chance d'avoir chaque emotions via les differents facteurs
             Chance_Joueur = 20
             Chance_Amoureu = 5
-            Chance_Error = 1
+            Chance_Joie = 1
 
             Chance_Heureux = 100
             Chance_Triste = 30
@@ -423,7 +423,7 @@ def Humeur_BMO():
                 Chance_Heureux = Chance_Heureux + 40
                 Chance_Fatigue = Chance_Fatigue + 10
             
-            totalH = (Chance_Joueur + Chance_Amoureu + Chance_Error)
+            totalH = (Chance_Joueur + Chance_Amoureu + Chance_Joie)
             total = (Chance_Heureux + Chance_Triste + Chance_Fatigue)
             aleatoire = secrets.randbelow(total)
 
