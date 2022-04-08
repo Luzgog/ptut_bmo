@@ -254,7 +254,7 @@ def WEB():
         #time.sleep(0.5)
         #battery = arduinobus.read_byte(addr)
         etats = "allumé"
-        humeure = emotion #emotion str(meteo)
+        #humeure = emotion #emotion str(meteo)
         time.sleep(1)
 
 
@@ -337,14 +337,14 @@ def amour():
     ecranG.display(imageG.resize((width, height))) #on prend l'image et on la resize a la taille de l'ecran
     
 #oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo 
-def error():
+def joie():
     global emotion
     global imageD
     global imageG 
     #yeux dodo
-    emotion = {"error": (Image.open("affichage/Shutdown.gif"), Image.open("../affichage/Shutdown.gif"))}
-    print("error")
-    imageD, imageG = emotion["error"]
+    emotion = {"joie": (Image.open("affichage/Oeil1.png"), Image.open("../affichage/Oeil1.png"))}
+    print("joie")
+    imageD, imageG = emotion["joie"]
     ecranD.display(imageD.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
     ecranG.display(imageG.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
     
