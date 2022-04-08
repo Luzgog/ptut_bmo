@@ -201,7 +201,21 @@ def bouton():
     if bouton_appuyer == "Stop":
         print("Stop")
         MOUVEMENT = 7
-        
+##########################################################################
+    if bouton_appuyer == "Heureux":
+        heureux()
+    if bouton_appuyer == "Triste":
+        triste()
+    if bouton_appuyer == "Fatigue":
+        fatigue()
+            
+    if bouton_appuyer == "Dodo":
+        dodo()
+    if bouton_appuyer == "Joueur":
+        joueur()
+    if bouton_appuyer == "Amour":
+        amour() 
+##########################################################################        
     
     with open("configuration_bmo", "wb") as f:
         pickle.dump((Activer_Meteo, Activer_Emo_Meteo, Activer_Facial) , f)
@@ -452,7 +466,7 @@ def Humeur_BMO():
         print (Chance_Fatigue)
         print (str(meteo))   
         print (" ")
-        time.sleep(secrets.randbelow(20) + 10)
+        time.sleep(secrets.randbelow(1200) + 600)
 #--------------------------------------------------------------
 #--------------------------------------------------------------
 #--------------------------------------------------------------
