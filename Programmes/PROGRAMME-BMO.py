@@ -341,7 +341,7 @@ def joie():
     global imageD
     global imageG 
     #yeux joie
-    emotion = {"joie": (Image.open("affichage/Oeil1.png"), Image.open("../affichage/Oeil1.png"))}
+    emotion = {"joie": (Image.open("../affichage/joie.png"), Image.open("../affichage/joie.png"))}
     print("joie")
     imageD, imageG = emotion["joie"]
     ecranD.display(imageD.resize((width, height))) #on prend le gif et on le resize a la taille de l'ecran
